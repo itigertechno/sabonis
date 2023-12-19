@@ -1,0 +1,22 @@
+.button {
+    padding: .5rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-gap: 10px;
+    border-radius: 5px;
+    border: 1px solid transparent;
+}
+
+.button--fill {
+    border-color: var(--color-primary);
+    background-color: var(--color-primary);
+    color: var(--color-neutral-0);
+}
+
+.button--transparent {
+    border-color: var(--color-primary);
+    background-color: transparent;
+    color: var(--color-primary);
+}

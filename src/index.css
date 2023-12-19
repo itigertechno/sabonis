@@ -2,6 +2,66 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  font-size: 16px;
+}
+
 * {
   color: #494949;
+  font-family: "Montserrat", sans-serif;
+}
+
+:root {
+  --wrap-padding: 5.63%;
+  --color-primary: #367639;
+  --color-secondary: #25282B;
+  --color-peach: #C39E80;
+  --color-danger: #790018;
+  --color-neutral-900: #494949;
+  --color-neutral-500: #949494;
+  --color-neutral-0: #fff;
+}
+
+.text-neutral-900 {
+  color: var(--color-neutral-900);
+}
+.text-neutral-500 {
+  color: var(--color-neutral-500);
+}
+.text-neutral-0 {
+  color: var(--color-neutral-0);
+}
+.text-primary {
+  color: var(--color-primary);
+}
+.text-danger {
+  color: var(--color-danger);
+}
+.text-secondary {
+  color: var(--color-secondary);
+}
+
+.fill-neutral-900 {
+  fill: var(--color-neutral-900);
+}
+.fill-neutral-500 {
+  fill: var(--color-neutral-500);
+}
+.fill-neutral-0 {
+  fill: var(--color-neutral-0);
+}
+.fill-primary {
+  fill: var(--color-primary);
+}
+.fill-danger {
+  fill: var(--color-danger);
+}
+.fill-secondary {
+  fill: var(--color-secondary);
+}
+
+.wrap {
+  width: 100%;
+  padding-left: var(--wrap-padding);
+  padding-right: var(--wrap-padding);
 }

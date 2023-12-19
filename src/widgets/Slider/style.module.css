@@ -1,0 +1,28 @@
+.arrow {
+    position: static;
+    outline: none;
+    margin: 0;
+    transform: none;
+    width: initial;
+    height: initial;
+    background: none;
+    padding: 5px 20px;
+}
+
+.arrow--prev {
+    border-right: 1px solid var(--color-primary);
+    border-radius: 10px 14px 0 10px;
+}
+
+.arrows {
+    border: 1px solid var(--color-primary);
+    border-radius: 10px;
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.arrow > svg {
+    fill: none;
+}
