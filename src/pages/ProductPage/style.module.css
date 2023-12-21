@@ -1,0 +1,18 @@
+.list > li {
+    display: flex;
+    align-items: center;
+    grid-gap: 10px;
+}
+.list > li::before {
+    content: "";
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+.list > li:first-child::before {
+    background: var(--color-primary);
+}
+.list > li:last-child::before {
+    background: var(--color-neutral-900);
+}

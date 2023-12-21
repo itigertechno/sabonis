@@ -14,6 +14,11 @@ export interface ISvgSprite {
       "card-tag" |
       "error" |
       "favorites" |
-      "slider-arrow";
+      "slider-arrow" |
+      "dashboard" |
+      "grid" |
+      "sort" |
+      "arrow-vertical";
   className?: string;
+  color?: string;
 }

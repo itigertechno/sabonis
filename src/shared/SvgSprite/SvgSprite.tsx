@@ -1,6 +1,6 @@
 import {ISvgSprite} from './SvgSprite.types';
 
-export function SvgSprite({type, className}: ISvgSprite) {
+export function SvgSprite({type, className, color = "var(--color-neutral-900)"}: ISvgSprite) {
     switch (type) {
         case 'logo':
             return (
@@ -367,8 +367,54 @@ export function SvgSprite({type, className}: ISvgSprite) {
             );
         case "slider-arrow":
             return (
-                <svg width="12" height="18" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg className={className} width="12" height="18" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M1.5 16.5L9 9L1.5 1.5" stroke="#367639" strokeWidth="3" strokeLinecap="round"/>
+                </svg>
+            );
+        case "dashboard":
+            return (
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+                    <rect x="1.5" y="1.5" width="15" height="15" stroke={color} strokeLinejoin="round"/>
+                    <path d="M8.25 5.25H12.75" stroke="#494949" strokeLinecap="round"/>
+                    <path d="M8.25 9H12.75" stroke="#494949" strokeLinecap="round"/>
+                    <path d="M8.25 12.75H12.75" stroke="#494949" strokeLinecap="round"/>
+                    <path fillRule="evenodd" clipRule="evenodd"
+                          d="M5.25 6C5.66421 6 6 5.66421 6 5.25C6 4.83579 5.66421 4.5 5.25 4.5C4.83579 4.5 4.5 4.83579 4.5 5.25C4.5 5.66421 4.83579 6 5.25 6Z"
+                          fill={color}/>
+                    <path fillRule="evenodd" clipRule="evenodd"
+                          d="M5.25 9.75C5.66421 9.75 6 9.41421 6 9C6 8.58579 5.66421 8.25 5.25 8.25C4.83579 8.25 4.5 8.58579 4.5 9C4.5 9.41421 4.83579 9.75 5.25 9.75Z"
+                          fill={color}/>
+                    <path fillRule="evenodd" clipRule="evenodd"
+                          d="M5.25 13.5C5.66421 13.5 6 13.1642 6 12.75C6 12.3358 5.66421 12 5.25 12C4.83579 12 4.5 12.3358 4.5 12.75C4.5 13.1642 4.83579 13.5 5.25 13.5Z"
+                          fill={color}/>
+                </svg>
+            );
+        case "grid":
+            return (
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="5.25" height="5.25" transform="matrix(-1 0 0 1 15.75 2.25)" stroke={color}
+                          strokeLinejoin="round"/>
+                    <rect width="5.25" height="5.25" transform="matrix(-1 0 0 1 7.5 2.25)" stroke={color}
+                          strokeLinejoin="round"/>
+                    <rect width="5.25" height="5.25" transform="matrix(-1 0 0 1 15.75 10.5)" stroke={color}
+                          strokeLinejoin="round"/>
+                    <rect width="5.25" height="5.25" transform="matrix(-1 0 0 1 7.5 10.5)" stroke={color}
+                          strokeLinejoin="round"/>
+                </svg>
+            );
+        case "sort":
+            return (
+                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M9.125 3.4375L11.5625 1M11.5625 1L14 3.4375M11.5625 1L11.5625 14M5.875 11.5625L3.4375 14M3.4375 14L1 11.5625M3.4375 14L3.4375 1"
+                        stroke={color} strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+
+            );
+        case "arrow-vertical":
+            return (
+                <svg className={className} width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11 1L6 7L1 1" stroke={color} strokeWidth="1.2"/>
                 </svg>
             );
         //   return <></>;

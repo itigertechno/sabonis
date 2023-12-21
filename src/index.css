@@ -18,8 +18,11 @@ html {
   --color-peach: #C39E80;
   --color-danger: #790018;
   --color-neutral-900: #494949;
+  --color-neutral-700: #D8D8D8;
+  --color-neutral-600: #C7C7C7;
   --color-neutral-500: #949494;
   --color-neutral-0: #fff;
+  --gradient-rainbow: linear-gradient(90deg, #3E6300 17.31%, #9D2218 91.73%);
 }
 
 .text-neutral-900 {
@@ -64,4 +67,39 @@ html {
   width: 100%;
   padding-left: var(--wrap-padding);
   padding-right: var(--wrap-padding);
+}
+
+@media screen and (max-width: 420px) {
+  html {
+    font-size: 10px;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+
+@media screen and (max-width: 1200px) {
+  html {
+    font-size: 13px;
+  }
+}
+
+
+@media screen and (max-width: 1330px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+
+
+@media screen and (max-width: 1440px) {
+  html {
+    font-size: 15px;
+  }
 }

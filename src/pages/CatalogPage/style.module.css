@@ -1,0 +1,7 @@
+.typeView {
+    fill: var(--color-neutral-900);
+}
+
+.typeView.active {
+    fill: var(--color-danger);
+}
