@@ -112,7 +112,7 @@ export function ProductPage() {
                     </div>
                     <div className="flex gap-[50px] mt-[20px]">
                         <label className="border-b border-[var(--color-neutral-900)] flex">
-                            <input type="text" className="w-[100%] placeholder:opacity-100 px-[5px] outline-0"
+                            <input type="text" className="w-[100%] placeholder:opacity-100 px-[5px] outline-0 leading-[50px]"
                                    placeholder="Промокод"/>
                             <button>
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
