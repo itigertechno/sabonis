@@ -18,6 +18,7 @@ import {EmptyBasketPage} from "@pages/EmptyBasketPage";
 import {EventsPage} from "@pages/EventsPage";
 import {EventPage} from "@pages/EventPage";
 import {ProfilePage} from "@pages/ProfilePage";
+import {ProfileHistoryPage} from "@pages/ProfileHistoryPage";
 
 const router = createBrowserRouter([
     {
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
             {
                 path: '/profile',
                 element: <ProfilePage />,
+            },
+            {
+                path: '/profile/history',
+                element: <ProfileHistoryPage />,
             },
         ],
     },

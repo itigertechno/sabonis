@@ -3,10 +3,10 @@ import {Link} from "react-router-dom";
 import classnames from "@utils/classnames.ts";
 import c from "./style.module.css";
 
-export function BasketCard({title, description, preview, vendorCode, price, discount}: IBasketCard) {
+export function BasketCard({title, description, preview, vendorCode, price, discount, hasClose = true, className = ""}: IBasketCard) {
 
     return (
-        <article className={classnames(c.article, "p-[14px]")}>
+        <article className={classnames(c.article, "p-[14px]", className)}>
             <img src={preview} alt={`Preview of ${title}`} className={c.article__preview}/>
             <div className="self-start mt-[6px] w-[100%]">
                 <Link to="product">
@@ -42,14 +42,24 @@ export function BasketCard({title, description, preview, vendorCode, price, disc
                         </svg>
                     </button>
                 </div>
-                <span className="fs-24 fw-400 text-neutral-900 text-right">{discount ? discount * 10 : price * 10}₽</span>
+                <span
+                    className="fs-24 fw-400 text-neutral-900 text-right">{discount ? discount * 10 : price * 10}₽</span>
             </div>
-            <button>
-                <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="26.9949" height="2.69949" transform="matrix(0.70707 0.707143 -0.70707 0.707143 1.91016 0)" fill="#D6D7D9"/>
-                    <rect width="26.9949" height="2.69949" transform="matrix(-0.70707 0.707143 -0.70707 -0.707144 21 1.91016)" fill="#D6D7D9"/>
-                </svg>
-            </button>
+            {
+                hasClose ?
+                    <>
+                        <button>
+                            <svg width="21" height="21" viewBox="0 0 21 21" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <rect width="26.9949" height="2.69949"
+                                      transform="matrix(0.70707 0.707143 -0.70707 0.707143 1.91016 0)" fill="#D6D7D9"/>
+                                <rect width="26.9949" height="2.69949"
+                                      transform="matrix(-0.70707 0.707143 -0.70707 -0.707144 21 1.91016)"
+                                      fill="#D6D7D9"/>
+                            </svg>
+                        </button>
+                    </> : ""
+            }
         </article>
     );
 }
