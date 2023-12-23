@@ -30,6 +30,13 @@ export function ProfileHistoryPage() {
                             <span className="fs-15 uppercase text-neutral-0 w-[100%] block text-center leading-[50px]">История заказов</span>
                         </div>
                         <div className="border-x-[1px] border-[var(--color-neutral-700)]">
+                            <div className="grid grid-cols-6 bg-[#DBDCDE] px-[20px] py-[13px]">
+                                <span className="fs-15 fw-400 text-black">Дата заказа</span>
+                                <span className="fs-15 fw-400 text-black">Номер заказа</span>
+                                <span className="fs-15 fw-400 text-black">Сумма</span>
+                                <span className="fs-15 fw-400 text-black">Бонусы</span>
+                                <span className="fs-15 fw-400 text-black">Статус</span>
+                            </div>
                             <DropBasket></DropBasket>
                             <DropBasket></DropBasket>
                             <DropBasket></DropBasket>
@@ -46,16 +53,25 @@ export function ProfileHistoryPage() {
                                 className="fs-15 uppercase text-neutral-0 text-center leading-[50px] w-[100%] block">Меню</span>
                         </div>
                         <div className="px-[20px] py-[40px]">
-                            <Link className="text-primary fs-20 fw-400 leading-[20px] block mb-[15px]" to="profile">Личные
+                            <Link className="text-neutral-900 fs-20 fw-400 leading-[20px] block mb-[15px]" to="/profile">Личные
                                 данные</Link>
+                            <Link className="text-primary fs-20 fw-400 leading-[20px] block mb-[15px]"
+                                  to="/history">История заказов</Link>
                             <Link className="text-neutral-900 fs-20 fw-400 leading-[20px] block mb-[15px]"
-                                  to="profile/history">История заказов</Link>
-                            <Link className="text-neutral-900 fs-20 fw-400 leading-[20px] block mb-[15px]"
-                                  to="profile/store">Купленные товары</Link>
-                            <Link className="text-neutral-900 fs-20 fw-400 leading-[20px] block" to="profile/points">Баллы
+                                  to="/store">Купленные товары</Link>
+                            <Link className="text-neutral-900 fs-20 fw-400 leading-[20px] block" to="/points">Баллы
                                 (1999)</Link>
                         </div>
                     </div>
+                </div>
+            </section>
+            <section className="wrap mt-[40px] mb-[40px]">
+                <h3 className="fs-24 fw-500 text-neutral-900">У вас пока нет заказов</h3>
+                <p className="fs-15 fw-400 text-neutral-900 mt-[30px]">Перейдите в каталог, чтобы начать покупки.</p>
+                <div className="w-fit">
+                    <Button className="mt-[30px]">
+                        <span className="block px-[50px] text-neutral-0">Каталог</span>
+                    </Button>
                 </div>
             </section>
         </>
