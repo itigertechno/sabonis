@@ -1,5 +1,4 @@
 import {Breadcrumbs} from "@shared/Breadcrumbs";
-import c from "./style.module.css";
 import cardExample from "@utils/card-example.ts";
 import {BasketCard} from "@shared/BasketCard";
 import {Button} from "@shared/Button";
