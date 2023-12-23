@@ -2,7 +2,7 @@ import { SvgSprite } from '../../shared/SvgSprite';
 
 export function Header() {
   return (
-    <header className='sticky top-0 z-10 h-max w-full border-t-4 border-[#367639] shadow-lg'>
+    <header className='sticky top-0 z-10 h-max w-full border-t-4 border-[#367639] bg-[var(--color-neutral-0)] shadow-lg'>
       <nav className='bg-[#25282B]'>
         <ul className='container flex justify-end lg:gap-8'>
           <li className='p-1 text-[13px] font-medium text-white'>
