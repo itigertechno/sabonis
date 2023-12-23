@@ -15,6 +15,9 @@ import {ErrorPage} from '@pages/ErrorPage';
 import {HomePage} from '@pages/HomePage';
 import {ProductPage} from '@pages/ProductPage';
 import {EmptyBasketPage} from "@pages/EmptyBasketPage";
+import {EventsPage} from "@pages/EventsPage";
+import {EventCard} from "@shared/EventCard";
+import {EventPage} from "@pages/EventPage";
 
 const router = createBrowserRouter([
     {
@@ -41,6 +44,14 @@ const router = createBrowserRouter([
             {
                 path: '/empty-basket',
                 element: <EmptyBasketPage/>,
+            },
+            {
+                path: '/events',
+                element: <EventsPage/>,
+            },
+            {
+                path: '/event',
+                element: <EventPage />,
             },
         ],
     },
