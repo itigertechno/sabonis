@@ -1,9 +1,25 @@
-import { SvgSprite } from '../../shared/SvgSprite';
+import { SvgSprite } from '@shared/SvgSprite';
+import {useEffect, useState} from "react";
+import classnames from "@utils/classnames.ts";
 
 export function Header() {
+
+  const [scroll, setScroll] = useState(0);
+
+  const handleScroll = () => {
+    console.log(window.scrollY)
+    setScroll(window.scrollY);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scrollend", handleScroll);
+  }, []);
+
+
   return (
-    <header className='sticky top-0 z-10 h-max w-full border-t-4 border-[#367639] bg-[var(--color-neutral-0)] shadow-lg'>
-      <nav className='bg-[#25282B]'>
+    <header className='fixed top-0 z-10 h-max w-full border-t-4 border-[#367639] bg-[var(--color-neutral-0)] shadow-lg'>
+      <nav className={classnames("bg-[#25282B]", scroll > 100 ? "hidden" : "visible")}>
         <ul className='container flex justify-end lg:gap-8'>
           <li className='p-1 text-[13px] font-medium text-white'>
             <a href='#' className='flex items-center'>
@@ -42,8 +58,7 @@ export function Header() {
           </li>
         </ul>
       </nav>
-
-      <div className='border-b-[1px] border-[#25282B]'>
+      <div className={classnames("border-b-[1px] border-[#25282B]", scroll > 100 ? "hidden" : "visible")}>
         <div className='container flex items-center justify-between py-4'>
           <SvgSprite type='logo' />
           <div className='hidden items-center gap-2 md:gap-3 lg:flex xl:gap-11 '>
