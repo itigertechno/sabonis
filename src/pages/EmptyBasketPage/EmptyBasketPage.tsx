@@ -1,6 +1,9 @@
 import {Breadcrumbs} from "@shared/Breadcrumbs";
 import {Button} from "@shared/Button";
 import {useNavigate} from "react-router-dom";
+import {Slider} from "@widgets/Slider";
+import {Card} from "@shared/Card";
+import cardExample from "@utils/card-example.ts";
 
 export function EmptyBasketPage() {
     const navigate = useNavigate();
@@ -41,6 +44,38 @@ export function EmptyBasketPage() {
                     </div>
                 </div>
 
+            </section>
+            <section className="wrap mt-[70px]">
+                <h2 className="fs-40 fw-300 text-neutral-900">Рекомендованные товары</h2>
+                <div className="w-[100%] mt-[60px]">
+                    <Slider perPage={4} tags={[
+                        {
+                            title: "Товары месяца",
+                            id: 1
+                        },
+                        {
+                            title: "Рекомендации сомелье",
+                            id: 2
+                        },
+                        {
+                            title: "Эксклюзив",
+                            id: 7
+                        },
+                        {
+                            title: "Товары недели",
+                            id: 5
+                        },
+                        {
+                            title: "Товары с наградами",
+                            id: 3
+                        },
+                    ]}>
+                        <Card {...cardExample}></Card>
+                        <Card {...cardExample}></Card>
+                        <Card {...cardExample}></Card>
+                        <Card {...cardExample}></Card>
+                    </Slider>
+                </div>
             </section>
         </>
     );
