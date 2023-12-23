@@ -16,8 +16,8 @@ import {HomePage} from '@pages/HomePage';
 import {ProductPage} from '@pages/ProductPage';
 import {EmptyBasketPage} from "@pages/EmptyBasketPage";
 import {EventsPage} from "@pages/EventsPage";
-import {EventCard} from "@shared/EventCard";
 import {EventPage} from "@pages/EventPage";
+import {ProfilePage} from "@pages/ProfilePage";
 
 const router = createBrowserRouter([
     {
@@ -52,6 +52,10 @@ const router = createBrowserRouter([
             {
                 path: '/event',
                 element: <EventPage />,
+            },
+            {
+                path: '/profile',
+                element: <ProfilePage />,
             },
         ],
     },
