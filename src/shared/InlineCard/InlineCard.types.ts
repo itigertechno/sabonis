@@ -8,3 +8,7 @@ export interface ICard {
     preview: string;
     stock: boolean;
 }
+
+export interface ICardInline extends ICard {
+    hasCheckbox?: boolean;
+}

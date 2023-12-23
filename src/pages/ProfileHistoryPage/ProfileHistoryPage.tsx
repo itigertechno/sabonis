@@ -1,8 +1,6 @@
 import {Breadcrumbs} from "@shared/Breadcrumbs";
-import {FormInput} from "@shared/FormInput";
 import {Button} from "@shared/Button";
 import {Link} from "react-router-dom";
-import {InlineCard} from "@shared/InlineCard";
 import cardExample from "@utils/card-example.ts";
 import {BasketCard} from "@shared/BasketCard";
 import {useState} from "react";
@@ -56,10 +54,10 @@ export function ProfileHistoryPage() {
                             <Link className="text-neutral-900 fs-20 fw-400 leading-[20px] block mb-[15px]" to="/profile">Личные
                                 данные</Link>
                             <Link className="text-primary fs-20 fw-400 leading-[20px] block mb-[15px]"
-                                  to="/history">История заказов</Link>
+                                  to="/profile/history">История заказов</Link>
                             <Link className="text-neutral-900 fs-20 fw-400 leading-[20px] block mb-[15px]"
-                                  to="/store">Купленные товары</Link>
-                            <Link className="text-neutral-900 fs-20 fw-400 leading-[20px] block" to="/points">Баллы
+                                  to="/profile/store">Купленные товары</Link>
+                            <Link className="text-neutral-900 fs-20 fw-400 leading-[20px] block" to="/profile/points">Баллы
                                 (1999)</Link>
                         </div>
                     </div>

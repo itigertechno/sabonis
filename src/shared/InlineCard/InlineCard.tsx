@@ -1,4 +1,4 @@
-import {ICard} from './InlineCard.types.ts';
+import {ICardInline} from './InlineCard.types.ts';
 import {Button} from "@shared/Button";
 import {SvgSprite} from "@shared/SvgSprite";
 import c from "./style.module.css";
@@ -6,17 +6,22 @@ import {useNavigate} from "react-router-dom";
 import classnames from "@utils/classnames.ts";
 import {useState} from "react";
 
-export function InlineCard({stock, title, description, preview, vendorCode, price, discount}: ICard) {
+export function InlineCard({stock, title, description, preview, vendorCode, price, discount, hasCheckbox = true}: ICardInline) {
     const navigate = useNavigate();
     const [selectActive, setSelectActive] = useState<boolean>(false);
 
     const toPage = () => navigate("/product");
 
     return (
-        <article className={classnames(c.article, "p-[14px]")}>
-            <div className="mr-[16px] h-fit">
-                <button onClick={() => setSelectActive(!selectActive)} className={selectActive ? classnames(c.select, c.active) : c.select}></button>
-            </div>
+        <article className={hasCheckbox ? classnames(c.article, "p-[14px]") : classnames(c.article, c["noCheckbox"], "p-[14px]")}>
+            {
+                hasCheckbox ?
+                    <>
+                        <div className="mr-[16px] h-fit">
+                            <button onClick={() => setSelectActive(!selectActive)} className={selectActive ? classnames(c.select, c.active) : c.select}></button>
+                        </div>
+                    </> : ""
+            }
             <img src={preview} alt={`Preview of ${title}`} className={c.article__preview}/>
             <div className="self-start mt-[6px] w-[60%]">
                 <span className="fs-14 fw-400 text-neutral-900">Арт. {vendorCode}</span>

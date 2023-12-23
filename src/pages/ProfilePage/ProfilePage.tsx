@@ -41,10 +41,10 @@ export function ProfilePage() {
                             <span className="fs-15 uppercase text-neutral-0 text-center leading-[50px] w-[100%] block">Меню</span>
                         </div>
                         <div className="px-[20px] py-[40px]">
-                            <Link className="text-primary fs-20 fw-400 leading-[20px] block mb-[15px]" to="profile">Личные данные</Link>
-                            <Link className="text-neutral-900 fs-20 fw-400 leading-[20px] block mb-[15px]" to="history">История заказов</Link>
-                            <Link className="text-neutral-900 fs-20 fw-400 leading-[20px] block mb-[15px]" to="store">Купленные товары</Link>
-                            <Link className="text-neutral-900 fs-20 fw-400 leading-[20px] block" to="points">Баллы (1999)</Link>
+                            <Link className="text-primary fs-20 fw-400 leading-[20px] block mb-[15px]" to="/profile">Личные данные</Link>
+                            <Link className="text-neutral-900 fs-20 fw-400 leading-[20px] block mb-[15px]" to="/profile/history">История заказов</Link>
+                            <Link className="text-neutral-900 fs-20 fw-400 leading-[20px] block mb-[15px]" to="/profile/store">Купленные товары</Link>
+                            <Link className="text-neutral-900 fs-20 fw-400 leading-[20px] block" to="/profile/points">Баллы (1999)</Link>
                         </div>
                     </div>
                 </div>
