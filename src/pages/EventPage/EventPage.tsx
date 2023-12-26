@@ -6,7 +6,7 @@ import {Button} from "@shared/Button";
 export function EventPage() {
     return (
         <>
-            <section className="wrap mt-[30px]">
+            <section className="wrap my-[30px]">
                 <Breadcrumbs linksArray={[
                     {
                         title: "Главная",
@@ -17,14 +17,14 @@ export function EventPage() {
                         link: "/events"
                     }
                 ]}></Breadcrumbs>
-                <div className="grid grid-cols-[1fr_25%] gap-[40px]">
+                <div className="grid grid-cols-[1fr_25%] gap-[40px] w1024:grid-cols-1">
                     <div>
                         <h1 className="mt-[30px] fs-30 fw-500 text-neutral-900">
                             Дегустация “Рождественский гайд:
                             десертные и крепленые вина”
                         </h1>
-                        <div className="flex gap-[40px] mt-[30px]">
-                            <img src={ex} alt="Preview of event"/>
+                        <div className="flex gap-[40px] mt-[30px] w1024:block">
+                            <img src={ex} alt="Preview of event" className="w1024:mb-[30px]"/>
                             <div>
                                 <p className="fs-15 fw-400 text-neutral-900">
                                     Семейный уют, теплые разговоры, ароматы домашней выпечки и согревающие напитки на
@@ -81,7 +81,7 @@ export function EventPage() {
                             </Button>
                         </div>
                     </div>
-                    <div className="border-[#D6D7D9] border-x-[1px] rounded-[5px]">
+                    <div className="border-[#D6D7D9] border-x-[1px] rounded-[5px] w1024:hidden">
                         <div
                             className="py-[5px] bg-[var(--color-primary)] border-[var(--color-primary) rounded-[5px_5px_0_0]">
                             <span className="fs-15 uppercase text-neutral-0 text-center leading-[50px] w-[100%] block">ближайшие мероприятия</span>

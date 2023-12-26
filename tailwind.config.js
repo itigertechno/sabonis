@@ -15,8 +15,8 @@ export default withMT({
             center: true,
         },
         screens: {
-            'w260': '260px',
-            'w468': '468px',
+            'w260': {"max": "260px"},
+            'w468': {"max": "468px"},
             'w768': {"max": "768px"},
             'w1024': {"max": "1024px"},
             'w1024-min': {"min": "1024px"},
