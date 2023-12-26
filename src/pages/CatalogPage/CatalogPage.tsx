@@ -16,6 +16,7 @@ import {Card} from "@shared/Card";
 import {About} from "@widgets/About";
 // @ts-ignore
 import {Splide, SplideSlide} from "@splidejs/react-splide";
+import MediaQuery from "react-responsive";
 
 export function CatalogPage() {
     const [typeView, setTypeView] = useState<"row" | "grid">("grid");
@@ -37,42 +38,46 @@ export function CatalogPage() {
             <section className="wrap mt-[30px]">
                 <div className="flex items-center w-[100%] justify-between">
                     <h1 className="fs-30 fw-500 text-neutral-900">Вино Италии, регион Пьемонт</h1>
-                    <div className="flex items-center gap-[40px] w1024:hidden">
-                        <button className="flex items-center gap-[14px]">
-                            <SvgSprite type="sort"></SvgSprite>
-                            <span className="fs-15 fw-400 text-neutral-900">По размеру скидки</span>
-                            <SvgSprite type="arrow-vertical"></SvgSprite>
-                        </button>
-                        <div className="flex gap-[12px]">
-                            <button onClick={() => setTypeView("grid")}>
-                                <SvgSprite
-                                    type="grid"
-                                    color={typeView === "grid" ? "var(--color-danger)" : "var(--color-neutral-900)"}
-                                ></SvgSprite>
+                    <MediaQuery query="(min-width: 1025px)">
+                        <div className="flex items-center gap-[40px]">
+                            <button className="flex items-center gap-[14px]">
+                                <SvgSprite type="sort"></SvgSprite>
+                                <span className="fs-15 fw-400 text-neutral-900">По размеру скидки</span>
+                                <SvgSprite type="arrow-vertical"></SvgSprite>
                             </button>
-                            <button onClick={() => setTypeView("row")}>
-                                <SvgSprite
-                                    type="dashboard"
-                                    color={typeView === "row" ? "var(--color-danger)" : "var(--color-neutral-900)"}
-                                ></SvgSprite>
-                            </button>
+                            <div className="flex gap-[12px]">
+                                <button onClick={() => setTypeView("grid")}>
+                                    <SvgSprite
+                                        type="grid"
+                                        color={typeView === "grid" ? "var(--color-danger)" : "var(--color-neutral-900)"}
+                                    ></SvgSprite>
+                                </button>
+                                <button onClick={() => setTypeView("row")}>
+                                    <SvgSprite
+                                        type="dashboard"
+                                        color={typeView === "row" ? "var(--color-danger)" : "var(--color-neutral-900)"}
+                                    ></SvgSprite>
+                                </button>
+                            </div>
                         </div>
-                    </div>
+                    </MediaQuery>
                 </div>
-                <ul className="grid grid-cols-11 gap-[12px] mt-[30px] w1024:hidden">
-                    {
-                        tagsItems.map(
-                            tag =>
-                                <Fragment key={uuid()}>
-                                    <li><Tag {...tag}></Tag></li>
-                                </Fragment>
-                        )
-                    }
-                    <Button tiny className="p-[4px]" theme="secondary">
-                        <span>Еще</span>
-                        <SvgSprite type="arrow-vertical"></SvgSprite>
-                    </Button>
-                </ul>
+                <MediaQuery query="(min-width: 1025px)">
+                    <ul className="grid grid-cols-11 gap-[12px] mt-[30px]">
+                        {
+                            tagsItems.map(
+                                tag =>
+                                    <Fragment key={uuid()}>
+                                        <li><Tag {...tag}></Tag></li>
+                                    </Fragment>
+                            )
+                        }
+                        <Button tiny className="p-[4px]" theme="secondary">
+                            <span>Еще</span>
+                            <SvgSprite type="arrow-vertical"></SvgSprite>
+                        </Button>
+                    </ul>
+                </MediaQuery>
                 <Splide className="w1024-min:hidden w1024:visible w1024:mt-[20px]" options={{
                     width: "100%",
                     gap: "10px",
@@ -104,42 +109,44 @@ export function CatalogPage() {
                 </div>
             </section>
             <section className="wrap mt-[60px] grid gap-[30px] grid-cols-[23.53%_1fr] w1024:block mb-[60px]">
-                <div className="w1024:hidden">
-                    <h3 className="fs-30 fw-600 text-neutral-900">Популярное:</h3>
-                    <div className="w-[100%] flex items-center flex-wrap gap-[10px]">
-                        {
-                            [
-                                {
-                                    title: "Вино Бургундское"
-                                },
-                                {
-                                    title: "Мерло до 2000"
-                                },
-                                {
-                                    title: "Новозеландский Совиньон Блан"
-                                },
-                                {
-                                    title: "Бароло"
-                                },
-                                {
-                                    title: "Шардоне"
-                                },
-                                {
-                                    title: "Сира"
-                                },
-                                {
-                                    title: "Красное сухое вино"
-                                },
-                                {
-                                    title: "Барбареско"
-                                }
-                            ].map(
-                                el => <button key={uuid()}
-                                              className="py-[4px] px-[12px] fs-13 fw-400 text-neutral-900 rounded-[5px] border-solid border-[1px] border-[#C7C7C7] ">{el.title}</button>
-                            )
-                        }
+                <MediaQuery query="(min-width: 1025px)">
+                    <div>
+                        <h3 className="fs-30 fw-600 text-neutral-900">Популярное:</h3>
+                        <div className="w-[100%] flex items-center flex-wrap gap-[10px]">
+                            {
+                                [
+                                    {
+                                        title: "Вино Бургундское"
+                                    },
+                                    {
+                                        title: "Мерло до 2000"
+                                    },
+                                    {
+                                        title: "Новозеландский Совиньон Блан"
+                                    },
+                                    {
+                                        title: "Бароло"
+                                    },
+                                    {
+                                        title: "Шардоне"
+                                    },
+                                    {
+                                        title: "Сира"
+                                    },
+                                    {
+                                        title: "Красное сухое вино"
+                                    },
+                                    {
+                                        title: "Барбареско"
+                                    }
+                                ].map(
+                                    el => <button key={uuid()}
+                                                  className="py-[4px] px-[12px] fs-13 fw-400 text-neutral-900 rounded-[5px] border-solid border-[1px] border-[#C7C7C7] ">{el.title}</button>
+                                )
+                            }
+                        </div>
                     </div>
-                </div>
+                </MediaQuery>
                 <div>
                     <h3 className="fs-30 fw-600 text-neutral-900">Вино итальянское, регион Пьемонт</h3>
                     <p className="mt-[30px]">

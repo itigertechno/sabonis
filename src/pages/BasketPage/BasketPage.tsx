@@ -2,11 +2,13 @@ import {Breadcrumbs} from "@shared/Breadcrumbs";
 import cardExample from "@utils/card-example.ts";
 import {BasketCard} from "@shared/BasketCard";
 import {Button} from "@shared/Button";
+import MediaQuery from "react-responsive";
+import {MobileBasketCard} from "@shared/MobileBasketCard";
 
 export function BasketPage() {
     return (
         <>
-            <section className="wrap mt-[30px]">
+            <section className="wrap mt-[30px] mb-[60px]">
                 <Breadcrumbs linksArray={[
                     {
                         title: "Главная",
@@ -18,86 +20,124 @@ export function BasketPage() {
                     }
                 ]}></Breadcrumbs>
                 <h1 className="mt-[30px] fs-30 fw-500 text-neutral-900">Корзина</h1>
-                <div className="grid grid-cols-[1fr_40%] mt-[30px] gap-[40px]">
-                    <div className="w-[100%] rounded-[5px] border-x-[1px] border-[#D6D7D9]">
-                        <div
-                            className="grid grid-cols-[2fr_1fr_1fr] py-[5px] bg-[var(--color-primary)] border-[1px] border-[var(--color-primary)]  rounded-[5px_5px_0_0]">
+                <MediaQuery query="(min-width: 1331px)">
+                    <div className="grid grid-cols-[1fr_40%] mt-[30px] gap-[40px]">
+                        <div className="w-[100%] rounded-[5px] border-x-[1px] border-[#D6D7D9]">
+                            <div
+                                className="grid grid-cols-[2fr_1fr_1fr] py-[5px] bg-[var(--color-primary)] border-[1px] border-[var(--color-primary)]  rounded-[5px_5px_0_0]">
                             <span
                                 className="fs-15 uppercase text-neutral-0 text-center leading-[50px]">Наименование</span>
-                            <span className="fs-15 uppercase text-neutral-0 text-right leading-[50px]">Цена</span>
-                            <span className="fs-15 uppercase text-neutral-0 text-center leading-[50px]">Итого</span>
-                        </div>
-                        <div>
-                            <BasketCard {...cardExample}></BasketCard>
-                            <BasketCard {...cardExample}></BasketCard>
-                            <BasketCard {...cardExample}></BasketCard>
-                            <BasketCard {...cardExample}></BasketCard>
-                        </div>
-                    </div>
-                    <div className=" border-[1px] border-[#D6D7D9] h-fit rounded-[5px]">
-                        <div
-                            className="py-[5px] bg-[var(--color-primary)] border-[var(--color-primary) rounded-[5px_5px_0_0]">
-                            <span className="fs-15 uppercase text-neutral-0 text-center leading-[50px] w-[100%] block">Оформление заказа</span>
-                        </div>
-                        <div className="px-[25px] pb-[25px] pt-[20px]">
-                            <span className="fs-15 fw-500 text-neutral-900">Выберите пункт выдачи</span>
-                            <ul className="mt-[25px]">
-                                <li>
-                                    <button className="flex items-center gap-[25px]">
-                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <circle cx="10" cy="10" r="9" stroke="#367639" strokeWidth="2"/>
-                                            <circle cx="10" cy="10" r="6" fill="#367639"/>
-                                        </svg>
-                                        <span>Петроградская наб, 8</span>
-                                    </button>
-                                </li>
-                                <li className="mt-[20px]">
-                                    <button className="flex items-center gap-[25px]">
-                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <circle cx="10" cy="10" r="9" stroke="#367639" strokeWidth="2"/>
-                                        </svg>
-                                        <span>ул. Жуковского, 10</span>
-                                    </button>
-                                </li>
-                            </ul>
-                            <div className="flex gap-[18px] mt-[30px]">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M5.5 19.5C5.5 19.5 9 18 10 17C11 16 8 16 8 11C8 6 12 6 12 6C12 6 16 6 16 11C16 16 13 16 14 17C15 18 18.5 19.5 18.5 19.5"
-                                        stroke="#494949" strokeWidth="2" strokeLinecap="round"/>
-                                    <path fillRule="evenodd" clipRule="evenodd"
-                                          d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
-                                          stroke="#494949" strokeWidth="2"/>
-                                </svg>
-                                <p className="fs-15 fw-500 text-neutral-900">
-                                    Эта покупка принесет вам 1 000 рублей на <br/> бонусный счет, если вы
-                                    <u className="text-primary"> авторизуетесь</u> или <br/>
-                                    <u className="text-primary"> зарегистрируетесь</u>.
-                                </p>
+                                <span className="fs-15 uppercase text-neutral-0 text-right leading-[50px]">Цена</span>
+                                <span className="fs-15 uppercase text-neutral-0 text-center leading-[50px]">Итого</span>
                             </div>
-                            <div className="grid grid-cols-2 mt-[32px]">
-                                <span className="fs-15 fw-400 text-neutral-500 self-center">Ваша скидка:</span>
-                                <span className="fs-30 fw-400 text-primary leading-[50px] text-right">- 49 405 ₽</span>
-                                <span className="fs-15 fw-400 text-neutral-500 self-center">Итоговая сумма:</span>
-                                <span className="fs-40 fw-400 text-neutral-900 leading-[50px] text-right">279 965 ₽</span>
+                            <div>
+                                <BasketCard {...cardExample}></BasketCard>
+                                <BasketCard {...cardExample}></BasketCard>
+                                <BasketCard {...cardExample}></BasketCard>
+                                <BasketCard {...cardExample}></BasketCard>
                             </div>
-                            <label className="border-b border-[var(--color-neutral-900)] flex mt-[20px]">
-                                <input type="text" className="w-[100%] placeholder:opacity-100 px-[5px] outline-0 leading-[50px]"
-                                       placeholder="Промокод"/>
-                                <button>
-                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                        </div>
+                        <div className=" border-[1px] border-[#D6D7D9] h-fit rounded-[5px]">
+                            <div
+                                className="py-[5px] bg-[var(--color-primary)] border-[var(--color-primary) rounded-[5px_5px_0_0]">
+                                <span className="fs-15 uppercase text-neutral-0 text-center leading-[50px] w-[100%] block">Оформление заказа</span>
+                            </div>
+                            <div className="px-[25px] pb-[25px] pt-[20px]">
+                                <span className="fs-15 fw-500 text-neutral-900">Выберите пункт выдачи</span>
+                                <ul className="mt-[25px]">
+                                    <li>
+                                        <button className="flex items-center gap-[25px]">
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="10" cy="10" r="9" stroke="#367639" strokeWidth="2"/>
+                                                <circle cx="10" cy="10" r="6" fill="#367639"/>
+                                            </svg>
+                                            <span>Петроградская наб, 8</span>
+                                        </button>
+                                    </li>
+                                    <li className="mt-[20px]">
+                                        <button className="flex items-center gap-[25px]">
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="10" cy="10" r="9" stroke="#367639" strokeWidth="2"/>
+                                            </svg>
+                                            <span>ул. Жуковского, 10</span>
+                                        </button>
+                                    </li>
+                                </ul>
+                                <div className="flex gap-[18px] mt-[30px]">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                          xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M5.5 19.5C5.5 19.5 9 18 10 17C11 16 8 16 8 11C8 6 12 6 12 6C12 6 16 6 16 11C16 16 13 16 14 17C15 18 18.5 19.5 18.5 19.5"
+                                            stroke="#494949" strokeWidth="2" strokeLinecap="round"/>
                                         <path fillRule="evenodd" clipRule="evenodd"
-                                              d="M16.8352 9.10544C17.576 9.47292 17.576 10.5297 16.8352 10.8971L3.94535 17.2909C3.28063 17.6206 2.50098 17.137 2.50098 16.395V11.6667L10.001 10L2.50098 8.16202L2.50098 3.60754C2.50098 2.86555 3.28063 2.38198 3.94534 2.7117L16.8352 9.10544Z"
-                                              stroke="#367639" strokeLinejoin="round"/>
+                                              d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+                                              stroke="#494949" strokeWidth="2"/>
                                     </svg>
-                                </button>
-                            </label>
-                            <Button className="mt-[30px]">Оформить заказ</Button>
+                                    <p className="fs-15 fw-500 text-neutral-900">
+                                        Эта покупка принесет вам 1 000 рублей на <br/> бонусный счет, если вы
+                                        <u className="text-primary"> авторизуетесь</u> или <br/>
+                                        <u className="text-primary"> зарегистрируетесь</u>.
+                                    </p>
+                                </div>
+                                <div className="grid grid-cols-2 mt-[32px]">
+                                    <span className="fs-15 fw-400 text-neutral-500 self-center">Ваша скидка:</span>
+                                    <span className="fs-30 fw-400 text-primary leading-[50px] text-right">- 49 405 ₽</span>
+                                    <span className="fs-15 fw-400 text-neutral-500 self-center">Итоговая сумма:</span>
+                                    <span
+                                        className="fs-40 fw-400 text-neutral-900 leading-[50px] text-right">279 965 ₽</span>
+                                </div>
+                                <label className="border-b border-[var(--color-neutral-900)] flex mt-[20px]">
+                                    <input type="text"
+                                           className="w-[100%] placeholder:opacity-100 px-[5px] outline-0 leading-[50px]"
+                                           placeholder="Промокод"/>
+                                    <button>
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path fillRule="evenodd" clipRule="evenodd"
+                                                  d="M16.8352 9.10544C17.576 9.47292 17.576 10.5297 16.8352 10.8971L3.94535 17.2909C3.28063 17.6206 2.50098 17.137 2.50098 16.395V11.6667L10.001 10L2.50098 8.16202L2.50098 3.60754C2.50098 2.86555 3.28063 2.38198 3.94534 2.7117L16.8352 9.10544Z"
+                                                  stroke="#367639" strokeLinejoin="round"/>
+                                        </svg>
+                                    </button>
+                                </label>
+                                <Button className="mt-[30px]">Оформить заказ</Button>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </MediaQuery>
+                <MediaQuery query="(max-width: 1330px)">
+                    <MobileBasketCard {...cardExample}></MobileBasketCard>
+                    <MobileBasketCard {...cardExample}></MobileBasketCard>
+                    <MobileBasketCard {...cardExample}></MobileBasketCard>
+                    <MobileBasketCard {...cardExample}></MobileBasketCard>
+                    <div className="px-[25px] pb-[25px] pt-[20px]">
+                        <div className="grid grid-cols-2 w260:grid-cols-1 mt-[32px]">
+                            <span className="fs-15 fw-400 text-neutral-500 self-center">Ваша скидка:</span>
+                            <span className="fs-30 fw-400 text-primary leading-[50px] text-right">- 49 405 ₽</span>
+                            <span className="fs-15 fw-400 text-neutral-500 self-center">Итоговая сумма:</span>
+                            <span
+                                className="fs-40 fw-400 text-neutral-900 leading-[50px] text-right">279 965 ₽</span>
+                        </div>
+                        <label className="border-b border-[var(--color-neutral-900)] flex mt-[20px]">
+                            <input type="text"
+                                   className="w-[100%] placeholder:opacity-100 px-[5px] outline-0 leading-[50px]"
+                                   placeholder="Промокод"/>
+                            <button>
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path fillRule="evenodd" clipRule="evenodd"
+                                          d="M16.8352 9.10544C17.576 9.47292 17.576 10.5297 16.8352 10.8971L3.94535 17.2909C3.28063 17.6206 2.50098 17.137 2.50098 16.395V11.6667L10.001 10L2.50098 8.16202L2.50098 3.60754C2.50098 2.86555 3.28063 2.38198 3.94534 2.7117L16.8352 9.10544Z"
+                                          stroke="#367639" strokeLinejoin="round"/>
+                                </svg>
+                            </button>
+                        </label>
+                        <Button className="mt-[30px]">Оформить заказ</Button>
+                    </div>
+                </MediaQuery>
             </section>
         </>
-    );
+    )
+        ;
 }
+

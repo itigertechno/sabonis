@@ -1,0 +1,19 @@
+.article {
+    position: relative;
+    transition: 250ms ease-in-out all;
+    width: 100%;
+    align-items: center;
+    height: inherit;
+    border-bottom: 1px solid var(--color-neutral-700);
+    grid-gap: 40px;
+}
+
+.article__preview {
+    width: 100px;
+    border-radius: 5px;
+    object-fit: contain;
+}
+
+.article:not(:first-child) {
+    margin-top: 30px;
+}
