@@ -12,7 +12,7 @@ import brandPetrus from "@pictures/brands/petrus.png";
 import brandMarques from "@pictures/brands/marques.png";
 import brandJacob from "@pictures/brands/jacob.png";
 
-import previewEvents from "@pictures/events/events.png";
+// import previewEvents from "@pictures/events/events.png";
 
 // @ts-ignore
 import {Splide, SplideSlide} from "@splidejs/react-splide";
@@ -33,7 +33,7 @@ export function HomePage() {
                     Европы и других регионов. В алкогольных бутиках Sabonis <br/> представлено уникальное собрание вин и
                     крепких напитков из России, Европы и <br/> других регионов.
                 </p>
-                <div className="flex gap-[1.25rem] mt-[15%]">
+                <div className="flex gap-[1.25rem] mt-[15%] w1024:grid w1024:grid-cols-2">
                     <article className="flex p-[0.8281rem] gap-[0.8125rem] [ bg-black/[.5] rounded-[5px]">
                         <div>
                             <SvgSprite type='earth-globe'/>
@@ -126,6 +126,52 @@ export function HomePage() {
                     </article>
                 </div>
             </section>
+            <section className={classnames("wrap mt-[70px] w1024-min:hidden")}>
+                <Splide
+                    options={{
+                        gap: "20px",
+                        pagination: false,
+                        arrows: false
+                    }}
+                >
+                    <SplideSlide>
+                        <article className={c["actions-item"]}
+                                 style={{background: `url("${actionsThird}") no-repeat var(--color-primary)`}}>
+                            <h4 className="fs-30 text-neutral-0 fw-500">Эксклюзивный <br/> импорт</h4>
+                            <ul>
+                                <li className="text-neutral-0 fs-15 fw-500">— Вино</li>
+                                <li className="text-neutral-0 fs-15 fw-500">— Шампанское</li>
+                                <li className="text-neutral-0 fs-15 fw-500">— Виски</li>
+                                <li className="text-neutral-0 fs-15 fw-500">— Коньяк</li>
+                            </ul>
+                        </article>
+                    </SplideSlide>
+                    <SplideSlide>
+                        <article className={c["actions-item"]}
+                                 style={{background: `url("${actionsThird}") no-repeat var(--color-primary)`}}>
+                            <h4 className="fs-30 text-neutral-0 fw-500">Эксклюзивный <br/> импорт</h4>
+                            <ul>
+                                <li className="text-neutral-0 fs-15 fw-500">— Вино</li>
+                                <li className="text-neutral-0 fs-15 fw-500">— Шампанское</li>
+                                <li className="text-neutral-0 fs-15 fw-500">— Виски</li>
+                                <li className="text-neutral-0 fs-15 fw-500">— Коньяк</li>
+                            </ul>
+                        </article>
+                    </SplideSlide>
+                    <SplideSlide>
+                        <article className={c["actions-item"]}
+                                 style={{background: `url("${actionsThird}") no-repeat var(--color-primary)`}}>
+                            <h4 className="fs-30 text-neutral-0 fw-500">Эксклюзивный <br/> импорт</h4>
+                            <ul>
+                                <li className="text-neutral-0 fs-15 fw-500">— Вино</li>
+                                <li className="text-neutral-0 fs-15 fw-500">— Шампанское</li>
+                                <li className="text-neutral-0 fs-15 fw-500">— Виски</li>
+                                <li className="text-neutral-0 fs-15 fw-500">— Коньяк</li>
+                            </ul>
+                        </article>
+                    </SplideSlide>
+                </Splide>
+            </section>
             <section className="wrap mt-[60px]">
                 <h2 className="fs-40 fw-300 text-neutral-900 mb-[72px]">Популярные бренды</h2>
                 <Slider perPage={7} tags={[
@@ -153,7 +199,7 @@ export function HomePage() {
                         title: "Джин",
                         id: 6
                     },
-                ]}>
+                ]} mobilePerPage={2}>
                     <img src={brandPetrus} alt="Brand"/>
                     <img src={brandJacob} alt="Brand"/>
                     <img src={brandMarques} alt="Brand"/>

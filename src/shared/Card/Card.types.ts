@@ -7,4 +7,5 @@ export interface ICard {
     // url || json string?
     preview: string;
     stock: boolean;
+    mosaic?: boolean;
 }

@@ -10,10 +10,14 @@ import previewSabonis from "@pictures/about/sabonis.png";
 export function About() {
     const navigate = useNavigate();
     return (
-        <section className={classnames("wrap mt-[70px] grid gap-[80px] grid-cols-2", c.about)}>
+        <section className={classnames("wrap mt-[70px] w1024:gap-[30px] grid gap-[80px] grid-cols-2 w1024:grid-cols-1", c.about)}>
             <article className="flex flex-col">
                 <h4 className="fs-40 fw-300 text-neutral-900 mb-[57px]">О проекте Wine&Dine</h4>
-                <Splide className="rounded-[5px]">
+                <Splide className="rounded-[5px]" options={{
+                    breakpoints: {
+                        1024: { pagination: false, arrows: false }
+                    }
+                }}>
                     <SplideSlide><img className="w-[100%]" src={previewProject} alt="About Sabonis"/></SplideSlide>
                     <SplideSlide><img className="w-[100%]" src={previewProject} alt="About Sabonis"/></SplideSlide>
                     <SplideSlide><img className="w-[100%]" src={previewProject} alt="About Sabonis"/></SplideSlide>
@@ -29,7 +33,7 @@ export function About() {
                     Wine&Dine одна из главных дегустационных площадок города, где регулярно проходят винные ужины и
                     дегустации вин от частных хозяйств до ведущих представителей винной индустрии.
                 </p>
-                <Link to="https://wineanddine.group" className="w-fit mt-auto">
+                <Link to="https://wineanddine.group" className="w-fit mt-auto w1024:w-full">
                     <Button
                         theme="transparent"
                     >
@@ -39,7 +43,11 @@ export function About() {
             </article>
             <article className="flex flex-col">
                 <h4 className="fs-40 fw-300 text-neutral-900 mb-[57px]">О бутике Сабонис</h4>
-                <Splide>
+                <Splide options={{
+                    breakpoints: {
+                        1024: { pagination: false, arrows: false }
+                    }
+                }}>
                     <SplideSlide><img className="w-[100%]" src={previewSabonis} alt="About Sabonis"/></SplideSlide>
                     <SplideSlide><img className="w-[100%]" src={previewSabonis} alt="About Sabonis"/></SplideSlide>
                     <SplideSlide><img className="w-[100%]" src={previewSabonis} alt="About Sabonis"/></SplideSlide>

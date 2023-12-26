@@ -63,3 +63,15 @@
     z-index: 1;
     border-radius: 0 9px 0 10px;
 }
+
+@media screen and (max-width: 1024px){
+    .article.mosaic:hover {
+        box-shadow: none;
+        border-color: initial;
+    }
+    .article.mosaic {
+        padding: 5px 10px 20px;
+        border: 1px solid #D9D9D9;
+        border-radius: 0;
+    }
+}

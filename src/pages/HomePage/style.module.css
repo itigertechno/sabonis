@@ -49,3 +49,12 @@
     padding-bottom: 52px;
     background: #F3F5FB;
 }
+
+@media screen and (max-width: 1024px){
+    .actions__wrapper {
+        display: none;
+    }
+    .actions-item {
+        height: initial;
+    }
+}

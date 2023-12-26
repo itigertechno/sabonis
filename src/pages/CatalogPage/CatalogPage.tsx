@@ -14,6 +14,8 @@ import {Pagination} from "@shared/Pagination";
 import {Slider} from "@widgets/Slider";
 import {Card} from "@shared/Card";
 import {About} from "@widgets/About";
+// @ts-ignore
+import {Splide, SplideSlide} from "@splidejs/react-splide";
 
 export function CatalogPage() {
     const [typeView, setTypeView] = useState<"row" | "grid">("grid");
@@ -35,7 +37,7 @@ export function CatalogPage() {
             <section className="wrap mt-[30px]">
                 <div className="flex items-center w-[100%] justify-between">
                     <h1 className="fs-30 fw-500 text-neutral-900">Вино Италии, регион Пьемонт</h1>
-                    <div className="flex items-center gap-[40px]">
+                    <div className="flex items-center gap-[40px] w1024:hidden">
                         <button className="flex items-center gap-[14px]">
                             <SvgSprite type="sort"></SvgSprite>
                             <span className="fs-15 fw-400 text-neutral-900">По размеру скидки</span>
@@ -57,10 +59,13 @@ export function CatalogPage() {
                         </div>
                     </div>
                 </div>
-                <ul className="grid grid-cols-11 gap-[12px] mt-[30px]">
+                <ul className="grid grid-cols-11 gap-[12px] mt-[30px] w1024:hidden">
                     {
                         tagsItems.map(
-                            tag => <Fragment key={uuid()}><Tag {...tag}></Tag></Fragment>
+                            tag =>
+                                <Fragment key={uuid()}>
+                                    <li><Tag {...tag}></Tag></li>
+                                </Fragment>
                         )
                     }
                     <Button tiny className="p-[4px]" theme="secondary">
@@ -68,10 +73,26 @@ export function CatalogPage() {
                         <SvgSprite type="arrow-vertical"></SvgSprite>
                     </Button>
                 </ul>
+                <Splide className="w1024-min:hidden w1024:visible w1024:mt-[20px]" options={{
+                    width: "100%",
+                    gap: "10px",
+                    pagination: false,
+                    arrows: false,
+                    breakpoints: {
+                        1024: {perPage: 5},
+                        468: {perPage: 3}
+                    }
+                }}>
+                    {
+                        tagsItems.map(
+                            tag => <SplideSlide key={uuid()}><Tag {...tag} ></Tag></SplideSlide>
+                        )
+                    }
+                </Splide>
             </section>
-            <section className="wrap mt-[50px] grid gap-[30px] grid-cols-[23.53%_1fr] mb-[60px]">
+            <section className="w1024-min:wrap mt-[50px] grid gap-[30px] grid-cols-[23.53%_1fr] mb-[60px] w1024:grid-cols-1">
                 <CatalogFilter></CatalogFilter>
-                <div>
+                <div className="">
                     {
                         typeView === "grid" ?
                             <CatalogGrid catalogItems={Array(10).fill(cardExample)}></CatalogGrid> :
@@ -82,8 +103,8 @@ export function CatalogPage() {
                     </div>
                 </div>
             </section>
-            <section className="wrap mt-[60px] grid gap-[30px] grid-cols-[23.53%_1fr] mb-[60px]">
-                <div>
+            <section className="wrap mt-[60px] grid gap-[30px] grid-cols-[23.53%_1fr] w1024:block mb-[60px]">
+                <div className="w1024:hidden">
                     <h3 className="fs-30 fw-600 text-neutral-900">Популярное:</h3>
                     <div className="w-[100%] flex items-center flex-wrap gap-[10px]">
                         {
@@ -113,7 +134,8 @@ export function CatalogPage() {
                                     title: "Барбареско"
                                 }
                             ].map(
-                                el => <button className="py-[4px] px-[12px] fs-13 fw-400 text-neutral-900 rounded-[5px] border-solid border-[1px] border-[#C7C7C7] ">{el.title}</button>
+                                el => <button key={uuid()}
+                                              className="py-[4px] px-[12px] fs-13 fw-400 text-neutral-900 rounded-[5px] border-solid border-[1px] border-[#C7C7C7] ">{el.title}</button>
                             )
                         }
                     </div>
@@ -183,8 +205,12 @@ export function CatalogPage() {
 
 const Tag: FC<ITag> = ({title}) => {
     const [active, setActive] = useState<boolean>(false);
-    return <li><Button tiny className="p-[4px]" theme={active ? "fill" : "secondary"}
-                       onClick={() => setActive(!active)}>{title}</Button></li>;
+    return <Button
+        tiny={true}
+        className="p-[4px]"
+        theme={active ? "fill" : "secondary"}
+        onClick={() => setActive(!active)}
+    >{title}</Button>;
 }
 
 

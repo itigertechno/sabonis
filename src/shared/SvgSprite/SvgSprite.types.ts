@@ -18,7 +18,8 @@ export interface ISvgSprite {
       "dashboard" |
       "grid" |
       "sort" |
-      "arrow-vertical";
+      "arrow-vertical" |
+      "call";
   className?: string;
   color?: string;
 }

@@ -27,15 +27,15 @@ export function ProductPage() {
                     }
                 ]}></Breadcrumbs>
             </section>
-            <section className="wrap mt-[36px] relative grid grid-cols-2 justify-between">
-                <div className="absolute flex flex-col gap-[10px] left-[var(--wrap-padding)]">
+            <section className="wrap mt-[36px] relative grid grid-cols-2 w1024:grid-cols-1 justify-between">
+                <div className="absolute flex flex-col w1024:w-[100%] w1024:left-0 w1024:wrap w1024:justify-between w1024:flex-row gap-[10px] left-[var(--wrap-padding)]">
                     <span>Арт. 324657</span>
                     <button>
                         <SvgSprite type="favorites"></SvgSprite>
                     </button>
                 </div>
                 <div className="flex items-center justify-center">
-                    <img src={preview} alt="Preview of bottle"/>
+                    <img src={preview} alt="Preview of bottle" className="w1024:h-[320px]"/>
                 </div>
                 <div>
                     <h1 className="fs-30 fw-500 text-neutral-900">
@@ -64,7 +64,7 @@ export function ProductPage() {
                             Жордан,<br/> белое, сухое, 2009г, 12% алк, 0,75л
                         </p>
                     </div>
-                    <div className="grid grid-cols-2 gap-y-[20px] mt-[30px] items-center">
+                    <div className="grid grid-cols-2 w1024:grid-cols-1 gap-y-[20px] w1024:gap-y-[10px] w1024:mb-[20px] mt-[30px] items-center">
                         <span className="fs-15 fw-600 text-neutral-900">Винтаж: </span>
                         <div className="flex flex-wrap gap-[6px]">
                             <ButtonTag>2008</ButtonTag>
@@ -110,7 +110,7 @@ export function ProductPage() {
                             <u className="text-primary"> зарегистрируетесь</u>.
                         </p>
                     </div>
-                    <div className="flex gap-[50px] mt-[20px]">
+                    <div className="flex gap-[50px] w1024:flex-col-reverse w1024:gap-1 mt-[24px]">
                         <label className="border-b border-[var(--color-neutral-900)] flex">
                             <input type="text" className="w-[100%] placeholder:opacity-100 px-[5px] outline-0 leading-[50px]"
                                    placeholder="Промокод"/>
@@ -125,7 +125,7 @@ export function ProductPage() {
                         </label>
                         <div>
                             <span className="block fs-20 fw-600 text-danger text-right line-through leading-[1px]">15 000₽</span>
-                            <span className="block fs-30 fw-600 text-neutral-900">10 000₽</span>
+                            <span className="block fs-30 fw-600 text-neutral-900 w1024:text-right">10 000₽</span>
                         </div>
                     </div>
                     <div className="mt-[30px] w-[50%]">
@@ -136,35 +136,37 @@ export function ProductPage() {
                     </div>
                 </div>
             </section>
-            <section className="wrap mt-[60px]">
-                <div className="wrap">
+            <section className="w1024-min:wrap mt-[60px]">
+                <div className="w1024-min:wrap">
                     <h2 className="fs-20 text-neutral-900 fw-600 text-center">Информация о товаре</h2>
                 </div>
-                <div className="wrap mt-[50px]">
+                <div className="w1024-min:wrap mt-[50px]">
                     <hr className="mb-[25px] border-[var(--color-neutral-900)]"/>
-                    <h3 className="fs-15 fw-700 text-neutral-900">Описание</h3>
-                    <p className="mt-[20px] fs-15 text-neutral-900 fw-400">
-                        Domaine Bastide Jourdan "Viognier en Fut" IGP Méditerranée - это изысканное белое вино,
-                        произведенное в аппеласьоне IGP Méditerranée на юге Франции. Это вино придется по вкусу
-                        ценителям
-                        изысканных белых сортов, и оно носит в себе характерные черты винограда Вионье.
-                    </p>
-                    <p className="mt-[30px] fs-15 text-neutral-900 fw-400">
-                        Аромат этого вина очаровывает нотами белых цветов, спелых персиков и нежными акцентами ванили от
-                        длительного выдерживания в дубовых бочках. Вкус обладает отличным балансом между фруктовой
-                        сладостью и мягкой кислотностью, что делает его приятным и гармоничным.
-                    </p>
-                    <p className="mt-[30px] fs-15 text-neutral-900 fw-400">
-                        "Viognier en Fut" идеально подходит к блюдам с морепродуктами, пастой, а также курицей или
-                        тушеным овощам. Оно также прекрасно сочетается с сырами и представляет собой отличный аперитив.
-                    </p>
+                    <div className="w1024:wrap">
+                        <h3 className="fs-15 fw-700 text-neutral-900">Описание</h3>
+                        <p className="mt-[20px] fs-15 text-neutral-900 fw-400">
+                            Domaine Bastide Jourdan "Viognier en Fut" IGP Méditerranée - это изысканное белое вино,
+                            произведенное в аппеласьоне IGP Méditerranée на юге Франции. Это вино придется по вкусу
+                            ценителям
+                            изысканных белых сортов, и оно носит в себе характерные черты винограда Вионье.
+                        </p>
+                        <p className="mt-[30px] fs-15 text-neutral-900 fw-400">
+                            Аромат этого вина очаровывает нотами белых цветов, спелых персиков и нежными акцентами ванили от
+                            длительного выдерживания в дубовых бочках. Вкус обладает отличным балансом между фруктовой
+                            сладостью и мягкой кислотностью, что делает его приятным и гармоничным.
+                        </p>
+                        <p className="mt-[30px] fs-15 text-neutral-900 fw-400">
+                            "Viognier en Fut" идеально подходит к блюдам с морепродуктами, пастой, а также курицей или
+                            тушеным овощам. Оно также прекрасно сочетается с сырами и представляет собой отличный аперитив.
+                        </p>
+                    </div>
                 </div>
-                <div className="wrap mt-[25px]">
+                <div className="w1024-min:wrap mt-[25px]">
                     <hr className="mb-[25px] border-[var(--color-neutral-900)]"/>
-                    <div>
+                    <div className="w1024:wrap">
                         <h3 className="fs-15 fw-700 text-neutral-900">Характеристики</h3>
-                        <div className="flex mt-[20px] items-start">
-                            <div className="grid grid-cols-2 items-center pr-[30px] gap-[15px] border-r-[1px] border-[var(--color-neutral-900)]">
+                        <div className="flex mt-[20px] items-start w1024:flex-col">
+                            <div className="grid grid-cols-2 items-center pr-[30px] w1024:pr-0 gap-[15px] border-r-[1px] w1024:border-none border-[var(--color-neutral-900)]">
                                 <span className="fs-15 fw-600 text-neutral-900">Название:</span>
                                 <span className="fs-15 fw-400 text-neutral-900">Матеуш Розе, 750 мл</span>
                                 <span className="fs-15 fw-600 text-neutral-900">Название:</span>
@@ -176,7 +178,7 @@ export function ProductPage() {
                                 <span className="fs-15 fw-600 text-neutral-900">Название:</span>
                                 <span className="fs-15 fw-400 text-neutral-900">Матеуш Розе, 750 мл</span>
                             </div>
-                            <div className="grid grid-cols-2 items-center gap-[15px] ml-[30px]">
+                            <div className="grid grid-cols-2 items-center gap-[15px] ml-[30px] w1024:mt-[10px] w1024:ml-0">
                                 <span className="fs-15 fw-600 text-neutral-900">Название:</span>
                                 <span className="fs-15 fw-400 text-neutral-900">Матеуш Розе, 750 мл</span>
                                 <span className="fs-15 fw-600 text-neutral-900">Название:</span>
@@ -192,8 +194,8 @@ export function ProductPage() {
                     </div>
                 </div>
             </section>
-            <section className="wrap mt-[60px]">
-                <h2 className="fs-40 fw-300 text-neutral-900">Рекомендованные товары</h2>
+            <section className="wrap mt-[60px] mb-[30px]">
+                <h2 className="fs-40 fw-300 text-neutral-900 w1024:!text-[30px]">Рекомендованные товары</h2>
                 <div className="w-[100%] mt-[60px]">
                     <Slider perPage={4} tags={[
                         {

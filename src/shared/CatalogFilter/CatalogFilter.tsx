@@ -17,16 +17,13 @@ import {Button} from "@shared/Button";
 
 export function CatalogFilter({}: ICatalogFilter) {
     return (
-        <div className={c.wrapper}>
-            <div className="p-[18px] w-[100%] flex items-center justify-around rounded-[5px_5px_0_0] bg-[#F4F4F4]">
-                <CheckBoxLabel>
-                    В наличии
-                </CheckBoxLabel>
-                <CheckBoxLabel>
-                    Со скидкой
-                </CheckBoxLabel>
-            </div>
-            <DropList title="Цена">
+        <>
+            <div className={classnames("w1024:hidden", c.wrapper)}>
+                <div className="p-[18px] w-[100%] flex items-center justify-around rounded-[5px_5px_0_0] bg-[#F4F4F4]">
+                    <CheckBoxLabel>В наличии</CheckBoxLabel>
+                    <CheckBoxLabel>Со скидкой</CheckBoxLabel>
+                </div>
+                <DropList title="Цена">
                     <RangeSlider
                         step={1}
                         min={0}
@@ -35,36 +32,60 @@ export function CatalogFilter({}: ICatalogFilter) {
                         initialMin="100000"
                         priceCap={32}
                     ></RangeSlider>
-            </DropList>
-            <DropList title="Цвет">
-                <CheckBoxList items={[
-                    "Белое", "Красное", "Розовое", "Оранжевое",
-                    "Белое", "Красное", "Розовое", "Оранжевое",
-                    "Белое", "Красное", "Розовое", "Оранжевое"
-                ]}></CheckBoxList>
-            </DropList>
-            <DropList title="Цена">
-                <RangeSlider
-                    step={1}
-                    min={0}
-                    max={1000000}
-                    initialMax="300000"
-                    initialMin="100000"
-                    priceCap={32}
-                ></RangeSlider>
-            </DropList>
-            <DropList title="Цвет">
-                <CheckBoxList items={[
-                    "Белое", "Красное", "Розовое", "Оранжевое",
-                    "Белое", "Красное", "Розовое", "Оранжевое",
-                    "Белое", "Красное", "Розовое", "Оранжевое"
-                ]}></CheckBoxList>
-            </DropList>
-            <div className="p-[18px] w-[100%] flex items-center justify-around rounded-[0_0_5px_5px] bg-[#262626]">
-                <button className="w-[100%]"><u className="text-neutral-0 fw-500 fs-15">Сбросить</u></button>
-                <Button>Показать 3572</Button>
+                </DropList>
+                <DropList title="Цвет">
+                    <CheckBoxList items={[
+                        "Белое", "Красное", "Розовое", "Оранжевое",
+                        "Белое", "Красное", "Розовое", "Оранжевое",
+                        "Белое", "Красное", "Розовое", "Оранжевое"
+                    ]}></CheckBoxList>
+                </DropList>
+                <DropList title="Цена">
+                    <RangeSlider
+                        step={1}
+                        min={0}
+                        max={1000000}
+                        initialMax="300000"
+                        initialMin="100000"
+                        priceCap={32}
+                    ></RangeSlider>
+                </DropList>
+                <DropList title="Цвет">
+                    <CheckBoxList items={[
+                        "Белое", "Красное", "Розовое", "Оранжевое",
+                        "Белое", "Красное", "Розовое", "Оранжевое",
+                        "Белое", "Красное", "Розовое", "Оранжевое"
+                    ]}></CheckBoxList>
+                </DropList>
+                <div className="p-[18px] w-[100%] flex items-center justify-around rounded-[0_0_5px_5px] bg-[#262626]">
+                    <button className="w-[100%]"><u className="text-neutral-0 fw-500 fs-15">Сбросить</u></button>
+                    <Button>Показать 3572</Button>
+                </div>
             </div>
-        </div>
+            <div className="w1024-min:hidden bg-[var(--color-primary)] wrap">
+                <ul className="flex justify-around py-[.5rem]">
+                    <li className="flex gap-1 items-center">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17 6L17 18" stroke="white" strokeLinecap="round"/>
+                            <path d="M12 6L12 18" stroke="white" strokeLinecap="round"/>
+                            <path d="M7 6L7 18" stroke="white" strokeLinecap="round"/>
+                            <path d="M5 8H9" stroke="white" strokeLinecap="round"/>
+                            <path d="M10 16H14" stroke="white" strokeLinecap="round"/>
+                            <path d="M15 12H19" stroke="white" strokeLinecap="round"/>
+                        </svg>
+                        <span className="text-neutral-0 text-[14px] underline">Фильтры</span>
+                    </li>
+                    <li className="flex gap-1 items-center">
+                        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M9.125 3.4375L11.5625 1M11.5625 1L14 3.4375M11.5625 1L11.5625 14M5.875 11.5625L3.4375 14M3.4375 14L1 11.5625M3.4375 14L3.4375 1"
+                                stroke="white" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                        <span className="text-neutral-0 text-[14px] underline">Сортировка</span>
+                    </li>
+                </ul>
+            </div>
+        </>
     );
 }
 
@@ -73,12 +94,15 @@ const CheckBoxList: FC<{ items: string[] }> = ({items}): JSX.Element => {
     return (
         <div className="w-[100%]">
             {
-                items.length > 6 ? <label className={classnames(c["search-input"], "mb-[15px]")}><input type="text"/></label> : ""
+                items.length > 6 ?
+                    <label className={classnames(c["search-input"], "mb-[15px]")}><input type="text"/></label> : ""
             }
             <ul className={classnames(items.length > 6 ? classnames(c["checkbox-list"], c["checkbox-list--scroll"]) : c["checkbox-list"])}>
                 {
                     items.map(
-                        (el) => <Fragment key={uuid()}><li><CheckBoxLabel>{el}</CheckBoxLabel></li></Fragment>
+                        (el) => <Fragment key={uuid()}>
+                            <li><CheckBoxLabel>{el}</CheckBoxLabel></li>
+                        </Fragment>
                     )
                 }
             </ul>
@@ -109,9 +133,11 @@ const Arrow: FC<SVGProps<SVGSVGElement>> = (props) => (
         <path d="M9.28 17.4L14.5 11.02L19.72 17.4" stroke="#494949" strokeWidth="1.2"/>
     </svg>
 )
-const CheckBoxLabel: FC<PropsWithChildren<ICatalogCheckboxLabel>> = ({ children }) => {
+const CheckBoxLabel: FC<PropsWithChildren<ICatalogCheckboxLabel>> = ({children}) => {
     const [active, setActive] = useState<boolean>(false);
-    return <button onClick={() => setActive(!active)} className={!active ? c.checkbox : classnames(c.checkbox, c.active)}><span className="fs-15 text-neutral-900 fw-400">{ children }</span></button>;
+    return <button onClick={() => setActive(!active)}
+                   className={!active ? c.checkbox : classnames(c.checkbox, c.active)}><span
+        className="fs-15 text-neutral-900 fw-400">{children}</span></button>;
 }
 const Input: FC<InputHTMLAttributes<HTMLInputElement>> = (props) => {
     const {className = ""} = props;

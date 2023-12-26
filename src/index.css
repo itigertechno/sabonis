@@ -11,6 +11,10 @@ html {
   font-family: "Montserrat", sans-serif;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 :root {
   --wrap-padding: 5.63%;
   --color-primary: #367639;
@@ -63,10 +67,12 @@ html {
   fill: var(--color-secondary);
 }
 
-.wrap {
-  width: 100%;
-  padding-left: var(--wrap-padding);
-  padding-right: var(--wrap-padding);
+@layer components {
+  .wrap {
+    width: 100%;
+    padding-left: var(--wrap-padding);
+    padding-right: var(--wrap-padding);
+  }
 }
 
 @media screen and (max-width: 420px) {

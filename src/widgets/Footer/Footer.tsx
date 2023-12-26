@@ -1,11 +1,11 @@
 export function Footer() {
     return (
-        <footer className='bg-[#25282B] text-white wrap py-[40px]'>
-            <div className="grid grid-cols-3 gap-[40px]">
-                <div className="border-t-[1px] border-[var(--color-neutral-0)] pt-[24px]">
+        <footer className='bg-[#25282B] text-white w1024-min:wrap py-[40px] pb-[60px]'>
+            <div className="grid grid-cols-3 gap-[40px] w1024:grid-cols-1 w1024:wrap">
+                <div className="w1024-min:border-t-[1px] w1024:border-b-[1px] w1024:pt-[0] w1024:pb-[15px] w1024:border-[#494949] w1024-min:border-[var(--color-neutral-0)] pt-[24px]">
                     <h5 className="fs-20 fw-600 text-neutral-0">Каталог товаров</h5>
                     <div className="">
-                        <div className="grid grid-cols-2 mt-[40px]">
+                        <div className="grid grid-cols-2 mt-[40px] w1024:mt-[15px] pb-[1.125rem]">
                             <ul>
                                 <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Вино</li>
                                 <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Вино России</li>
@@ -25,7 +25,7 @@ export function Footer() {
                                 <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Оборудование</li>
                             </ul>
                         </div>
-                        <div className="mt-[40px]">
+                        <div className="mt-[40px] w1024:hidden">
                             <h1 className="fs-20 text-neutral-0 fw-600">Рассылка с акциями и скидками</h1>
                             <label
                                 className="flex gap-[30px] bg-[var(--color-neutral-900)] mt-[15px] items-center lg:w-[60%] pl-[20px] pr-[10px] justify-between">
@@ -60,9 +60,9 @@ export function Footer() {
 
                     </div>
                 </div>
-                <div className="border-t-[1px] border-[var(--color-neutral-0)] pt-[24px]">
+                <div className="w1024-min:border-t-[1px] w1024:border-b-[1px] w1024:pt-[0] w1024:pb-[15px] w1024:border-[#494949] w1024-min:border-[var(--color-neutral-0)] pt-[24px]">
                     <h5 className="fs-20 fw-600 text-neutral-0">Магазины Сабонис</h5>
-                    <p className="fs-15 fw-500 text-neutral-0  mt-[40px]">
+                    <p className="fs-15 fw-500 text-neutral-0  mt-[40px] w1024:mt-[15px] pb-[1.125rem]">
                         Санкт-Петербург, Петроградская наб. 8
                     </p>
                     <p className="fs-15 fw-400 text-neutral-0 mt-[20px]">
@@ -86,9 +86,9 @@ export function Footer() {
                         Email: info@sabonis.ru
                     </p>
                 </div>
-                <div className="border-t-[1px] border-[var(--color-neutral-0)] pt-[24px]">
+                <div className="w1024-min:border-t-[1px] w1024:border-b-[1px] w1024:pt-[0] w1024:pb-[15px] w1024:border-[#494949] w1024-min:border-[var(--color-neutral-0)] pt-[24px]">
                     <h5 className="fs-20 fw-600 text-neutral-0">Проект Wine&Dine</h5>
-                    <p className="fs-15 fw-500 text-neutral-0 mt-[40px]">
+                    <p className="fs-15 fw-500 text-neutral-0 mt-[40px]  w1024:mt-[15px]">
                         Санкт-Петербург, Петроградская наб. 8
                     </p>
                     <p className="fs-15 fw-400 text-neutral-0 mt-[30px]">
@@ -121,7 +121,7 @@ export function Footer() {
                     </p>
                 </div>
             </div>
-            <div className="pt-[20px] border-t-[1px] border-[var(--color-neutral-0)] mt-[20px] grid grid-cols-3 items-center w-[100%]">
+            <div className="pt-[20px] border-t-[1px] border-[var(--color-neutral-0)] mt-[20px] grid grid-cols-3 items-center w-[100%] w1024:hidden">
                 <div className="flex gap-[20px]">
                     <a href="#">
                         <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
