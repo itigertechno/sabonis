@@ -1,4 +1,5 @@
 export interface ICounter {
     onChange: (newValue: number) => void,
-    startValue: number
+    startValue: number,
+    staticCount?: boolean,
 }

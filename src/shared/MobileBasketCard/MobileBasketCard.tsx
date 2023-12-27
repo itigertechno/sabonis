@@ -14,7 +14,8 @@ export function MobileBasketCard(props: IBasketCard) {
         price,
         discount,
         hasClose = true,
-        className = ""
+        className = "",
+        counterLock = false
     } = props;
     const [count, setCount] = useState<number>(1);
     return (
@@ -50,7 +51,7 @@ export function MobileBasketCard(props: IBasketCard) {
                 <span className="text-center fs-10 fw-400 text-[#777777]">Количество</span>
                 <span className="text-center fs-10 fw-400 text-[#777777]">Итого</span>
                 <span className="text-center fs-20 fw-500 text-neutral-900">{discount ?? price}</span>
-                <Counter startValue={count} onChange={setCount}></Counter>
+                <Counter startValue={count} onChange={setCount} staticCount={counterLock}></Counter>
                 <span className="fs-24 fw-400 text-neutral-900 text-center">
                     {discount ? discount * count : price * count}₽
                 </span>
