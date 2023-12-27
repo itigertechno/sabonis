@@ -3,6 +3,8 @@ import {Button} from "@shared/Button";
 import {Link} from "react-router-dom";
 import cardExample from "@utils/card-example.ts";
 import {InlineCard} from "@shared/InlineCard";
+import MediaQuery from "react-responsive";
+import {MobileBasketCard} from "@shared/MobileBasketCard";
 
 export function ProfileStorePage() {
     return (
@@ -19,17 +21,25 @@ export function ProfileStorePage() {
                     }
                 ]}></Breadcrumbs>
                 <h1 className="mt-[30px] fs-30 fw-500 text-neutral-900">Личный кабинет</h1>
-                <div className="grid grid-cols-[1fr_40%] mt-[30px] gap-[40px]">
+                <div className="grid grid-cols-[1fr_40%] w1024:flex w1024:flex-col-reverse mt-[30px] gap-[40px]">
                     <div className="w-[100%]">
                         <div
                             className="py-[5px] bg-[var(--color-primary)] border-[1px] border-[var(--color-primary)]  rounded-[5px_5px_0_0]">
-                            <span className="fs-15 uppercase text-neutral-0 w-[100%] block text-center leading-[50px]">История заказов</span>
+                            <span className="fs-15 uppercase text-neutral-0 w-[100%] block text-center leading-[50px]">Купленные товары</span>
                         </div>
                         <div className="border-x-[1px] border-[var(--color-neutral-700)] px-[20px]">
-                            <InlineCard hasCheckbox={false} {...cardExample}></InlineCard>
-                            <InlineCard hasCheckbox={false} {...cardExample}></InlineCard>
-                            <InlineCard hasCheckbox={false} {...cardExample}></InlineCard>
-                            <InlineCard hasCheckbox={false} {...cardExample}></InlineCard>
+                            <MediaQuery query="(min-width: 1025px)">
+                                <InlineCard hasCheckbox={false} {...cardExample}></InlineCard>
+                                <InlineCard hasCheckbox={false} {...cardExample}></InlineCard>
+                                <InlineCard hasCheckbox={false} {...cardExample}></InlineCard>
+                                <InlineCard hasCheckbox={false} {...cardExample}></InlineCard>
+                            </MediaQuery>
+                            <MediaQuery query="(max-width: 1024px)">
+                                <MobileBasketCard hasClose={false} counterLock={true} {...cardExample}></MobileBasketCard>
+                                <MobileBasketCard hasClose={false} counterLock={true} {...cardExample}></MobileBasketCard>
+                                <MobileBasketCard hasClose={false} counterLock={true} {...cardExample}></MobileBasketCard>
+                                <MobileBasketCard hasClose={false} counterLock={true} {...cardExample}></MobileBasketCard>
+                            </MediaQuery>
                         </div>
                     </div>
                     <div className=" border-[1px] border-[#D6D7D9] h-fit rounded-[5px]">
