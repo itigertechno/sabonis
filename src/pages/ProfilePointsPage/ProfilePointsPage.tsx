@@ -21,13 +21,13 @@ export function ProfilePointsPage() {
                     }
                 ]}></Breadcrumbs>
                 <h1 className="mt-[30px] fs-30 fw-500 text-neutral-900">Личный кабинет</h1>
-                <div className="grid grid-cols-[1fr_40%] mt-[30px] gap-[40px]">
+                <div className="grid grid-cols-[1fr_40%] w1024:flex w1024:flex-col-reverse mt-[30px] gap-[40px]">
                     <div className="w-[100%]">
                         <div
                             className="py-[5px] bg-[var(--color-primary)] border-[1px] border-[var(--color-primary)]  rounded-[5px_5px_0_0]">
                             <span className="fs-15 uppercase text-neutral-0 w-[100%] block text-center leading-[50px]">История заказов</span>
                         </div>
-                        <div className="mt-[30px] flex gap-[30px]">
+                        <div className="mt-[30px] flex gap-[30px] w1260:flex-col-reverse">
                             <div className={classnames(c.card, "rounded-[5px] w-[50%]")}
                                  style={{backgroundImage: `url("${preview}")`}}>
                                 <span
@@ -49,7 +49,7 @@ export function ProfilePointsPage() {
                                 </div>
                                 <div className="h-max">
                                     <span className="fs-20 fw-500 text-neutral-900">Активировать промокод</span>
-                                    <div className="grid grid-cols-2 items-center gap-[10px] mt-[20px]">
+                                    <div className="grid grid-cols-2 items-center gap-[10px] mt-[20px] w1330:grid-cols-1">
                                         <FormInput label="" placeholder="Промокод"></FormInput>
                                         <Button className="w-[100%] h-[100%]">Активировать</Button>
                                     </div>
