@@ -19,7 +19,6 @@ export function Header() {
         return () => window.removeEventListener("scrollend", handleScroll);
     }, []);
 
-
     return (
         <>
             <header
@@ -137,8 +136,7 @@ export function Header() {
                         </svg>
                     </button>
                 </div>
-
-                <div className={active ? "visible h-[100vh]" : "hidden"}>
+                <div className={active ? "visible w1024:h-[100vh]" : "hidden"}>
                     <div
                         className="pt-[36px] border-t-[#C7C7C7] border-t-[1px] wrap grid grid-cols-6 w1024:grid-cols-1 w1024:pb-4 w1024:border-b-[1px] border-[var(--color-neutral-900)]">
                         <List></List>
