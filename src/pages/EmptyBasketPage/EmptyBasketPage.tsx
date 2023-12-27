@@ -23,7 +23,7 @@ export function EmptyBasketPage() {
                 ]}></Breadcrumbs>
                 <h1 className="mt-[30px] fs-30 fw-500 text-neutral-900">Корзина</h1>
                 <div className="flex justify-center items-center mt-[45px]">
-                    <div className="w-[50%] flex flex-col items-center">
+                    <div className="w-[50%] w768:w-[100%] flex flex-col items-center">
                         <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clipPath="url(#clip0_357_2456)">
                                 <path d="M37.5007 91.6667C39.8018 91.6667 41.6673 89.8012 41.6673 87.5C41.6673 85.1989 39.8018 83.3334 37.5007 83.3334C35.1995 83.3334 33.334 85.1989 33.334 87.5C33.334 89.8012 35.1995 91.6667 37.5007 91.6667Z" stroke="#494949" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>

@@ -133,7 +133,7 @@ const MobileBasketSteps = () => {
         case 2:
             return <MobileThirdStep step={step} setStep={setStep}></MobileThirdStep>;
         case 3:
-            return <MobileFourthStep step={step} setStep={setStep}></MobileFourthStep>;
+            return <MobileFourthStep></MobileFourthStep>;
         default:
             return <MobileFirstStep step={step} setStep={setStep}></MobileFirstStep>;
     }
@@ -263,7 +263,7 @@ const MobileThirdStep = ({setStep}: IMobileBasketStep) => {
     );
 }
 
-const MobileFourthStep = ({setStep}: IMobileBasketStep) => {
+const MobileFourthStep = () => {
     return (
         <>
             <MobileBasketCard hasClose={false} counterLock={true}  {...cardExample}></MobileBasketCard>
