@@ -2,11 +2,12 @@ import {Breadcrumbs} from "@shared/Breadcrumbs";
 import {FormInput} from "@shared/FormInput";
 import {Button} from "@shared/Button";
 import {Link} from "react-router-dom";
+import MediaQuery from "react-responsive";
 
 export function ProfilePage() {
     return (
         <>
-            <section className="wrap mt-[30px]">
+            <section className="wrap mt-[30px] mb-[90px]">
                 <Breadcrumbs linksArray={[
                     {
                         title: "Главная",
@@ -18,22 +19,40 @@ export function ProfilePage() {
                     }
                 ]}></Breadcrumbs>
                 <h1 className="mt-[30px] fs-30 fw-500 text-neutral-900">Личный кабинет</h1>
-                <div className="grid grid-cols-[1fr_40%] mt-[30px] gap-[40px]">
+                <div className="grid grid-cols-[1fr_40%] w1024:flex w1024:flex-col-reverse mt-[30px] gap-[40px]">
                     <div className="w-[100%]">
                         <div
                             className="py-[5px] bg-[var(--color-primary)] border-[1px] border-[var(--color-primary)]  rounded-[5px_5px_0_0]">
                             <span className="fs-15 uppercase text-neutral-0 w-[100%] block text-center leading-[50px]">Личные данные</span>
                         </div>
-                        <form className="mt-[40px] pr-[50px] grid grid-cols-2 gap-y-[25px] gap-x-[50px]">
-                            <span className="fs-20 fw-500 text-neutral-900">О вас</span>
-                            <span className="fs-20 fw-500 text-neutral-900">Пароль</span>
-                            <FormInput label="Имя" placeholder="Иван Иванович Иванов"></FormInput>
-                            <FormInput label="Имя" placeholder="Иван Иванович Иванов"></FormInput>
-                            <FormInput label="Имя" placeholder="Иван Иванович Иванов"></FormInput>
-                            <FormInput label="Имя" placeholder="Иван Иванович Иванов"></FormInput>
-                            <FormInput label="Имя" placeholder="Иван Иванович Иванов"></FormInput>
-                            <Button className="h-[52px] self-end border-[1px] border-[var(--color-primary)]">Сохранить</Button>
-                        </form>
+                        <MediaQuery query="(min-width:1025px)">
+                            <form className="mt-[40px] pr-[50px] grid grid-cols-2 gap-y-[25px] gap-x-[50px]">
+                                <span className="fs-20 fw-500 text-neutral-900">О вас</span>
+                                <span className="fs-20 fw-500 text-neutral-900">Пароль</span>
+                                <FormInput label="Имя" placeholder="Иван Иванович Иванов"></FormInput>
+                                <FormInput label="Имя" placeholder="Иван Иванович Иванов"></FormInput>
+                                <FormInput label="Имя" placeholder="Иван Иванович Иванов"></FormInput>
+                                <FormInput label="Имя" placeholder="Иван Иванович Иванов"></FormInput>
+                                <FormInput label="Имя" placeholder="Иван Иванович Иванов"></FormInput>
+                                <Button className="h-[52px] self-end border-[1px] border-[var(--color-primary)]">Сохранить</Button>
+                            </form>
+                        </MediaQuery>
+                        <MediaQuery query="(max-width:1024px)">
+                            <form className="mt-[40px] grid grid-cols-1 gap-y-[25px] gap-x-[50px]">
+                                <fieldset className="flex flex-col gap-[10px]">
+                                    <span className="fs-20 fw-500 text-neutral-900">О вас</span>
+                                    <FormInput label="Имя" placeholder="Иван Иванович Иванов"></FormInput>
+                                    <FormInput label="Имя" placeholder="Иван Иванович Иванов"></FormInput>
+                                    <FormInput label="Имя" placeholder="Иван Иванович Иванов"></FormInput>
+                                </fieldset>
+                                <fieldset className="flex flex-col gap-[10px]">
+                                    <span className="fs-20 fw-500 text-neutral-900">Пароль</span>
+                                    <FormInput label="Имя" placeholder="Иван Иванович Иванов"></FormInput>
+                                    <FormInput label="Имя" placeholder="Иван Иванович Иванов"></FormInput>
+                                </fieldset>
+                                <Button className="h-[52px] self-end border-[1px] border-[var(--color-primary)]">Сохранить</Button>
+                            </form>
+                        </MediaQuery>
                     </div>
                     <div className=" border-[1px] border-[#D6D7D9] h-fit rounded-[5px]">
                         <div

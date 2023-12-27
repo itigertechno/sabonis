@@ -142,7 +142,10 @@ const MobileBasketSteps = () => {
 const MobileFirstStep = ({setStep}: IMobileBasketStep) => {
     return (
         <>
-            <MobileBasketCard {...cardExample}></MobileBasketCard><MobileBasketCard {...cardExample}></MobileBasketCard><MobileBasketCard {...cardExample}></MobileBasketCard><MobileBasketCard {...cardExample}></MobileBasketCard>
+            <MobileBasketCard {...cardExample}></MobileBasketCard>
+            <MobileBasketCard {...cardExample}></MobileBasketCard>
+            <MobileBasketCard {...cardExample}></MobileBasketCard>
+            <MobileBasketCard {...cardExample}></MobileBasketCard>
             <div className="px-[25px] pb-[25px] pt-[20px]">
                 <div className="grid grid-cols-2 w260:grid-cols-1 mt-[32px]">
                     <span className="fs-15 fw-400 text-neutral-500 self-center">Ваша скидка:</span>
