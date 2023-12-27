@@ -10,7 +10,6 @@ export function Header() {
     const [active, setActive] = useState<boolean>(false);
 
     const handleScroll = () => {
-        console.log(window.scrollY)
         setScroll(window.scrollY);
     };
 
