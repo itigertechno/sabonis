@@ -45,7 +45,7 @@ export function EmptyBasketPage() {
                 </div>
 
             </section>
-            <section className="wrap mt-[70px]">
+            <section className="wrap mt-[70px] mb-[30px]">
                 <h2 className="fs-40 fw-300 text-neutral-900">Рекомендованные товары</h2>
                 <div className="w-[100%] mt-[60px]">
                     <Slider perPage={4} tags={[
