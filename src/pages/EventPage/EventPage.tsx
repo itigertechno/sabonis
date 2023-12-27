@@ -2,6 +2,8 @@ import {Breadcrumbs} from "@shared/Breadcrumbs";
 import {EventCard} from "@shared/EventCard";
 import ex from "@pictures/events/ex.png";
 import {Button} from "@shared/Button";
+import MediaQuery from "react-responsive";
+import {Slider} from "@widgets/Slider";
 
 export function EventPage() {
     return (
@@ -94,6 +96,13 @@ export function EventPage() {
                         </div>
                     </div>
                 </div>
+                <MediaQuery query="(max-width:1024px)">
+                    <Slider perPage={3}>
+                        <EventCard></EventCard>
+                        <EventCard></EventCard>
+                        <EventCard></EventCard>
+                    </Slider>
+                </MediaQuery>
             </section>
         </>
     );
