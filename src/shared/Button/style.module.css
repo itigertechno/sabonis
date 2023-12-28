@@ -8,6 +8,7 @@
     border-radius: 5px;
     border: 1px solid transparent;
     white-space: nowrap;
+    transition: 250ms ease-in-out all;
 }
 
 .button--fill {
@@ -26,6 +27,16 @@
     border-color: var(--color-neutral-600);
     background-color: transparent;
     color: var(--color-neutral-900);
+}
+
+.button:hover {
+    background: var(--color-primary);
+    color: var(--color-neutral-0);
+}
+
+.button:hover, .button:hover > span, .button:hover path {
+    color: var(--color-neutral-0);
+    fill: var(--color-neutral-0);
 }
 
 .button--thin {

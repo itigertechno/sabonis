@@ -4,11 +4,18 @@ import {Card} from "@shared/Card";
 import cardExample from "@utils/card-example.ts";
 import preview from "@pictures/bottle.png";
 import {SvgSprite} from "@shared/SvgSprite";
-import {FC, PropsWithChildren} from "react";
+import {FC, HTMLAttributes, PropsWithChildren, useState} from "react";
 import c from "./style.module.css";
 import {Button} from "@shared/Button";
+import classnames from "@utils/classnames.ts";
+import {SwitchCounter} from "@shared/SwitchCounter";
+import DropList from "@shared/DropList/DropList.tsx";
 
 export function ProductPage() {
+    const [vintage, setVintage] = useState<number>(0);
+    const [volume, setVolume] = useState<number>(0);
+    const [counterVisibility, setCounterVisibility] = useState<boolean>(false);
+
     return (
         <>
             <section className="wrap mt-[60px]">
@@ -28,7 +35,8 @@ export function ProductPage() {
                 ]}></Breadcrumbs>
             </section>
             <section className="wrap mt-[36px] relative grid grid-cols-2 w1024:grid-cols-1 justify-between">
-                <div className="absolute flex flex-col w1024:w-[100%] w1024:left-0 w1024:wrap w1024:justify-between w1024:flex-row gap-[10px] left-[var(--wrap-padding)]">
+                <div
+                    className="absolute flex flex-col w1024:w-[100%] w1024:left-0 w1024:wrap w1024:justify-between w1024:flex-row gap-[10px] left-[var(--wrap-padding)]">
                     <span>Арт. 324657</span>
                     <button>
                         <SvgSprite type="favorites"></SvgSprite>
@@ -64,27 +72,22 @@ export function ProductPage() {
                             Жордан,<br/> белое, сухое, 2009г, 12% алк, 0,75л
                         </p>
                     </div>
-                    <div className="grid grid-cols-2 w1024:grid-cols-1 gap-y-[20px] w1024:gap-y-[10px] w1024:mb-[20px] mt-[30px] items-center">
+                    <div
+                        className="grid grid-cols-2 w1024:grid-cols-1 gap-y-[20px] w1024:gap-y-[10px] w1024:mb-[20px] mt-[30px] items-center">
                         <span className="fs-15 fw-600 text-neutral-900">Винтаж: </span>
                         <div className="flex flex-wrap gap-[6px]">
-                            <ButtonTag>2008</ButtonTag>
-                            <ButtonTag>2009</ButtonTag>
-                            <ButtonTag>2010</ButtonTag>
-                            <ButtonTag>2011</ButtonTag>
-                            <ButtonTag>2012</ButtonTag>
-                            <ButtonTag>2013</ButtonTag>
+                            <ButtonTag identity={0} active={vintage} onClick={() => setVintage(0)}>2008</ButtonTag>
+                            <ButtonTag identity={1} active={vintage} onClick={() => setVintage(1)}>2009</ButtonTag>
+                            <ButtonTag identity={2} active={vintage} onClick={() => setVintage(2)}>2010</ButtonTag>
+                            <ButtonTag identity={3} active={vintage} onClick={() => setVintage(3)}>2011</ButtonTag>
+                            <ButtonTag identity={4} active={vintage} onClick={() => setVintage(4)}>2012</ButtonTag>
+                            <ButtonTag identity={5} active={vintage} onClick={() => setVintage(5)}>2013</ButtonTag>
                         </div>
                         <span className="fs-15 fw-600 text-neutral-900">Объем (л): </span>
                         <div className="flex flex-wrap gap-[6px]">
-                            <ButtonTag>0,75</ButtonTag>
-                            <ButtonTag>1,5</ButtonTag>
-                            <ButtonTag>3</ButtonTag>
-                        </div>
-                        <span className="fs-15 fw-600 text-neutral-900">Объем (л): </span>
-                        <div className="flex flex-wrap gap-[6px]">
-                            <ButtonTag>0,75</ButtonTag>
-                            <ButtonTag>1,5</ButtonTag>
-                            <ButtonTag>3</ButtonTag>
+                            <ButtonTag identity={0} active={volume} onClick={() => setVolume(0)}>0,75</ButtonTag>
+                            <ButtonTag identity={1} active={volume} onClick={() => setVolume(1)}>1,5</ButtonTag>
+                            <ButtonTag identity={2} active={volume} onClick={() => setVolume(2)}>3</ButtonTag>
                         </div>
                         <span className="fs-15 fw-600 text-neutral-900">Сортовой состав: <span className="fw-500">Вионье 100%</span></span>
                     </div>
@@ -112,7 +115,8 @@ export function ProductPage() {
                     </div>
                     <div className="flex gap-[50px] w1024:flex-col-reverse w1024:gap-1 mt-[24px]">
                         <label className="border-b border-[var(--color-neutral-900)] flex">
-                            <input type="text" className="w-[100%] placeholder:opacity-100 px-[5px] outline-0 leading-[50px]"
+                            <input type="text"
+                                   className="w-[100%] placeholder:opacity-100 px-[5px] outline-0 leading-[50px]"
                                    placeholder="Промокод"/>
                             <button>
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
@@ -129,10 +133,19 @@ export function ProductPage() {
                         </div>
                     </div>
                     <div className="mt-[30px] w-[50%]">
-                        <Button className="">
-                            <SvgSprite type="shopping-basket"></SvgSprite>
-                            <span className="fs-15 text-neutral-0 fw-500">В корзину</span>
-                        </Button>
+                        {
+                            counterVisibility ?
+                                <>
+                                    <SwitchCounter onChange={() => {
+                                    }}></SwitchCounter>
+                                </> :
+                                <>
+                                    <Button onClick={() => setCounterVisibility(true)}>
+                                        <SvgSprite type="shopping-basket"></SvgSprite>
+                                        <span className="fs-15 text-neutral-0 fw-500">В корзину</span>
+                                    </Button>
+                                </>
+                        }
                     </div>
                 </div>
             </section>
@@ -141,57 +154,170 @@ export function ProductPage() {
                     <h2 className="fs-20 text-neutral-900 fw-600 text-center">Информация о товаре</h2>
                 </div>
                 <div className="w1024-min:wrap mt-[50px]">
-                    <hr className="mb-[25px] border-[var(--color-neutral-900)]"/>
-                    <div className="w1024:wrap">
-                        <h3 className="fs-15 fw-700 text-neutral-900">Описание</h3>
-                        <p className="mt-[20px] fs-15 text-neutral-900 fw-400">
-                            Domaine Bastide Jourdan "Viognier en Fut" IGP Méditerranée - это изысканное белое вино,
-                            произведенное в аппеласьоне IGP Méditerranée на юге Франции. Это вино придется по вкусу
-                            ценителям
-                            изысканных белых сортов, и оно носит в себе характерные черты винограда Вионье.
-                        </p>
-                        <p className="mt-[30px] fs-15 text-neutral-900 fw-400">
-                            Аромат этого вина очаровывает нотами белых цветов, спелых персиков и нежными акцентами ванили от
-                            длительного выдерживания в дубовых бочках. Вкус обладает отличным балансом между фруктовой
-                            сладостью и мягкой кислотностью, что делает его приятным и гармоничным.
-                        </p>
-                        <p className="mt-[30px] fs-15 text-neutral-900 fw-400">
-                            "Viognier en Fut" идеально подходит к блюдам с морепродуктами, пастой, а также курицей или
-                            тушеным овощам. Оно также прекрасно сочетается с сырами и представляет собой отличный аперитив.
-                        </p>
-                    </div>
+                    <DropList title="Описание" bold>
+                        <div className="w1024:wrap pb-[18px]">
+                            <p className="mt-[20px] fs-15 text-neutral-900 fw-400">
+                                Domaine Bastide Jourdan "Viognier en Fut" IGP Méditerranée - это изысканное белое вино,
+                                произведенное в аппеласьоне IGP Méditerranée на юге Франции. Это вино придется по вкусу
+                                ценителям
+                                изысканных белых сортов, и оно носит в себе характерные черты винограда Вионье.
+                            </p>
+                            <p className="mt-[30px] fs-15 text-neutral-900 fw-400">
+                                Аромат этого вина очаровывает нотами белых цветов, спелых персиков и нежными акцентами
+                                ванили от
+                                длительного выдерживания в дубовых бочках. Вкус обладает отличным балансом между фруктовой
+                                сладостью и мягкой кислотностью, что делает его приятным и гармоничным.
+                            </p>
+                            <p className="mt-[30px] fs-15 text-neutral-900 fw-400">
+                                "Viognier en Fut" идеально подходит к блюдам с морепродуктами, пастой, а также курицей или
+                                тушеным овощам. Оно также прекрасно сочетается с сырами и представляет собой отличный
+                                аперитив.
+                            </p>
+                        </div>
+                    </DropList>
                 </div>
-                <div className="w1024-min:wrap mt-[25px]">
-                    <hr className="mb-[25px] border-[var(--color-neutral-900)]"/>
-                    <div className="w1024:wrap">
-                        <h3 className="fs-15 fw-700 text-neutral-900">Характеристики</h3>
-                        <div className="flex mt-[20px] items-start w1024:flex-col">
-                            <div className="grid grid-cols-2 items-center pr-[30px] w1024:pr-0 gap-[15px] border-r-[1px] w1024:border-none border-[var(--color-neutral-900)]">
-                                <span className="fs-15 fw-600 text-neutral-900">Название:</span>
-                                <span className="fs-15 fw-400 text-neutral-900">Матеуш Розе, 750 мл</span>
-                                <span className="fs-15 fw-600 text-neutral-900">Название:</span>
-                                <span className="fs-15 fw-400 text-neutral-900">Матеуш Розе, 750 мл</span>
-                                <span className="fs-15 fw-600 text-neutral-900">Название:</span>
-                                <span className="fs-15 fw-400 text-neutral-900">Матеуш Розе, 750 мл</span>
-                                <span className="fs-15 fw-600 text-neutral-900">Название:</span>
-                                <span className="fs-15 fw-400 text-neutral-900">Матеуш Розе, 750 мл</span>
-                                <span className="fs-15 fw-600 text-neutral-900">Название:</span>
-                                <span className="fs-15 fw-400 text-neutral-900">Матеуш Розе, 750 мл</span>
-                            </div>
-                            <div className="grid grid-cols-2 items-center gap-[15px] ml-[30px] w1024:mt-[10px] w1024:ml-0">
-                                <span className="fs-15 fw-600 text-neutral-900">Название:</span>
-                                <span className="fs-15 fw-400 text-neutral-900">Матеуш Розе, 750 мл</span>
-                                <span className="fs-15 fw-600 text-neutral-900">Название:</span>
-                                <span className="fs-15 fw-400 text-neutral-900">Матеуш Розе, 750 мл</span>
-                                <span className="fs-15 fw-600 text-neutral-900">Название:</span>
-                                <span className="fs-15 fw-400 text-neutral-900">Матеуш Розе, 750 мл</span>
-                                <span className="fs-15 fw-600 text-neutral-900">Название:</span>
-                                <span className="fs-15 fw-400 text-neutral-900">Матеуш Розе, 750 мл</span>
-                                <span className="fs-15 fw-600 text-neutral-900">Название:</span>
-                                <span className="fs-15 fw-400 text-neutral-900">Матеуш Розе, 750 мл</span>
+                <div className="w1024-min:wrap w-[100%]">
+                    <DropList title="Характеристики" bold>
+                        <div className="w1024:wrap w-[100%] pb-[18px]">
+                            <div className="grid grid-cols-[1fr_1px_1fr] justify-between mt-[20px] w1024:flex-col w-[100%]">
+                                <div
+                                    className="grid grid-cols-2 items-center w1024:pr-0 gap-[15px]">
+                                    <span className="fs-15 fw-600 text-neutral-900">Название:</span>
+                                    <span className="fs-15 fw-400 text-neutral-900">Матеуш Розе, 750 мл</span>
+                                    <span className="fs-15 fw-600 text-neutral-900">Название:</span>
+                                    <span className="fs-15 fw-400 text-neutral-900">Матеуш Розе, 750 мл</span>
+                                    <span className="fs-15 fw-600 text-neutral-900">Название:</span>
+                                    <span className="fs-15 fw-400 text-neutral-900">Матеуш Розе, 750 мл</span>
+                                    <span className="fs-15 fw-600 text-neutral-900">Название:</span>
+                                    <span className="fs-15 fw-400 text-neutral-900">Матеуш Розе, 750 мл</span>
+                                    <span className="fs-15 fw-600 text-neutral-900">Название:</span>
+                                    <span className="fs-15 fw-400 text-neutral-900">Матеуш Розе, 750 мл</span>
+                                </div>
+                                <div className="w-full flex items-center justify-center">
+                                    <div className="h-[100%] w-[1px] bg-[var(--color-neutral-900)]"></div>
+                                </div>
+                                <div
+                                    className="grid grid-cols-2 items-center gap-[15px] w1024:mt-[10px] text-right w1024:ml-0">
+                                    <span className="fs-15 fw-600 text-neutral-900">Название:</span>
+                                    <span className="fs-15 fw-400 text-neutral-900">Матеуш Розе, 750 мл</span>
+                                    <span className="fs-15 fw-600 text-neutral-900">Название:</span>
+                                    <span className="fs-15 fw-400 text-neutral-900">Матеуш Розе, 750 мл</span>
+                                    <span className="fs-15 fw-600 text-neutral-900">Название:</span>
+                                    <span className="fs-15 fw-400 text-neutral-900">Матеуш Розе, 750 мл</span>
+                                    <span className="fs-15 fw-600 text-neutral-900">Название:</span>
+                                    <span className="fs-15 fw-400 text-neutral-900">Матеуш Розе, 750 мл</span>
+                                    <span className="fs-15 fw-600 text-neutral-900">Название:</span>
+                                    <span className="fs-15 fw-400 text-neutral-900">Матеуш Розе, 750 мл</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </DropList>
+                    <DropList title="Вкусоароматика" bold>
+                        <div className="w1024:wrap w-[100%] pb-[18px]">
+                            <div className="grid grid-cols-[1fr_1px_1fr] justify-between mt-[20px] w1024:flex-col w-[100%]">
+                                <div
+                                    className="grid grid-cols-2 items-center w1024:pr-0 gap-[15px]">
+                                    <span className="fs-15 fw-600 text-neutral-900">Название:</span>
+                                    <span className="fs-15 fw-400 text-neutral-900">Матеуш Розе, 750 мл</span>
+                                    <span className="fs-15 fw-600 text-neutral-900">Название:</span>
+                                    <span className="fs-15 fw-400 text-neutral-900">Матеуш Розе, 750 мл</span>
+                                    <span className="fs-15 fw-600 text-neutral-900">Название:</span>
+                                    <span className="fs-15 fw-400 text-neutral-900">Матеуш Розе, 750 мл</span>
+                                    <span className="fs-15 fw-600 text-neutral-900">Название:</span>
+                                    <span className="fs-15 fw-400 text-neutral-900">Матеуш Розе, 750 мл</span>
+                                    <span className="fs-15 fw-600 text-neutral-900">Название:</span>
+                                    <span className="fs-15 fw-400 text-neutral-900">Матеуш Розе, 750 мл</span>
+                                </div>
+                                <div className="w-full flex items-center justify-center">
+                                    <div className="h-[100%] w-[1px] bg-[var(--color-neutral-900)]"></div>
+                                </div>
+                                <div
+                                    className="grid grid-cols-2 items-center gap-[15px] w1024:mt-[10px] text-right w1024:ml-0">
+                                    <span className="fs-15 fw-600 text-neutral-900">Название:</span>
+                                    <span className="fs-15 fw-400 text-neutral-900">Матеуш Розе, 750 мл</span>
+                                    <span className="fs-15 fw-600 text-neutral-900">Название:</span>
+                                    <span className="fs-15 fw-400 text-neutral-900">Матеуш Розе, 750 мл</span>
+                                    <span className="fs-15 fw-600 text-neutral-900">Название:</span>
+                                    <span className="fs-15 fw-400 text-neutral-900">Матеуш Розе, 750 мл</span>
+                                    <span className="fs-15 fw-600 text-neutral-900">Название:</span>
+                                    <span className="fs-15 fw-400 text-neutral-900">Матеуш Розе, 750 мл</span>
+                                    <span className="fs-15 fw-600 text-neutral-900">Название:</span>
+                                    <span className="fs-15 fw-400 text-neutral-900">Матеуш Розе, 750 мл</span>
+                                </div>
+                            </div>
+                        </div>
+                    </DropList>
+                    <DropList title="Производитель" bold>
+                        <div className="w1024:wrap w-[100%] pb-[18px]">
+                            <div className="grid grid-cols-[1fr_1px_1fr] justify-between mt-[20px] w1024:flex-col w-[100%]">
+                                <div
+                                    className="grid grid-cols-2 items-center w1024:pr-0 gap-[15px]">
+                                    <span className="fs-15 fw-600 text-neutral-900">Название:</span>
+                                    <span className="fs-15 fw-400 text-neutral-900">Матеуш Розе, 750 мл</span>
+                                    <span className="fs-15 fw-600 text-neutral-900">Название:</span>
+                                    <span className="fs-15 fw-400 text-neutral-900">Матеуш Розе, 750 мл</span>
+                                    <span className="fs-15 fw-600 text-neutral-900">Название:</span>
+                                    <span className="fs-15 fw-400 text-neutral-900">Матеуш Розе, 750 мл</span>
+                                    <span className="fs-15 fw-600 text-neutral-900">Название:</span>
+                                    <span className="fs-15 fw-400 text-neutral-900">Матеуш Розе, 750 мл</span>
+                                    <span className="fs-15 fw-600 text-neutral-900">Название:</span>
+                                    <span className="fs-15 fw-400 text-neutral-900">Матеуш Розе, 750 мл</span>
+                                </div>
+                                <div className="w-full flex items-center justify-center">
+                                    <div className="h-[100%] w-[1px] bg-[var(--color-neutral-900)]"></div>
+                                </div>
+                                <div
+                                    className="grid grid-cols-2 items-center gap-[15px] w1024:mt-[10px] text-right w1024:ml-0">
+                                    <span className="fs-15 fw-600 text-neutral-900">Название:</span>
+                                    <span className="fs-15 fw-400 text-neutral-900">Матеуш Розе, 750 мл</span>
+                                    <span className="fs-15 fw-600 text-neutral-900">Название:</span>
+                                    <span className="fs-15 fw-400 text-neutral-900">Матеуш Розе, 750 мл</span>
+                                    <span className="fs-15 fw-600 text-neutral-900">Название:</span>
+                                    <span className="fs-15 fw-400 text-neutral-900">Матеуш Розе, 750 мл</span>
+                                    <span className="fs-15 fw-600 text-neutral-900">Название:</span>
+                                    <span className="fs-15 fw-400 text-neutral-900">Матеуш Розе, 750 мл</span>
+                                    <span className="fs-15 fw-600 text-neutral-900">Название:</span>
+                                    <span className="fs-15 fw-400 text-neutral-900">Матеуш Розе, 750 мл</span>
+                                </div>
+                            </div>
+                        </div>
+                    </DropList>
+                    <DropList title="Сорт винограда" bold>
+                        <div className="w1024:wrap w-[100%] pb-[18px]">
+                            <div className="grid grid-cols-[1fr_1px_1fr] justify-between mt-[20px] w1024:flex-col w-[100%]">
+                                <div
+                                    className="grid grid-cols-2 items-center w1024:pr-0 gap-[15px]">
+                                    <span className="fs-15 fw-600 text-neutral-900">Название:</span>
+                                    <span className="fs-15 fw-400 text-neutral-900">Матеуш Розе, 750 мл</span>
+                                    <span className="fs-15 fw-600 text-neutral-900">Название:</span>
+                                    <span className="fs-15 fw-400 text-neutral-900">Матеуш Розе, 750 мл</span>
+                                    <span className="fs-15 fw-600 text-neutral-900">Название:</span>
+                                    <span className="fs-15 fw-400 text-neutral-900">Матеуш Розе, 750 мл</span>
+                                    <span className="fs-15 fw-600 text-neutral-900">Название:</span>
+                                    <span className="fs-15 fw-400 text-neutral-900">Матеуш Розе, 750 мл</span>
+                                    <span className="fs-15 fw-600 text-neutral-900">Название:</span>
+                                    <span className="fs-15 fw-400 text-neutral-900">Матеуш Розе, 750 мл</span>
+                                </div>
+                                <div className="w-full flex items-center justify-center">
+                                    <div className="h-[100%] w-[1px] bg-[var(--color-neutral-900)]"></div>
+                                </div>
+                                <div
+                                    className="grid grid-cols-2 items-center gap-[15px] w1024:mt-[10px] text-right w1024:ml-0">
+                                    <span className="fs-15 fw-600 text-neutral-900">Название:</span>
+                                    <span className="fs-15 fw-400 text-neutral-900">Матеуш Розе, 750 мл</span>
+                                    <span className="fs-15 fw-600 text-neutral-900">Название:</span>
+                                    <span className="fs-15 fw-400 text-neutral-900">Матеуш Розе, 750 мл</span>
+                                    <span className="fs-15 fw-600 text-neutral-900">Название:</span>
+                                    <span className="fs-15 fw-400 text-neutral-900">Матеуш Розе, 750 мл</span>
+                                    <span className="fs-15 fw-600 text-neutral-900">Название:</span>
+                                    <span className="fs-15 fw-400 text-neutral-900">Матеуш Розе, 750 мл</span>
+                                    <span className="fs-15 fw-600 text-neutral-900">Название:</span>
+                                    <span className="fs-15 fw-400 text-neutral-900">Матеуш Розе, 750 мл</span>
+                                </div>
+                            </div>
+                        </div>
+                    </DropList>
+                    <hr className="border-[var(--color-neutral)]"/>
                 </div>
             </section>
             <section className="wrap mt-[60px] mb-[30px]">
@@ -230,7 +356,19 @@ export function ProductPage() {
     );
 }
 
-const ButtonTag: FC<PropsWithChildren> = ({children}) => (
-    <button
-        className="px-[8px] py-[5px] rounded-[5px] border-[1px] border-[var(--color-danger)] leading-[1] fs-13 fw-600 text-neutral-900">{children}</button>
-)
+const ButtonTag: FC<PropsWithChildren<HTMLAttributes<HTMLButtonElement>> & {
+    active: number,
+    identity: number
+}> = (props) => {
+    const {active, identity, children, onClick} = props;
+    return (
+        <button
+            onClick={onClick}
+            className={
+                classnames(
+                    "px-[8px] py-[5px] rounded-[5px] border-[1px] border-[var(--color-danger)] leading-[1] fs-13 fw-600 text-neutral-900",
+                    active === identity ? "!bg-[var(--color-primary)] !text-[var(--color-neutral-0)] border-[var(--color-primary)]" : ""
+                )
+            }>{children}</button>
+    )
+}

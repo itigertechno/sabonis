@@ -6,9 +6,8 @@ import {Children, Fragment, PropsWithChildren, useState} from "react";
 import {ISlider} from "./Slider.types.ts";
 import uuid from "react-uuid";
 import {SvgSprite} from "@shared/SvgSprite";
-
 export function Slider({children, perPage, mobilePerPage, tags = []}: PropsWithChildren<ISlider>) {
-    const [active] = useState<number>(tags[0] && tags[0].id ? tags[0].id : 1);
+    const [active, setActive] = useState<number>(tags[0] && tags[0].id ? tags[0].id : 1);
     const options = {
         type: "loop",
         gap: "1rem",
@@ -46,6 +45,7 @@ export function Slider({children, perPage, mobilePerPage, tags = []}: PropsWithC
                         tags.map((el =>
                             <li key={uuid()}>
                                 <button
+                                    onClick={() => setActive(el.id)}
                                     className={classnames("fs-20 fw-500", (el.id === active ? "text-neutral-900" : "underline underline-offset-4 text-neutral-500"))}>{el.title}</button>
                             </li>)
                         )
@@ -59,7 +59,7 @@ export function Slider({children, perPage, mobilePerPage, tags = []}: PropsWithC
                         <SvgSprite type="slider-arrow"></SvgSprite>
                     </button>
                 </div>
-                <SplideTrack>
+                <SplideTrack className="py-1">
                     {
                         Children.map(children, (el) =>
                             <Fragment key={uuid()}>
