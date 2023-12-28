@@ -2,16 +2,13 @@ import {ICard} from './Card.types';
 import {Button} from "@shared/Button";
 import {SvgSprite} from "@shared/SvgSprite";
 import c from "./style.module.css";
-import {useNavigate} from "react-router-dom";
+import {Link} from "react-router-dom";
 import classnames from "@utils/classnames.ts";
 import {useState} from "react";
 import {SwitchCounter} from "@shared/SwitchCounter";
 
 export function Card({stock, title, description, preview, vendorCode, price, discount, mosaic = false}: ICard) {
-    const navigate = useNavigate();
     const [counter, setCounter] = useState<boolean>(false);
-
-    const toPage = () => navigate("/product");
 
     return (
         <article className={classnames(c.article, mosaic ? c.mosaic : "", "p-[14px] pb-[20px] w1024:px-[0]")}>
@@ -43,7 +40,9 @@ export function Card({stock, title, description, preview, vendorCode, price, dis
                     null
             }
             <img src={preview} alt={`Preview of ${title}`} className={c.article__preview}/>
-            <h3 className="text-neutral-900 fs-16 fw-500 text-center mt-[10px] pl-[20px] pr-[20px] w1024:px-[6px]">{title}</h3>
+            <Link to="/product">
+                <h3 className="text-neutral-900 fs-16 fw-500 text-center mt-[10px] pl-[20px] pr-[20px] w1024:px-[6px]">{title}</h3>
+            </Link>
             <p className={classnames("text-neutral-900 fs-12 fw-400 text-center mt-[13px] pl-[36px] pr-[36px] mb-[20px] w1024:px-[6px]", mosaic ? "w1024:hidden" : "")}>{description}</p>
             <div className={mosaic ? "w1024:hidden" : ""}>
                 {
