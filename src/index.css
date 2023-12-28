@@ -38,6 +38,9 @@ body {
 .text-neutral-0 {
   color: var(--color-neutral-0);
 }
+.text-neutral-0-include * {
+  color: var(--color-neutral-0);
+}
 .text-primary {
   color: var(--color-primary);
 }
@@ -56,6 +59,9 @@ body {
 }
 .fill-neutral-0 {
   fill: var(--color-neutral-0);
+}
+.fill-neutral-0-include-svg-stroke path {
+  stroke: var(--color-neutral-0);
 }
 .fill-primary {
   fill: var(--color-primary);

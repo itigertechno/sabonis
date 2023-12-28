@@ -1,149 +1,152 @@
 import MediaQuery from "react-responsive";
 import {useState} from "react";
 import {Link} from "react-router-dom";
+import DropList from "@shared/DropList/DropList.tsx";
 
 export function Footer() {
     const [agreeNewsletter, setAgreeNewsletter] = useState<boolean>(false);
 
     return (
         <footer className='bg-[#25282B] text-white w1024-min:wrap py-[40px] pb-[60px]'>
-            <div className="grid grid-cols-3 gap-[40px] w1024:grid-cols-1 w1024:wrap">
-                <div
-                    className="w1024-min:border-t-[1px] w1024:border-b-[1px] w1024:pt-[0] w1024:pb-[15px] w1024:border-[#494949] w1024-min:border-[var(--color-neutral-0)] pt-[24px]">
-                    <h5 className="fs-20 fw-600 text-neutral-0">Каталог товаров</h5>
-                    <div className="">
-                        <div className="grid grid-cols-2 mt-[40px] w1024:mt-[15px] pb-[1.125rem]">
-                            <ul>
-                                <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Вино</li>
-                                <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Вино России</li>
-                                <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Игристое вино</li>
-                                <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Коньяк</li>
-                                <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Виски</li>
-                                <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Граппа</li>
-                                <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Крепкие напитки</li>
-                            </ul>
-                            <ul>
-                                <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Аксессуары</li>
-                                <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Подарки</li>
-                                <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Гастрономия</li>
-                                <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Миниатюры</li>
-                                <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Пиво</li>
-                                <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Сидр и пуаре</li>
-                                <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Оборудование</li>
-                            </ul>
-                        </div>
-                        <div className="mt-[40px] w1024:hidden">
-                            <h1 className="fs-20 text-neutral-0 fw-600">Рассылка с акциями и скидками</h1>
-                            <label
-                                className="flex gap-[30px] bg-[var(--color-neutral-900)] mt-[15px] items-center lg:w-[60%] pl-[20px] pr-[10px] justify-between">
-                                <input
-                                    type="text"
-                                    className="fs-15 fw-400 text-neutral-0 leading-[40px] bg-transparent outline-0 w-[100%]"
-                                    placeholder="Ваш E-mail или телефон"
-                                />
-                                <button>
-                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <path fillRule="evenodd" clipRule="evenodd"
-                                              d="M16.8342 9.10538C17.575 9.47286 17.575 10.5296 16.8342 10.8971L3.94437 17.2908C3.27966 17.6205 2.5 17.137 2.5 16.395V11.6666L10 9.99998L2.5 8.16196L2.5 3.60748C2.5 2.86549 3.27966 2.38192 3.94437 2.71164L16.8342 9.10538Z"
-                                              stroke="white" strokeLinejoin="round"/>
-                                    </svg>
-                                </button>
-                            </label>
-                            <div className="flex gap-[14px] items-center mt-[10px]">
-                                <button onClick={() => setAgreeNewsletter(!agreeNewsletter)}>
-                                    {
-                                        agreeNewsletter ?
-                                            <>
-                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                                     xmlns="http://www.w3.org/2000/svg">
-                                                    <rect x="21.5" y="2.5" width="19" height="19" rx="1.5"
-                                                          transform="rotate(90 21.5 2.5)" fill="#367639"
-                                                          stroke="#CECECE"
-                                                          strokeLinecap="round" strokeLinejoin="round"/>
-                                                    <path d="M6.66699 12.6667L10.0003 16L17.3337 8.66669" stroke="white"
-                                                          strokeLinecap="round"/>
-                                                </svg>
-                                            </> :
-                                            <>
-                                                <svg width="24" height="27" viewBox="0 0 24 27" fill="none"
-                                                     xmlns="http://www.w3.org/2000/svg">
-                                                    <rect x="21" y="3.64685" width="19.3474" height="18" rx="1"
-                                                          transform="rotate(90 21 3.64685)" stroke="#494949"
-                                                          strokeLinecap="round" strokeLinejoin="round"/>
-                                                </svg>
-                                            </>
-                                    }
-                                </button>
-                                <span className="fs-15 fw-400 text-neutral-0">Согласие на получение рассылки</span>
+            <MediaQuery query="(min-width: 1025px)">
+                <div className="grid grid-cols-3 gap-[40px] w1024:grid-cols-1 w1024:wrap">
+                    <div
+                        className="w1024-min:border-t-[1px] w1024:border-b-[1px] w1024:pt-[0] w1024:pb-[15px] w1024:border-[#494949] w1024-min:border-[var(--color-neutral-0)] pt-[24px]">
+                        <h5 className="fs-20 fw-600 text-neutral-0">Каталог товаров</h5>
+                        <div className="">
+                            <div className="grid grid-cols-2 mt-[40px] w1024:mt-[15px] pb-[1.125rem]">
+                                <ul>
+                                    <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Вино</li>
+                                    <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Вино России</li>
+                                    <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Игристое вино</li>
+                                    <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Коньяк</li>
+                                    <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Виски</li>
+                                    <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Граппа</li>
+                                    <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Крепкие напитки</li>
+                                </ul>
+                                <ul>
+                                    <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Аксессуары</li>
+                                    <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Подарки</li>
+                                    <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Гастрономия</li>
+                                    <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Миниатюры</li>
+                                    <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Пиво</li>
+                                    <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Сидр и пуаре</li>
+                                    <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Оборудование</li>
+                                </ul>
                             </div>
-                        </div>
+                            <div className="mt-[40px] w1024:hidden">
+                                <h1 className="fs-20 text-neutral-0 fw-600">Рассылка с акциями и скидками</h1>
+                                <label
+                                    className="flex gap-[30px] bg-[var(--color-neutral-900)] mt-[15px] items-center lg:w-[60%] pl-[20px] pr-[10px] justify-between">
+                                    <input
+                                        type="text"
+                                        className="fs-15 fw-400 text-neutral-0 leading-[40px] bg-transparent outline-0 w-[100%]"
+                                        placeholder="Ваш E-mail или телефон"
+                                    />
+                                    <button>
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path fillRule="evenodd" clipRule="evenodd"
+                                                  d="M16.8342 9.10538C17.575 9.47286 17.575 10.5296 16.8342 10.8971L3.94437 17.2908C3.27966 17.6205 2.5 17.137 2.5 16.395V11.6666L10 9.99998L2.5 8.16196L2.5 3.60748C2.5 2.86549 3.27966 2.38192 3.94437 2.71164L16.8342 9.10538Z"
+                                                  stroke="white" strokeLinejoin="round"/>
+                                        </svg>
+                                    </button>
+                                </label>
+                                <div className="flex gap-[14px] items-center mt-[10px]">
+                                    <button onClick={() => setAgreeNewsletter(!agreeNewsletter)}>
+                                        {
+                                            agreeNewsletter ?
+                                                <>
+                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <rect x="21.5" y="2.5" width="19" height="19" rx="1.5"
+                                                              transform="rotate(90 21.5 2.5)" fill="#367639"
+                                                              stroke="#CECECE"
+                                                              strokeLinecap="round" strokeLinejoin="round"/>
+                                                        <path d="M6.66699 12.6667L10.0003 16L17.3337 8.66669" stroke="white"
+                                                              strokeLinecap="round"/>
+                                                    </svg>
+                                                </> :
+                                                <>
+                                                    <svg width="24" height="27" viewBox="0 0 24 27" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <rect x="21" y="3.64685" width="19.3474" height="18" rx="1"
+                                                              transform="rotate(90 21 3.64685)" stroke="#494949"
+                                                              strokeLinecap="round" strokeLinejoin="round"/>
+                                                    </svg>
+                                                </>
+                                        }
+                                    </button>
+                                    <span className="fs-15 fw-400 text-neutral-0">Согласие на получение рассылки</span>
+                                </div>
+                            </div>
 
+                        </div>
+                    </div>
+                    <div
+                        className="w1024-min:border-t-[1px] w1024:border-b-[1px] w1024:pt-[0] w1024:pb-[15px] w1024:border-[#494949] w1024-min:border-[var(--color-neutral-0)] pt-[24px]">
+                        <h5 className="fs-20 fw-600 text-neutral-0">Магазины Сабонис</h5>
+                        <p className="fs-15 fw-500 text-neutral-0  mt-[40px] w1024:mt-[15px] pb-[1.125rem]">
+                            Санкт-Петербург, Петроградская наб. 8
+                        </p>
+                        <p className="fs-15 fw-400 text-neutral-0 mt-[20px]">
+                            Тел.: +7 (812) 409-96-98
+                        </p>
+                        <p className="fs-15 fw-400 text-neutral-0 mt-[10px]">
+                            Время работы: ежедневно,
+                            с 11:00 до 22:00
+                        </p>
+                        <p className="fs-15 fw-500 text-neutral-0 mt-[40px]">
+                            Санкт-Петербург, ул. Жуковского 10
+                        </p>
+                        <p className="fs-15 fw-400 text-neutral-0 mt-[20px]">
+                            Тел.: +7 (812) 602-74-41
+                        </p>
+                        <p className="fs-15 fw-400 text-neutral-0 mt-[10px]">
+                            Время работы: ежедневно,
+                            с 11:00 до 22:00
+                        </p>
+                        <p className="fs-15 fw-400 text-neutral-0 mt-[40px]">
+                            Email: info@sabonis.ru
+                        </p>
+                    </div>
+                    <div
+                        className="w1024-min:border-t-[1px] w1024:border-b-[1px] w1024:pt-[0] w1024:pb-[15px] w1024:border-[#494949] w1024-min:border-[var(--color-neutral-0)] pt-[24px]">
+                        <h5 className="fs-20 fw-600 text-neutral-0">Проект Wine&Dine</h5>
+                        <p className="fs-15 fw-500 text-neutral-0 mt-[40px]  w1024:mt-[15px]">
+                            Санкт-Петербург, Петроградская наб. 8
+                        </p>
+                        <p className="fs-15 fw-400 text-neutral-0 mt-[30px]">
+                            Тел.: +7 (812) 409-96-98, +7 (931) 105-47-18
+                        </p>
+                        <p className="fs-15 fw-400 text-neutral-0 mt-[10px]">
+                            Email: bilety@wineanddine.group
+                        </p>
+                        <p className="fs-15 fw-400 text-neutral-0 mt-[10px]">
+                            Сайт: https://wineanddine.group
+                        </p>
+                        <a href="#" className="fs-15 fw-400 underline text-neutral-0 mt-[30px]">
+                            Афиша мероприятий и дегустаций
+                        </a>
+                        <p className="fs-15 fw-400 text-neutral-0 mt-[30px]">
+                            Время работы:
+                        </p>
+                        <p className="fs-15 fw-400 text-neutral-0 mt-[10px]">
+                            <b className="text-neutral-0">пн - ср</b> 11.00 - 23.00
+                        </p>
+
+                        <p className="fs-15 fw-400 text-neutral-0">
+                            <b className="text-neutral-0">чт</b> 11.00 - 00.00
+                        </p>
+                        <p className="fs-15 fw-400 text-neutral-0">
+                            <b className="text-neutral-0">пт - сб</b> 11.00 - 01.00
+                        </p>
+                        <p className="fs-15 fw-400 text-neutral-0">
+                            <b className="text-neutral-0">вс</b> 11.00 - 23.00
+                        </p>
                     </div>
                 </div>
-                <div
-                    className="w1024-min:border-t-[1px] w1024:border-b-[1px] w1024:pt-[0] w1024:pb-[15px] w1024:border-[#494949] w1024-min:border-[var(--color-neutral-0)] pt-[24px]">
-                    <h5 className="fs-20 fw-600 text-neutral-0">Магазины Сабонис</h5>
-                    <p className="fs-15 fw-500 text-neutral-0  mt-[40px] w1024:mt-[15px] pb-[1.125rem]">
-                        Санкт-Петербург, Петроградская наб. 8
-                    </p>
-                    <p className="fs-15 fw-400 text-neutral-0 mt-[20px]">
-                        Тел.: +7 (812) 409-96-98
-                    </p>
-                    <p className="fs-15 fw-400 text-neutral-0 mt-[10px]">
-                        Время работы: ежедневно,
-                        с 11:00 до 22:00
-                    </p>
-                    <p className="fs-15 fw-500 text-neutral-0 mt-[40px]">
-                        Санкт-Петербург, ул. Жуковского 10
-                    </p>
-                    <p className="fs-15 fw-400 text-neutral-0 mt-[20px]">
-                        Тел.: +7 (812) 602-74-41
-                    </p>
-                    <p className="fs-15 fw-400 text-neutral-0 mt-[10px]">
-                        Время работы: ежедневно,
-                        с 11:00 до 22:00
-                    </p>
-                    <p className="fs-15 fw-400 text-neutral-0 mt-[40px]">
-                        Email: info@sabonis.ru
-                    </p>
-                </div>
-                <div
-                    className="w1024-min:border-t-[1px] w1024:border-b-[1px] w1024:pt-[0] w1024:pb-[15px] w1024:border-[#494949] w1024-min:border-[var(--color-neutral-0)] pt-[24px]">
-                    <h5 className="fs-20 fw-600 text-neutral-0">Проект Wine&Dine</h5>
-                    <p className="fs-15 fw-500 text-neutral-0 mt-[40px]  w1024:mt-[15px]">
-                        Санкт-Петербург, Петроградская наб. 8
-                    </p>
-                    <p className="fs-15 fw-400 text-neutral-0 mt-[30px]">
-                        Тел.: +7 (812) 409-96-98, +7 (931) 105-47-18
-                    </p>
-                    <p className="fs-15 fw-400 text-neutral-0 mt-[10px]">
-                        Email: bilety@wineanddine.group
-                    </p>
-                    <p className="fs-15 fw-400 text-neutral-0 mt-[10px]">
-                        Сайт: https://wineanddine.group
-                    </p>
-                    <a href="#" className="fs-15 fw-400 underline text-neutral-0 mt-[30px]">
-                        Афиша мероприятий и дегустаций
-                    </a>
-                    <p className="fs-15 fw-400 text-neutral-0 mt-[30px]">
-                        Время работы:
-                    </p>
-                    <p className="fs-15 fw-400 text-neutral-0 mt-[10px]">
-                        <b className="text-neutral-0">пн - ср</b> 11.00 - 23.00
-                    </p>
-
-                    <p className="fs-15 fw-400 text-neutral-0">
-                        <b className="text-neutral-0">чт</b> 11.00 - 00.00
-                    </p>
-                    <p className="fs-15 fw-400 text-neutral-0">
-                        <b className="text-neutral-0">пт - сб</b> 11.00 - 01.00
-                    </p>
-                    <p className="fs-15 fw-400 text-neutral-0">
-                        <b className="text-neutral-0">вс</b> 11.00 - 23.00
-                    </p>
-                </div>
-            </div>
+            </MediaQuery>
             <div
                 className="pt-[20px] border-t-[1px] border-[var(--color-neutral-0)] mt-[20px] grid grid-cols-3 items-center w-[100%] w1024:hidden">
                 <div className="flex gap-[20px]">
@@ -228,84 +231,175 @@ export function Footer() {
                 </div>
             </div>
             <MediaQuery query="(max-width: 1024px)">
-                <ul className="fixed bottom-0 wrap bg-[#25282B] py-[10px] flex items-center justify-center gap-4">
-                    <li>
-                        <Link to="">
-                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="20" cy="20" r="20" fill="#367639"/>
-                                <path
-                                    d="M21.7259 15.2716C22.7258 15.4392 23.6341 15.9115 24.3592 16.6351C25.0843 17.3587 25.5538 18.2652 25.7255 19.263M21.8786 12C23.657 12.3009 25.279 13.1426 26.5689 14.4261C27.8589 15.7134 28.6985 17.3321 29 19.1069M27.6108 26.1681C27.6108 26.1681 26.6452 27.1164 26.4086 27.3944C26.0232 27.8058 25.569 28 24.9737 28C24.9164 28 24.8553 28 24.7981 27.9962C23.6646 27.9238 22.6113 27.482 21.8213 27.105C19.6612 26.0614 17.7644 24.5799 16.1883 22.7022C14.8869 21.1369 14.0167 19.6896 13.4404 18.1357C13.0855 17.1873 12.9558 16.4485 13.013 15.7515C13.0512 15.3059 13.2229 14.9364 13.5397 14.6203L14.8411 13.3216C15.0281 13.1464 15.2265 13.0512 15.4212 13.0512C15.6616 13.0512 15.8562 13.1959 15.9784 13.3178C15.9822 13.3216 15.986 13.3254 15.9898 13.3292C16.2226 13.5463 16.444 13.771 16.6768 14.011C16.7951 14.1328 16.9172 14.2547 17.0393 14.3804L18.0812 15.4201C18.4857 15.8239 18.4857 16.1971 18.0812 16.6008C17.9705 16.7113 17.8637 16.8217 17.753 16.9284C17.4324 17.2559 17.6843 17.0046 17.3522 17.3016C17.3446 17.3093 17.337 17.3131 17.3331 17.3207C17.0049 17.6482 17.066 17.9682 17.1347 18.1852C17.1385 18.1967 17.1423 18.2081 17.1461 18.2195C17.4171 18.8746 17.7987 19.4916 18.3788 20.2267L18.3827 20.2305C19.436 21.5254 20.5466 22.5347 21.7716 23.3078C21.9281 23.4069 22.0884 23.4868 22.241 23.563C22.3784 23.6316 22.5082 23.6963 22.6189 23.7649C22.6341 23.7725 22.6494 23.7839 22.6647 23.7915C22.7944 23.8563 22.9166 23.8867 23.0425 23.8867C23.3593 23.8867 23.5577 23.6887 23.6226 23.6239L24.3707 22.8774C24.5004 22.7479 24.7065 22.5918 24.9469 22.5918C25.1836 22.5918 25.3782 22.7403 25.4965 22.8698C25.5003 22.8736 25.5003 22.8736 25.5041 22.8774L27.607 24.976C28.0001 25.3644 27.6108 26.1681 27.6108 26.1681Z"
-                                    stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                            </svg>
-                        </Link>
-                    </li>
-                    <li>
+                <div className="fixed bottom-0 w-[100%] bg-[#25282B] py-[10px] text-neutral-0-include">
+                    <div className="fill-neutral-0-include-svg-stroke">
+                        <DropList title="Каталог товаров" className="!border-[transparent] !px-[var(--wrap-padding)]">
+                            <div className="w-[100%] pr-[var(--wrap-padding)]">
+                                <div className="flex justify-between w-[100%] w1024:mt-[15px] pb-[1.125rem]">
+                                    <ul>
+                                        <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Вино</li>
+                                        <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Вино России</li>
+                                        <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Игристое вино</li>
+                                        <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Коньяк</li>
+                                        <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Виски</li>
+                                        <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Граппа</li>
+                                        <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Крепкие напитки</li>
+                                    </ul>
+                                    <ul>
+                                        <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Аксессуары</li>
+                                        <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Подарки</li>
+                                        <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Гастрономия</li>
+                                        <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Миниатюры</li>
+                                        <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Пиво</li>
+                                        <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Сидр и пуаре</li>
+                                        <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Оборудование</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </DropList>
+                        <DropList title="Магазины Сабонис" className="!border-[var(--color-neutral-900)] !px-[var(--wrap-padding)]">
+                            <div className="">
+                                <p className="fs-15 fw-500 text-neutral-0  mt-[40px] w1024:mt-[15px] pb-[1.125rem]">
+                                    Санкт-Петербург, Петроградская наб. 8
+                                </p>
+                                <p className="fs-15 fw-400 text-neutral-0 mt-[20px]">
+                                    Тел.: +7 (812) 409-96-98
+                                </p>
+                                <p className="fs-15 fw-400 text-neutral-0 mt-[10px]">
+                                    Время работы: ежедневно,
+                                    с 11:00 до 22:00
+                                </p>
+                                <p className="fs-15 fw-500 text-neutral-0 mt-[40px]">
+                                    Санкт-Петербург, ул. Жуковского 10
+                                </p>
+                                <p className="fs-15 fw-400 text-neutral-0 mt-[20px]">
+                                    Тел.: +7 (812) 602-74-41
+                                </p>
+                                <p className="fs-15 fw-400 text-neutral-0 mt-[10px]">
+                                    Время работы: ежедневно,
+                                    с 11:00 до 22:00
+                                </p>
+                                <p className="fs-15 fw-400 text-neutral-0 mt-[40px]">
+                                    Email: info@sabonis.ru
+                                </p>
+                            </div>
+                        </DropList>
+                        <DropList title="Проект Wine&Dine" className="!border-[var(--color-neutral-900)] !px-[var(--wrap-padding)]">
+                            <div className="">
+                                <p className="fs-15 fw-500 text-neutral-0 mt-[40px]  w1024:mt-[15px]">
+                                    Санкт-Петербург, Петроградская наб. 8
+                                </p>
+                                <p className="fs-15 fw-400 text-neutral-0 mt-[30px]">
+                                    Тел.: +7 (812) 409-96-98, +7 (931) 105-47-18
+                                </p>
+                                <p className="fs-15 fw-400 text-neutral-0 mt-[10px]">
+                                    Email: bilety@wineanddine.group
+                                </p>
+                                <p className="fs-15 fw-400 text-neutral-0 mt-[10px]">
+                                    Сайт: https://wineanddine.group
+                                </p>
+                                <a href="#" className="fs-15 fw-400 underline text-neutral-0 mt-[30px]">
+                                    Афиша мероприятий и дегустаций
+                                </a>
+                                <p className="fs-15 fw-400 text-neutral-0 mt-[30px]">
+                                    Время работы:
+                                </p>
+                                <p className="fs-15 fw-400 text-neutral-0 mt-[10px]">
+                                    <b className="text-neutral-0">пн - ср</b> 11.00 - 23.00
+                                </p>
 
-                        <Link to="">
-                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="20" cy="20" r="20" fill="#367639"/>
-                                <path d="M22.0114 22.0114L26.668 26.668" stroke="white" strokeWidth="2"
-                                      strokeLinecap="round"/>
-                                <path fillRule="evenodd" clipRule="evenodd"
-                                      d="M18.332 23.334C21.0935 23.334 23.332 21.0954 23.332 18.334C23.332 15.5726 21.0935 13.334 18.332 13.334C15.5706 13.334 13.332 15.5726 13.332 18.334C13.332 21.0954 15.5706 23.334 18.332 23.334Z"
-                                      stroke="white" strokeWidth="2"/>
-                            </svg>
-                        </Link>
-                    </li>
-                    <li>
+                                <p className="fs-15 fw-400 text-neutral-0">
+                                    <b className="text-neutral-0">чт</b> 11.00 - 00.00
+                                </p>
+                                <p className="fs-15 fw-400 text-neutral-0">
+                                    <b className="text-neutral-0">пт - сб</b> 11.00 - 01.00
+                                </p>
+                                <p className="fs-15 fw-400 text-neutral-0">
+                                    <b className="text-neutral-0">вс</b> 11.00 - 23.00
+                                </p>
+                            </div>
+                        </DropList>
+                    </div>
 
-                        <Link to="">
-                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="20" cy="20" r="20" fill="#367639"/>
-                                <path
-                                    d="M26.63 15.4575C26.2469 15.0742 25.7921 14.7702 25.2915 14.5628C24.7909 14.3554 24.2544 14.2486 23.7125 14.2486C23.1706 14.2486 22.6341 14.3554 22.1335 14.5628C21.6329 14.7702 21.1781 15.0742 20.795 15.4575L20 16.2525L19.205 15.4575C18.4312 14.6837 17.3818 14.249 16.2875 14.249C15.1932 14.249 14.1438 14.6837 13.37 15.4575C12.5962 16.2313 12.1615 17.2807 12.1615 18.375C12.1615 19.4693 12.5962 20.5187 13.37 21.2925L14.165 22.0875L20 27.9225L25.835 22.0875L26.63 21.2925C27.0132 20.9094 27.3173 20.4546 27.5247 19.954C27.7321 19.4534 27.8389 18.9169 27.8389 18.375C27.8389 17.8331 27.7321 17.2966 27.5247 16.796C27.3173 16.2954 27.0132 15.8406 26.63 15.4575V15.4575Z"
-                                    stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                            </svg>
-                        </Link>
-                    </li>
-                    <li>
-
-                        <Link to="">
-                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="20" cy="20" r="20" fill="#367639"/>
-                                <path
-                                    d="M26 26.457V24.957C26 24.1614 25.6839 23.3983 25.1213 22.8357C24.5587 22.2731 23.7956 21.957 23 21.957H17C16.2044 21.957 15.4413 22.2731 14.8787 22.8357C14.3161 23.3983 14 24.1614 14 24.957V26.457"
-                                    stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                                <path
-                                    d="M20 18.957C21.6569 18.957 23 17.6139 23 15.957C23 14.3002 21.6569 12.957 20 12.957C18.3431 12.957 17 14.3002 17 15.957C17 17.6139 18.3431 18.957 20 18.957Z"
-                                    stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                            </svg>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="">
-                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="20" cy="20" r="20" fill="#367639"/>
-                                <g clipPath="url(#clip0_13_43)">
+                    <ul className="flex items-center justify-center gap-4">
+                        <li>
+                            <Link to="">
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="20" cy="20" r="20" fill="#367639"/>
                                     <path
-                                        d="M16.75 28.207C17.1642 28.207 17.5 27.8712 17.5 27.457C17.5 27.0428 17.1642 26.707 16.75 26.707C16.3358 26.707 16 27.0428 16 27.457C16 27.8712 16.3358 28.207 16.75 28.207Z"
+                                        d="M21.7259 15.2716C22.7258 15.4392 23.6341 15.9115 24.3592 16.6351C25.0843 17.3587 25.5538 18.2652 25.7255 19.263M21.8786 12C23.657 12.3009 25.279 13.1426 26.5689 14.4261C27.8589 15.7134 28.6985 17.3321 29 19.1069M27.6108 26.1681C27.6108 26.1681 26.6452 27.1164 26.4086 27.3944C26.0232 27.8058 25.569 28 24.9737 28C24.9164 28 24.8553 28 24.7981 27.9962C23.6646 27.9238 22.6113 27.482 21.8213 27.105C19.6612 26.0614 17.7644 24.5799 16.1883 22.7022C14.8869 21.1369 14.0167 19.6896 13.4404 18.1357C13.0855 17.1873 12.9558 16.4485 13.013 15.7515C13.0512 15.3059 13.2229 14.9364 13.5397 14.6203L14.8411 13.3216C15.0281 13.1464 15.2265 13.0512 15.4212 13.0512C15.6616 13.0512 15.8562 13.1959 15.9784 13.3178C15.9822 13.3216 15.986 13.3254 15.9898 13.3292C16.2226 13.5463 16.444 13.771 16.6768 14.011C16.7951 14.1328 16.9172 14.2547 17.0393 14.3804L18.0812 15.4201C18.4857 15.8239 18.4857 16.1971 18.0812 16.6008C17.9705 16.7113 17.8637 16.8217 17.753 16.9284C17.4324 17.2559 17.6843 17.0046 17.3522 17.3016C17.3446 17.3093 17.337 17.3131 17.3331 17.3207C17.0049 17.6482 17.066 17.9682 17.1347 18.1852C17.1385 18.1967 17.1423 18.2081 17.1461 18.2195C17.4171 18.8746 17.7987 19.4916 18.3788 20.2267L18.3827 20.2305C19.436 21.5254 20.5466 22.5347 21.7716 23.3078C21.9281 23.4069 22.0884 23.4868 22.241 23.563C22.3784 23.6316 22.5082 23.6963 22.6189 23.7649C22.6341 23.7725 22.6494 23.7839 22.6647 23.7915C22.7944 23.8563 22.9166 23.8867 23.0425 23.8867C23.3593 23.8867 23.5577 23.6887 23.6226 23.6239L24.3707 22.8774C24.5004 22.7479 24.7065 22.5918 24.9469 22.5918C25.1836 22.5918 25.3782 22.7403 25.4965 22.8698C25.5003 22.8736 25.5003 22.8736 25.5041 22.8774L27.607 24.976C28.0001 25.3644 27.6108 26.1681 27.6108 26.1681Z"
+                                        stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                                </svg>
+                            </Link>
+                        </li>
+                        <li>
+
+                            <Link to="">
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="20" cy="20" r="20" fill="#367639"/>
+                                    <path d="M22.0114 22.0114L26.668 26.668" stroke="white" strokeWidth="2"
+                                          strokeLinecap="round"/>
+                                    <path fillRule="evenodd" clipRule="evenodd"
+                                          d="M18.332 23.334C21.0935 23.334 23.332 21.0954 23.332 18.334C23.332 15.5726 21.0935 13.334 18.332 13.334C15.5706 13.334 13.332 15.5726 13.332 18.334C13.332 21.0954 15.5706 23.334 18.332 23.334Z"
+                                          stroke="white" strokeWidth="2"/>
+                                </svg>
+                            </Link>
+                        </li>
+                        <li>
+
+                            <Link to="">
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="20" cy="20" r="20" fill="#367639"/>
+                                    <path
+                                        d="M26.63 15.4575C26.2469 15.0742 25.7921 14.7702 25.2915 14.5628C24.7909 14.3554 24.2544 14.2486 23.7125 14.2486C23.1706 14.2486 22.6341 14.3554 22.1335 14.5628C21.6329 14.7702 21.1781 15.0742 20.795 15.4575L20 16.2525L19.205 15.4575C18.4312 14.6837 17.3818 14.249 16.2875 14.249C15.1932 14.249 14.1438 14.6837 13.37 15.4575C12.5962 16.2313 12.1615 17.2807 12.1615 18.375C12.1615 19.4693 12.5962 20.5187 13.37 21.2925L14.165 22.0875L20 27.9225L25.835 22.0875L26.63 21.2925C27.0132 20.9094 27.3173 20.4546 27.5247 19.954C27.7321 19.4534 27.8389 18.9169 27.8389 18.375C27.8389 17.8331 27.7321 17.2966 27.5247 16.796C27.3173 16.2954 27.0132 15.8406 26.63 15.4575V15.4575Z"
+                                        stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                </svg>
+                            </Link>
+                        </li>
+                        <li>
+
+                            <Link to="">
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="20" cy="20" r="20" fill="#367639"/>
+                                    <path
+                                        d="M26 26.457V24.957C26 24.1614 25.6839 23.3983 25.1213 22.8357C24.5587 22.2731 23.7956 21.957 23 21.957H17C16.2044 21.957 15.4413 22.2731 14.8787 22.8357C14.3161 23.3983 14 24.1614 14 24.957V26.457"
                                         stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                                     <path
-                                        d="M25 28.207C25.4142 28.207 25.75 27.8712 25.75 27.457C25.75 27.0428 25.4142 26.707 25 26.707C24.5858 26.707 24.25 27.0428 24.25 27.457C24.25 27.8712 24.5858 28.207 25 28.207Z"
+                                        d="M20 18.957C21.6569 18.957 23 17.6139 23 15.957C23 14.3002 21.6569 12.957 20 12.957C18.3431 12.957 17 14.3002 17 15.957C17 17.6139 18.3431 18.957 20 18.957Z"
                                         stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                                    <path
-                                        d="M10.75 12.457H13.75L15.76 22.4995C15.8286 22.8448 16.0164 23.155 16.2907 23.3758C16.5649 23.5965 16.908 23.7138 17.26 23.707H24.55C24.902 23.7138 25.2451 23.5965 25.5193 23.3758C25.7936 23.155 25.9814 22.8448 26.05 22.4995L27.25 16.207H14.5"
-                                        stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                                </g>
-                                <defs>
-                                    <clipPath id="clip0_13_43">
-                                        <rect width="18" height="18" fill="white" transform="translate(10 11.707)"/>
-                                    </clipPath>
-                                </defs>
-                            </svg>
-                        </Link>
-                    </li>
-                </ul>
+                                </svg>
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="">
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="20" cy="20" r="20" fill="#367639"/>
+                                    <g clipPath="url(#clip0_13_43)">
+                                        <path
+                                            d="M16.75 28.207C17.1642 28.207 17.5 27.8712 17.5 27.457C17.5 27.0428 17.1642 26.707 16.75 26.707C16.3358 26.707 16 27.0428 16 27.457C16 27.8712 16.3358 28.207 16.75 28.207Z"
+                                            stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                        <path
+                                            d="M25 28.207C25.4142 28.207 25.75 27.8712 25.75 27.457C25.75 27.0428 25.4142 26.707 25 26.707C24.5858 26.707 24.25 27.0428 24.25 27.457C24.25 27.8712 24.5858 28.207 25 28.207Z"
+                                            stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                        <path
+                                            d="M10.75 12.457H13.75L15.76 22.4995C15.8286 22.8448 16.0164 23.155 16.2907 23.3758C16.5649 23.5965 16.908 23.7138 17.26 23.707H24.55C24.902 23.7138 25.2451 23.5965 25.5193 23.3758C25.7936 23.155 25.9814 22.8448 26.05 22.4995L27.25 16.207H14.5"
+                                            stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_13_43">
+                                            <rect width="18" height="18" fill="white" transform="translate(10 11.707)"/>
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                            </Link>
+                        </li>
+                    </ul>
+                </div>
             </MediaQuery>
         </footer>
     );
