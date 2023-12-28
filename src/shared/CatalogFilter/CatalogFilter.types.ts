@@ -1,11 +1,6 @@
 export interface ICatalogFilter {
 }
 
-export interface ICatalogDropList {
-    title: string;
-    className?: string;
-}
-
 export interface ICatalogCheckboxLabel {
 }
 

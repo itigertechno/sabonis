@@ -1,11 +1,10 @@
-import {ICatalogCheckboxLabel, ICatalogDropList, ICatalogFilter, ICatalogRangeSlider} from './CatalogFilter.types';
+import {ICatalogCheckboxLabel, ICatalogFilter, ICatalogRangeSlider} from './CatalogFilter.types';
 import c from "./style.module.css";
 import {
     FC,
     FormEvent, Fragment,
     InputHTMLAttributes,
     PropsWithChildren,
-    SVGProps,
     useEffect,
     useRef,
     useState
@@ -14,6 +13,7 @@ import {
 import classnames from "@utils/classnames.ts";
 import uuid from "react-uuid";
 import {Button} from "@shared/Button";
+import DropList from "@shared/DropList/DropList.tsx";
 
 export function CatalogFilter({}: ICatalogFilter) {
     return (
@@ -50,11 +50,67 @@ export function CatalogFilter({}: ICatalogFilter) {
                         priceCap={32}
                     ></RangeSlider>
                 </DropList>
-                <DropList title="Цвет">
+                <DropList title="Сахар">
                     <CheckBoxList items={[
-                        "Белое", "Красное", "Розовое", "Оранжевое",
-                        "Белое", "Красное", "Розовое", "Оранжевое",
-                        "Белое", "Красное", "Розовое", "Оранжевое"
+                        "Россия", "Италия", "Франция", "Испания",
+                        "Англия", "Чехия", "Австрия", "Португалия",
+                        "Щвейцария", "Нидерланды", "Люксембург", "Польша"
+                    ]}></CheckBoxList>
+                </DropList>
+                <DropList title="Страна">
+                    <CheckBoxList items={[
+                        "Россия", "Италия", "Франция", "Испания",
+                        "Англия", "Чехия", "Австрия", "Португалия",
+                        "Щвейцария", "Нидерланды", "Люксембург", "Польша"
+                    ]}></CheckBoxList>
+                </DropList>
+                <DropList title="Регион">
+                    <CheckBoxList items={[
+                        "Россия", "Италия", "Франция", "Испания",
+                        "Англия", "Чехия", "Австрия", "Португалия",
+                        "Щвейцария", "Нидерланды", "Люксембург", "Польша"
+                    ]}></CheckBoxList>
+                </DropList>
+                <DropList title="Субрегион">
+                    <CheckBoxList items={[
+                        "Россия", "Италия", "Франция", "Испания",
+                        "Англия", "Чехия", "Австрия", "Португалия",
+                        "Щвейцария", "Нидерланды", "Люксембург", "Польша"
+                    ]}></CheckBoxList>
+                </DropList>
+                <DropList title="Производитель">
+                    <CheckBoxList items={[
+                        "Россия", "Италия", "Франция", "Испания",
+                        "Англия", "Чехия", "Австрия", "Португалия",
+                        "Щвейцария", "Нидерланды", "Люксембург", "Польша"
+                    ]}></CheckBoxList>
+                </DropList>
+                <DropList title="Бренд">
+                    <CheckBoxList items={[
+                        "Россия", "Италия", "Франция", "Испания",
+                        "Англия", "Чехия", "Австрия", "Португалия",
+                        "Щвейцария", "Нидерланды", "Люксембург", "Польша"
+                    ]}></CheckBoxList>
+                </DropList>
+                <DropList title="Стиль">
+                    <CheckBoxList items={[
+                        "Россия", "Италия", "Франция", "Испания",
+                        "Англия", "Чехия", "Австрия", "Португалия",
+                        "Щвейцария", "Нидерланды", "Люксембург", "Польша"
+                    ]}></CheckBoxList>
+                </DropList>
+                <DropList title="Крепость">
+                    <CheckBoxList items={[
+                        "Россия", "Италия", "Франция", "Испания",
+                        "Англия", "Чехия", "Австрия", "Португалия",
+                        "Щвейцария", "Нидерланды", "Люксембург", "Польша"
+                    ]}></CheckBoxList>
+                </DropList>
+                <DropList title="Объем">
+                    <CheckBoxList items={[
+                        "Россия", "Италия", "Франция", "Испания",
+                        "Англия", "Чехия", "Австрия", "Португалия",
+                        "Щвейцария", "Нидерланды", "Люксембург", "Польша"
                     ]}></CheckBoxList>
                 </DropList>
                 <div className="p-[18px] w-[100%] flex items-center justify-around rounded-[0_0_5px_5px] bg-[#262626]">
@@ -109,30 +165,6 @@ const CheckBoxList: FC<{ items: string[] }> = ({items}): JSX.Element => {
         </div>
     );
 }
-const DropList: FC<PropsWithChildren<ICatalogDropList>> = ({children, title, className = ""}) => {
-    const [active, setActive] = useState<boolean>(false);
-
-    return (
-        <div className={classnames(c.droplist, className)}>
-            <button className="w-[100%] flex items-center justify-between" onClick={() => {
-                setActive(!active)
-            }}>
-                <span>{title}</span>
-                <Arrow type="arrow-vertical" className={active ? "rotate-180" : ""}></Arrow>
-            </button>
-            <div className={active ? "flex items-center gap-[6px] mt-[10px]" : "hidden"}>
-                {
-                    children
-                }
-            </div>
-        </div>
-    )
-}
-const Arrow: FC<SVGProps<SVGSVGElement>> = (props) => (
-    <svg {...props} width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M9.28 17.4L14.5 11.02L19.72 17.4" stroke="#494949" strokeWidth="1.2"/>
-    </svg>
-)
 const CheckBoxLabel: FC<PropsWithChildren<ICatalogCheckboxLabel>> = ({children}) => {
     const [active, setActive] = useState<boolean>(false);
     return <button onClick={() => setActive(!active)}

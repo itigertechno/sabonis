@@ -11,7 +11,7 @@ export function Card({stock, title, description, preview, vendorCode, price, dis
     const toPage = () => navigate("/product");
 
     return (
-        <article className={classnames(c.article, mosaic ? c.mosaic: "", "p-[14px] w1024:px-[0]")}>
+        <article className={classnames(c.article, mosaic ? c.mosaic: "", "p-[14px] pb-[20px] w1024:px-[0]")}>
             {
                 stock ?
                     <>
