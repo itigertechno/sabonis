@@ -40,7 +40,6 @@ export function CatalogPage() {
                     <h1 className="fs-30 fw-500 text-neutral-900">Вино Италии, регион Пьемонт</h1>
                     <MediaQuery query="(min-width: 1025px)">
                         <div className="flex items-center gap-[40px]">
-
                             <Popover isOpen={isPopoverOpen} content={<div className="w-[200px] h-[100px] bg-[var(--color-neutral-0)] mt-[5px] shadow rounded-[5px] p-[5px]">Popover</div>} positions="bottom">
                                 <button className="flex items-center gap-[14px]" onClick={() => setIsPopoverOpen(!isPopoverOpen)}>
                                     <SvgSprite type="sort"></SvgSprite>
