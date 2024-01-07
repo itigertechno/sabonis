@@ -4,6 +4,7 @@ import ex from "@pictures/events/ex.png";
 import {Button} from "@shared/Button";
 import MediaQuery from "react-responsive";
 import {Slider} from "@widgets/Slider";
+import {Link} from "react-router-dom";
 
 export function EventPage() {
     return (
@@ -92,7 +93,9 @@ export function EventPage() {
                             <EventCard hasButton={false}></EventCard>
                             <EventCard hasButton={false}></EventCard>
                             <EventCard hasButton={false}></EventCard>
-                            <Button className="mt-[30px]">Все мероприятия</Button>
+                            <Link to="/events">
+                                <Button className="mt-[30px]">Все мероприятия</Button>
+                            </Link>
                         </div>
                     </div>
                 </div>
