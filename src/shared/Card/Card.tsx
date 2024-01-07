@@ -7,11 +7,11 @@ import classnames from "@utils/classnames.ts";
 import {useState} from "react";
 import {SwitchCounter} from "@shared/SwitchCounter";
 
-export function Card({stock, title, description, preview, vendorCode, price, discount, mosaic = false}: ICard) {
+export function Card({stock, title, description, preview, vendorCode, price, discount, mosaic = false, className = ""}: ICard) {
     const [counter, setCounter] = useState<boolean>(false);
 
     return (
-        <article className={classnames(c.article, mosaic ? c.mosaic : "", "p-[14px] pb-[20px] w1024:px-[0]")}>
+        <article className={classnames(className, c.article, mosaic ? c.mosaic : "", "p-[14px] pb-[20px] w1024:px-[0]")}>
             {
                 stock ?
                     <>

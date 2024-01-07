@@ -8,4 +8,5 @@ export interface ICard {
     preview: string;
     stock: boolean;
     mosaic?: boolean;
+    className?: string;
 }

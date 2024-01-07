@@ -1,9 +1,23 @@
 import {SvgSprite} from '@shared/SvgSprite';
-import {useEffect, useState} from "react";
+import {FC, PropsWithChildren, useEffect, useState} from "react";
 import classnames from "@utils/classnames.ts";
 import {Link} from "react-router-dom";
 import MediaQuery from "react-responsive";
 import c from "./style.module.css";
+// @ts-ignore
+import SpainIcon from "@shared/SvgSprite/icon/countries/spain.svg?react";
+// @ts-ignore
+import RussiaIcon from "@shared/SvgSprite/icon/countries/russia.svg?react";
+// @ts-ignore
+import FranceIcon from "@shared/SvgSprite/icon/countries/france.svg?react";
+// @ts-ignore
+import ItalyIcon from "@shared/SvgSprite/icon/countries/italy.svg?react";
+// @ts-ignore
+import AustriaIcon from "@shared/SvgSprite/icon/countries/austria.svg?react";
+// @ts-ignore
+import PortugalIcon from "@shared/SvgSprite/icon/countries/portugal.svg?react";
+// @ts-ignore
+import WorldIcon from "@shared/SvgSprite/icon/countries/world.svg?react";
 
 export function Header() {
 
@@ -83,8 +97,12 @@ export function Header() {
                                 <div className='flex gap-2 md:gap-3 xl:gap-11 ml-10'>
                                     <SvgSprite type='search'/>
                                     <SvgSprite type='heart'/>
-                                    <SvgSprite type='user'/>
-                                    <SvgSprite type='cart'/>
+                                    <Link to="/profile">
+                                        <SvgSprite type='user'/>
+                                    </Link>
+                                    <Link to="/basket">
+                                        <SvgSprite type='cart'/>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
@@ -141,21 +159,37 @@ export function Header() {
                     </div>
                 </MediaQuery>
                 <div className={classnames(
-                    (active ? "visible w1024:h-[70vh]" : "hidden"), c.header__list
+                    (active ? "visible" : "hidden"), c.header__list
                 )}>
                     <div
                         className={
                             classnames("pt-[36px] border-t-[#C7C7C7] w1024:gap-y-[5px] gap-y-[20px] border-t-[1px] wrap grid grid-cols-6 w1024:grid-cols-1 w1024:pb-4 w1024:border-b-[1px] border-[var(--color-neutral-900)]")
                         }>
-                        <List></List>
-                        <List></List>
-                        <List></List>
-                        <List></List>
-                        <List></List>
-                        <List></List>
-                        <List></List>
-                        <List></List>
-                        <List></List>
+                        <List title="Красное"></List>
+                        <List title="Белое"></List>
+                        <List title="Россия">
+                            <RussiaIcon></RussiaIcon>
+                        </List>
+                        <List title="Испания">
+                            <SpainIcon></SpainIcon>
+                        </List>
+                        <List title="Франция">
+                            <FranceIcon></FranceIcon>
+                        </List>
+                        <List title="Остальной мир">
+                            <WorldIcon></WorldIcon>
+                        </List>
+                        <List title="Розовое"></List>
+                        <List title="Оранжевое"></List>
+                        <List title="Италия">
+                            <ItalyIcon></ItalyIcon>
+                        </List>
+                        <List title="Австрия">
+                            <AustriaIcon></AustriaIcon>
+                        </List>
+                        <List title="Португалия">
+                            <PortugalIcon></PortugalIcon>
+                        </List>
                     </div>
                     <div className="w1024-min:hidden w1024:visible mt-[30px] wrap">
                         <span className="fs-20 fw-500 text-neutral-900 block">О проекте Wine&Dine</span>
@@ -258,35 +292,35 @@ export function Header() {
     );
 }
 
-const List = () => {
+const List: FC<PropsWithChildren<{ title: string }>> = ({ title, children }) => {
     const [active, setActive] = useState<boolean>(false);
 
     return (
         <div className="w1024:mt-[14px]">
-            <Link to="/catalog" className="fs-15 fw-700 w1024:hidden">Красное</Link>
+            <Link to="/catalog" className="fs-15 fw-700 w1024:hidden flex items-center gap-[13px]">
+                {children}
+                <span>{title}</span>
+            </Link>
             <button onClick={() => setActive(!active)}
-                    className="fs-15 fw-700 w1024:text-[20px] w1024:font-medium w1024-min:hidden">Красное
+                    className="fs-15 fw-700 w1024:text-[20px] w1024:font-medium w1024-min:hidden">{title}
             </button>
             <ul className={active ? "w1024:visible w1024:px-[20px]" : "mt-[18px] w1024:hidden"}>
-                <li className="fs-13 fw-400 text-neutral-900 leading-7">
-                    — Каберне Совиньон
-                </li>
-                <li className="cursor-pointer fs-13 fw-400 text-neutral-900 leading-7">
-                    — Мерло
-                </li>
-                <li className="cursor-pointer fs-13 fw-400 text-neutral-900 leading-7">
-                    — Пино Нуар
-                </li>
-                <li className="cursor-pointer fs-13 fw-400 text-neutral-900 leading-7">
-                    — Пино Нуар
-                </li>
-                <li className="cursor-pointer fs-13 fw-400 text-neutral-900 leading-7">
-                    — Пино Нуар
-                </li>
-                <li className="cursor-pointer fs-13 fw-400 text-neutral-900 leading-7">
-                    — Пино Нуар
-                </li>
+                <ListItem title="Совиньон Блан"></ListItem>
+                <ListItem title="Совиньон Блан"></ListItem>
+                <ListItem title="Совиньон Блан"></ListItem>
+                <ListItem title="Совиньон Блан"></ListItem>
+                <ListItem title="Совиньон Блан"></ListItem>
             </ul>
         </div>
+    )
+}
+
+const ListItem: FC<{ title: string }> = ({ title }) => {
+    return (
+        <li className={classnames(c["list-item"], "cursor-pointer fs-13 fw-400 text-neutral-900 leading-7")}>
+            {
+                title
+            }
+        </li>
     )
 }

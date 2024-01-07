@@ -7,7 +7,7 @@ export function Footer() {
     const [agreeNewsletter, setAgreeNewsletter] = useState<boolean>(false);
 
     return (
-        <footer className='bg-[#25282B] text-white w1024-min:wrap py-[40px] pb-[60px]'>
+        <footer className='bg-[#25282B] text-white w1024-min:wrap py-[40px] pb-[60px] w1024:pt-0'>
             <MediaQuery query="(min-width: 1025px)">
                 <div className="grid grid-cols-3 gap-[40px] w1024:grid-cols-1 w1024:wrap">
                     <div
@@ -231,96 +231,96 @@ export function Footer() {
                 </div>
             </div>
             <MediaQuery query="(max-width: 1024px)">
+                <div className="fill-neutral-0-include-svg-stroke text-neutral-0-include">
+                    <DropList title="Каталог товаров" className="!border-[transparentS] !px-[var(--wrap-padding)]">
+                        <div className="w-[100%] pr-[var(--wrap-padding)]">
+                            <div className="flex justify-between w-[100%] w1024:mt-[15px] pb-[1.125rem]">
+                                <ul>
+                                    <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Вино</li>
+                                    <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Вино России</li>
+                                    <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Игристое вино</li>
+                                    <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Коньяк</li>
+                                    <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Виски</li>
+                                    <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Граппа</li>
+                                    <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Крепкие напитки</li>
+                                </ul>
+                                <ul>
+                                    <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Аксессуары</li>
+                                    <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Подарки</li>
+                                    <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Гастрономия</li>
+                                    <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Миниатюры</li>
+                                    <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Пиво</li>
+                                    <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Сидр и пуаре</li>
+                                    <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Оборудование</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </DropList>
+                    <DropList title="Магазины Сабонис" className="!border-[var(--color-neutral-900)] !px-[var(--wrap-padding)]">
+                        <div className="">
+                            <p className="fs-15 fw-500 text-neutral-0  mt-[40px] w1024:mt-[15px] pb-[1.125rem]">
+                                Санкт-Петербург, Петроградская наб. 8
+                            </p>
+                            <p className="fs-15 fw-400 text-neutral-0 mt-[20px]">
+                                Тел.: +7 (812) 409-96-98
+                            </p>
+                            <p className="fs-15 fw-400 text-neutral-0 mt-[10px]">
+                                Время работы: ежедневно,
+                                с 11:00 до 22:00
+                            </p>
+                            <p className="fs-15 fw-500 text-neutral-0 mt-[40px]">
+                                Санкт-Петербург, ул. Жуковского 10
+                            </p>
+                            <p className="fs-15 fw-400 text-neutral-0 mt-[20px]">
+                                Тел.: +7 (812) 602-74-41
+                            </p>
+                            <p className="fs-15 fw-400 text-neutral-0 mt-[10px]">
+                                Время работы: ежедневно,
+                                с 11:00 до 22:00
+                            </p>
+                            <p className="fs-15 fw-400 text-neutral-0 mt-[40px]">
+                                Email: info@sabonis.ru
+                            </p>
+                        </div>
+                    </DropList>
+                    <DropList title="Проект Wine&Dine" className="!border-[var(--color-neutral-900)] !px-[var(--wrap-padding)]">
+                        <div className="">
+                            <p className="fs-15 fw-500 text-neutral-0 mt-[40px]  w1024:mt-[15px]">
+                                Санкт-Петербург, Петроградская наб. 8
+                            </p>
+                            <p className="fs-15 fw-400 text-neutral-0 mt-[30px]">
+                                Тел.: +7 (812) 409-96-98, +7 (931) 105-47-18
+                            </p>
+                            <p className="fs-15 fw-400 text-neutral-0 mt-[10px]">
+                                Email: bilety@wineanddine.group
+                            </p>
+                            <p className="fs-15 fw-400 text-neutral-0 mt-[10px]">
+                                Сайт: https://wineanddine.group
+                            </p>
+                            <a href="#" className="fs-15 fw-400 underline text-neutral-0 mt-[30px]">
+                                Афиша мероприятий и дегустаций
+                            </a>
+                            <p className="fs-15 fw-400 text-neutral-0 mt-[30px]">
+                                Время работы:
+                            </p>
+                            <p className="fs-15 fw-400 text-neutral-0 mt-[10px]">
+                                <b className="text-neutral-0">пн - ср</b> 11.00 - 23.00
+                            </p>
+
+                            <p className="fs-15 fw-400 text-neutral-0">
+                                <b className="text-neutral-0">чт</b> 11.00 - 00.00
+                            </p>
+                            <p className="fs-15 fw-400 text-neutral-0">
+                                <b className="text-neutral-0">пт - сб</b> 11.00 - 01.00
+                            </p>
+                            <p className="fs-15 fw-400 text-neutral-0">
+                                <b className="text-neutral-0">вс</b> 11.00 - 23.00
+                            </p>
+                        </div>
+                    </DropList>
+                </div>
+
                 <div className="fixed bottom-0 w-[100%] bg-[#25282B] py-[10px] text-neutral-0-include">
-                    <div className="fill-neutral-0-include-svg-stroke">
-                        <DropList title="Каталог товаров" className="!border-[transparent] !px-[var(--wrap-padding)]">
-                            <div className="w-[100%] pr-[var(--wrap-padding)]">
-                                <div className="flex justify-between w-[100%] w1024:mt-[15px] pb-[1.125rem]">
-                                    <ul>
-                                        <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Вино</li>
-                                        <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Вино России</li>
-                                        <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Игристое вино</li>
-                                        <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Коньяк</li>
-                                        <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Виски</li>
-                                        <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Граппа</li>
-                                        <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Крепкие напитки</li>
-                                    </ul>
-                                    <ul>
-                                        <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Аксессуары</li>
-                                        <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Подарки</li>
-                                        <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Гастрономия</li>
-                                        <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Миниатюры</li>
-                                        <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Пиво</li>
-                                        <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Сидр и пуаре</li>
-                                        <li className="fs-15 fw-400 text-neutral-0 leading-[25px]">— Оборудование</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </DropList>
-                        <DropList title="Магазины Сабонис" className="!border-[var(--color-neutral-900)] !px-[var(--wrap-padding)]">
-                            <div className="">
-                                <p className="fs-15 fw-500 text-neutral-0  mt-[40px] w1024:mt-[15px] pb-[1.125rem]">
-                                    Санкт-Петербург, Петроградская наб. 8
-                                </p>
-                                <p className="fs-15 fw-400 text-neutral-0 mt-[20px]">
-                                    Тел.: +7 (812) 409-96-98
-                                </p>
-                                <p className="fs-15 fw-400 text-neutral-0 mt-[10px]">
-                                    Время работы: ежедневно,
-                                    с 11:00 до 22:00
-                                </p>
-                                <p className="fs-15 fw-500 text-neutral-0 mt-[40px]">
-                                    Санкт-Петербург, ул. Жуковского 10
-                                </p>
-                                <p className="fs-15 fw-400 text-neutral-0 mt-[20px]">
-                                    Тел.: +7 (812) 602-74-41
-                                </p>
-                                <p className="fs-15 fw-400 text-neutral-0 mt-[10px]">
-                                    Время работы: ежедневно,
-                                    с 11:00 до 22:00
-                                </p>
-                                <p className="fs-15 fw-400 text-neutral-0 mt-[40px]">
-                                    Email: info@sabonis.ru
-                                </p>
-                            </div>
-                        </DropList>
-                        <DropList title="Проект Wine&Dine" className="!border-[var(--color-neutral-900)] !px-[var(--wrap-padding)]">
-                            <div className="">
-                                <p className="fs-15 fw-500 text-neutral-0 mt-[40px]  w1024:mt-[15px]">
-                                    Санкт-Петербург, Петроградская наб. 8
-                                </p>
-                                <p className="fs-15 fw-400 text-neutral-0 mt-[30px]">
-                                    Тел.: +7 (812) 409-96-98, +7 (931) 105-47-18
-                                </p>
-                                <p className="fs-15 fw-400 text-neutral-0 mt-[10px]">
-                                    Email: bilety@wineanddine.group
-                                </p>
-                                <p className="fs-15 fw-400 text-neutral-0 mt-[10px]">
-                                    Сайт: https://wineanddine.group
-                                </p>
-                                <a href="#" className="fs-15 fw-400 underline text-neutral-0 mt-[30px]">
-                                    Афиша мероприятий и дегустаций
-                                </a>
-                                <p className="fs-15 fw-400 text-neutral-0 mt-[30px]">
-                                    Время работы:
-                                </p>
-                                <p className="fs-15 fw-400 text-neutral-0 mt-[10px]">
-                                    <b className="text-neutral-0">пн - ср</b> 11.00 - 23.00
-                                </p>
-
-                                <p className="fs-15 fw-400 text-neutral-0">
-                                    <b className="text-neutral-0">чт</b> 11.00 - 00.00
-                                </p>
-                                <p className="fs-15 fw-400 text-neutral-0">
-                                    <b className="text-neutral-0">пт - сб</b> 11.00 - 01.00
-                                </p>
-                                <p className="fs-15 fw-400 text-neutral-0">
-                                    <b className="text-neutral-0">вс</b> 11.00 - 23.00
-                                </p>
-                            </div>
-                        </DropList>
-                    </div>
-
                     <ul className="flex items-center justify-center gap-4">
                         <li>
                             <Link to="">

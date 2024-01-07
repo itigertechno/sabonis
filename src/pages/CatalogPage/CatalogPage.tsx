@@ -105,9 +105,16 @@ export function CatalogPage() {
                             <CatalogGrid catalogItems={Array(10).fill(cardExample)}></CatalogGrid> :
                             <CatalogRow catalogItems={Array(10).fill(cardExample)}></CatalogRow>
                     }
-                    <div className="flex justify-center items-center mt-[30px]">
-                        <Pagination></Pagination>
-                    </div>
+                    <MediaQuery query="(min-width:1025px)">
+                        <div className="flex justify-center items-center mt-[30px]">
+                            <Pagination></Pagination>
+                        </div>
+                    </MediaQuery>
+                    <MediaQuery query="(max-width:1024px)">
+                        <div className="w-full flex items-center justify-center">
+                            <Button theme="transparent" className="mt-[17px] !w-fit">Показать еще</Button>
+                        </div>
+                    </MediaQuery>
                 </div>
             </section>
             <section className="wrap mt-[60px] grid gap-[30px] grid-cols-[23.53%_1fr] w1024:block mb-[60px]">
