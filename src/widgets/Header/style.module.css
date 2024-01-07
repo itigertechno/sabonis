@@ -6,6 +6,9 @@
     .list-item::before {
         content: none;
     }
+    .list-item {
+        margin-top: 15px;
+    }
 }
 
 @media screen  and  (min-width: 1025px) {
