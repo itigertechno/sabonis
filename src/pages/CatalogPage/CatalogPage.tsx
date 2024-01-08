@@ -76,7 +76,7 @@ export function CatalogPage() {
                         }
                         <Button tiny className="p-[4px]" theme="secondary">
                             <span>Еще</span>
-                            <SvgSprite type="arrow-vertical"></SvgSprite>
+                            <SvgSprite type="arrow-vertical" className="fill-neutral-900-include-svg-stroke"></SvgSprite>
                         </Button>
                     </ul>
                 </MediaQuery>
@@ -97,7 +97,7 @@ export function CatalogPage() {
                     }
                 </Splide>
             </section>
-            <section className="w1024-min:wrap mt-[50px] grid gap-[30px] grid-cols-[23.53%_1fr] mb-[60px] w1024:grid-cols-1">
+            <section className="w1024-min:wrap mt-[50px] grid gap-[30px] grid-cols-[23.53%_1fr] w1330:grid-cols-[30%_1fr] mb-[60px] w1024:grid-cols-1">
                 <CatalogFilter></CatalogFilter>
                 <div className="">
                     {

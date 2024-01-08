@@ -34,9 +34,14 @@
     color: var(--color-neutral-0);
 }
 
-.button:hover, .button:hover > span, .button:hover path {
+.button:hover, .button:hover > span {
     color: var(--color-neutral-0);
     fill: var(--color-neutral-0);
+}
+
+.button--fill:hover, .button:hover > span, .button:hover path {
+    color: var(--color-neutral-0);
+    stroke: var(--color-neutral-0);
 }
 
 .button--thin {

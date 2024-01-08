@@ -9,4 +9,6 @@ export interface IBasketCard extends ICard {
 export interface IMobileBasketStep {
     setStep: (newValue: number) => void,
     step: number,
+    pickup: boolean;
+    setPickup: (newValue: boolean) => void;
 }

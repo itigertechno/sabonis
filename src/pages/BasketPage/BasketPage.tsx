@@ -4,11 +4,14 @@ import {BasketCard} from "@shared/BasketCard";
 import {Button} from "@shared/Button";
 import MediaQuery from "react-responsive";
 import {MobileBasketCard} from "@shared/MobileBasketCard";
-import {useEffect, useState} from "react";
+import {FC, useEffect, useState} from "react";
 import {IMobileBasketStep} from "@shared/BasketCard/BasketCard.types.ts";
 import {FormInput} from "@shared/FormInput";
+import {Link} from "react-router-dom";
 
 export function BasketPage() {
+    const [pickup, setPickup] = useState<boolean>(false);
+
     return (
         <>
             <section className="wrap mt-[30px] mb-[60px]">
@@ -50,21 +53,20 @@ export function BasketPage() {
                                 <span className="fs-15 fw-500 text-neutral-900">Выберите пункт выдачи</span>
                                 <ul className="mt-[25px]">
                                     <li>
-                                        <button className="flex items-center gap-[25px]">
-                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                                 xmlns="http://www.w3.org/2000/svg">
-                                                <circle cx="10" cy="10" r="9" stroke="#367639" strokeWidth="2"/>
-                                                <circle cx="10" cy="10" r="6" fill="#367639"/>
-                                            </svg>
+                                        <button className="flex items-center gap-[25px]"
+                                                onClick={() => setPickup(false)}>
+                                            {
+                                                PickUpSwitch(pickup, false)
+                                            }
                                             <span>Петроградская наб, 8</span>
                                         </button>
                                     </li>
                                     <li className="mt-[20px]">
-                                        <button className="flex items-center gap-[25px]">
-                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                                 xmlns="http://www.w3.org/2000/svg">
-                                                <circle cx="10" cy="10" r="9" stroke="#367639" strokeWidth="2"/>
-                                            </svg>
+                                        <button className="flex items-center gap-[25px]"
+                                                onClick={() => setPickup(true)}>
+                                            {
+                                                PickUpSwitch(pickup, true)
+                                            }
                                             <span>ул. Жуковского, 10</span>
                                         </button>
                                     </li>
@@ -81,8 +83,9 @@ export function BasketPage() {
                                     </svg>
                                     <p className="fs-15 fw-500 text-neutral-900">
                                         Эта покупка принесет вам 1 000 рублей на <br/> бонусный счет, если вы
-                                        <u className="text-primary"> авторизуетесь</u> или <br/>
-                                        <u className="text-primary"> зарегистрируетесь</u>.
+                                        <Link to="/profile"><u
+                                            className="text-primary"> авторизуетесь</u></Link> или <br/>
+                                        <Link to="/profile"><u className="text-primary"> зарегистрируетесь</u></Link>.
                                     </p>
                                 </div>
                                 <div className="grid grid-cols-2 mt-[32px]">
@@ -112,14 +115,14 @@ export function BasketPage() {
                     </div>
                 </MediaQuery>
                 <MediaQuery query="(max-width: 1330px)">
-                    <MobileBasketSteps></MobileBasketSteps>
+                    <MobileBasketSteps pickup={pickup} setPickup={setPickup}></MobileBasketSteps>
                 </MediaQuery>
             </section>
         </>
     );
 }
 
-const MobileBasketSteps = () => {
+const MobileBasketSteps: FC<{ setPickup: (newValue: boolean) => void; pickup: boolean }> = ({setPickup, pickup}) => {
     const [step, setStep] = useState<number>(0);
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -127,15 +130,19 @@ const MobileBasketSteps = () => {
 
     switch (step) {
         case 0:
-            return <MobileFirstStep step={step} setStep={setStep}></MobileFirstStep>;
+            return <MobileFirstStep step={step} setStep={setStep} pickup={pickup}
+                                    setPickup={setPickup}></MobileFirstStep>;
         case 1:
-            return <MobileSecondStep step={step} setStep={setStep}></MobileSecondStep>;
+            return <MobileSecondStep step={step} setStep={setStep} pickup={pickup}
+                                     setPickup={setPickup}></MobileSecondStep>;
         case 2:
-            return <MobileThirdStep step={step} setStep={setStep}></MobileThirdStep>;
+            return <MobileThirdStep step={step} setStep={setStep} pickup={pickup}
+                                    setPickup={setPickup}></MobileThirdStep>;
         case 3:
             return <MobileFourthStep></MobileFourthStep>;
         default:
-            return <MobileFirstStep step={step} setStep={setStep}></MobileFirstStep>;
+            return <MobileFirstStep step={step} setStep={setStep} pickup={pickup}
+                                    setPickup={setPickup}></MobileFirstStep>;
     }
 }
 
@@ -173,27 +180,24 @@ const MobileFirstStep = ({setStep}: IMobileBasketStep) => {
     )
         ;
 }
-const MobileSecondStep = ({setStep}: IMobileBasketStep) => {
+const MobileSecondStep = ({setStep, pickup, setPickup}: IMobileBasketStep) => {
     return (
         <div>
             <span className="fs-15 fw-500 text-neutral-900">Выберите пункт выдачи</span>
             <ul className="mt-[25px]">
                 <li>
-                    <button className="flex items-center gap-[25px]">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                             xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="10" cy="10" r="9" stroke="#367639" strokeWidth="2"/>
-                            <circle cx="10" cy="10" r="6" fill="#367639"/>
-                        </svg>
+                    <button className="flex items-center gap-[25px]" onClick={() => setPickup(false)}>
+                        {
+                            PickUpSwitch(pickup, false)
+                        }
                         <span>Петроградская наб, 8</span>
                     </button>
                 </li>
                 <li className="mt-[20px]">
-                    <button className="flex items-center gap-[25px]">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                             xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="10" cy="10" r="9" stroke="#367639" strokeWidth="2"/>
-                        </svg>
+                    <button className="flex items-center gap-[25px]" onClick={() => setPickup(true)}>
+                        {
+                            PickUpSwitch(pickup, true)
+                        }
                         <span>ул. Жуковского, 10</span>
                     </button>
                 </li>
@@ -210,8 +214,8 @@ const MobileSecondStep = ({setStep}: IMobileBasketStep) => {
                 </svg>
                 <p className="fs-15 fw-500 text-neutral-900">
                     Эта покупка принесет вам 1 000 рублей на <br/> бонусный счет, если вы
-                    <u className="text-primary"> авторизуетесь</u> или <br/>
-                    <u className="text-primary"> зарегистрируетесь</u>.
+                    <Link to="/profile"><u className="text-primary"> авторизуетесь</u></Link> или <br/>
+                    <Link to="/profile"><u className="text-primary"> зарегистрируетесь</u></Link>.
                 </p>
             </div>
             <form className="mt-[30px]">
@@ -224,26 +228,23 @@ const MobileSecondStep = ({setStep}: IMobileBasketStep) => {
         </div>
     );
 }
-const MobileThirdStep = ({setStep}: IMobileBasketStep) => {
+const MobileThirdStep = ({setStep, pickup, setPickup}: IMobileBasketStep) => {
     return (
         <div>
             <ul className="mt-[25px]">
                 <li>
-                    <button className="flex items-center gap-[25px]">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                             xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="10" cy="10" r="9" stroke="#367639" strokeWidth="2"/>
-                            <circle cx="10" cy="10" r="6" fill="#367639"/>
-                        </svg>
+                    <button className="flex items-center gap-[25px]" onClick={() => setPickup(false)}>
+                        {
+                            PickUpSwitch(pickup, false)
+                        }
                         <span>Петроградская наб, 8</span>
                     </button>
                 </li>
                 <li className="mt-[20px]">
-                    <button className="flex items-center gap-[25px]">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                             xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="10" cy="10" r="9" stroke="#367639" strokeWidth="2"/>
-                        </svg>
+                    <button className="flex items-center gap-[25px]" onClick={() => setPickup(true)}>
+                        {
+                            PickUpSwitch(pickup, true)
+                        }
                         <span>ул. Жуковского, 10</span>
                     </button>
                 </li>
@@ -283,6 +284,22 @@ const MobileFourthStep = () => {
                 </div>
             </div>
         </>
-    )
-        ;
+    );
+}
+
+const PickUpSwitch = (pickup: boolean, condition: boolean) => {
+    return pickup === condition ?
+        <>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                 xmlns="http://www.w3.org/2000/svg">
+                <circle cx="10" cy="10" r="9" stroke="#367639" strokeWidth="2"/>
+                <circle cx="10" cy="10" r="6" fill="#367639"/>
+            </svg>
+        </> :
+        <>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                 xmlns="http://www.w3.org/2000/svg">
+                <circle cx="10" cy="10" r="9" stroke="#367639" strokeWidth="2"/>
+            </svg>
+        </>
 }

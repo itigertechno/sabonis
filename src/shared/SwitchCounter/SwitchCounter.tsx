@@ -18,7 +18,7 @@ export function SwitchCounter({onChange}: ISwitchCounter) {
     }
     return (
         <div className="flex items-center gap-5 justify-between">
-            <button onClick={() => decrement()}>
+            <button className="h-[14px]" onClick={() => decrement()}>
                 <svg width="16" height="2" viewBox="0 0 16 2" fill="none"
                      xmlns="http://www.w3.org/2000/svg">
                     <rect x="16" y="0.289062" width="1.61905" height="16" transform="rotate(90 16 0.289062)"

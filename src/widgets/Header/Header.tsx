@@ -23,6 +23,7 @@ export function Header() {
 
     const [scroll, setScroll] = useState<number>(0);
     const [active, setActive] = useState<boolean>(false);
+    const [activeCategory, setActiveCategory] = useState<number>(0);
 
     const handleScroll = () => {
         setScroll(window.scrollY);
@@ -82,7 +83,9 @@ export function Header() {
                         <div
                             className={classnames("wrap border-b-[1px] border-[#25282B]", scroll > 100 ? "hidden" : "visible")}>
                             <div className='flex items-center justify-between py-4 w-[100%]'>
-                                <SvgSprite type='logo'/>
+                                <Link to="/">
+                                    <SvgSprite type='logo'/>
+                                </Link>
                                 <div className='ml-5 items-center gap-2 md:gap-3 lg:flex xl:gap-11 '>
                                     <div className='flex items-center'>
                                         <SvgSprite type='location' className='h-7 w-7'/>
@@ -105,8 +108,9 @@ export function Header() {
                                     <Link to="/profile">
                                         <SvgSprite type='user'/>
                                     </Link>
-                                    <Link to="/basket">
+                                    <Link to="/basket" className="relative">
                                         <SvgSprite type='cart'/>
+                                        <span className="py-[1px] px-[3px] rounded-full bg-[var(--color-primary)] text-neutral-0 fs-12 absolute right-[-12px] top-[-10px]">25</span>
                                     </Link>
                                 </div>
                             </div>
@@ -114,38 +118,34 @@ export function Header() {
                     </div>
                     <div className={classnames(c.header__ul, "wrap")}>
                         <ul className='flex justify-between gap-1 lg:gap-8 w1260:gap-[0px] py-1'>
-                            <li onClick={() => setActive(!active)}
-                                className='transition-colors hover:text-[var(--color-primary)] whitespace-nowrap p-1 fs-15 font-medium cursor-pointer'>ВИНО
-                            </li>
-                            <li onClick={() => setActive(!active)}
-                                className='transition-colors hover:text-[var(--color-primary)] whitespace-nowrap p-1 fs-15 font-medium cursor-pointer'>ВИНО
-                                РОССИИ
-                            </li>
-                            <li onClick={() => setActive(!active)}
-                                className='transition-colors hover:text-[var(--color-primary)] whitespace-nowrap p-1 fs-15 font-medium cursor-pointer'>ИГРИСТОЕ
-                                ВИНО
-                            </li>
-                            <li onClick={() => setActive(!active)}
-                                className='transition-colors hover:text-[var(--color-primary)] whitespace-nowrap p-1 fs-15 font-medium cursor-pointer'>ВИСКИ
-                            </li>
-                            <li onClick={() => setActive(!active)}
-                                className='transition-colors hover:text-[var(--color-primary)] whitespace-nowrap p-1 fs-15 font-medium cursor-pointer'>КОНЬЯК
-                            </li>
-                            <li onClick={() => setActive(!active)}
-                                className='transition-colors hover:text-[var(--color-primary)] whitespace-nowrap p-1 fs-15 font-medium cursor-pointer'>ГРАППА
-                            </li>
-                            <li onClick={() => setActive(!active)}
-                                className='transition-colors hover:text-[var(--color-primary)] whitespace-nowrap p-1 fs-15 font-medium cursor-pointer'>КРЕПКИЕ
-                                НАПИТКИ
-                            </li>
-                            <li onClick={() => setActive(!active)}
-                                className='transition-colors hover:text-[var(--color-primary)] whitespace-nowrap p-1 fs-15 font-medium cursor-pointer'>АКСЕССУАРЫ
-                                И
-                                ПОДАРКИ
-                            </li>
-                            <li onClick={() => setActive(!active)}
-                                className={classnames("whitespace-nowrap p-1 fs-15 font-medium cursor-pointer fw-600", active ? "text-primary" : "")}>ЕЩЁ
-                            </li>
+                            <NavigationItem active={activeCategory} identity={0} setActive={setActiveCategory}>
+                                Вино
+                            </NavigationItem>
+                            <NavigationItem active={activeCategory} identity={1} setActive={setActiveCategory}>
+                                Вино России
+                            </NavigationItem>
+                            <NavigationItem active={activeCategory} identity={2} setActive={setActiveCategory}>
+                                Игристое вино
+                            </NavigationItem>
+                            <NavigationItem active={activeCategory} identity={3} setActive={setActiveCategory}>
+                                Виски
+                            </NavigationItem>
+                            <NavigationItem active={activeCategory} identity={4} setActive={setActiveCategory}>
+                                Коньяк
+                            </NavigationItem>
+                            <NavigationItem active={activeCategory} identity={5} setActive={setActiveCategory}>
+                                Граппа
+                            </NavigationItem>
+                            <NavigationItem active={activeCategory} identity={6} setActive={setActiveCategory}>
+                                Напитки
+                            </NavigationItem>
+                            <NavigationItem active={activeCategory} identity={7} setActive={setActiveCategory}>
+                                И подарки
+                            </NavigationItem>
+                            <NavigationItem active={activeCategory} identity={8} setActive={setActiveCategory}>
+                                Ещё
+                            </NavigationItem>
+
                         </ul>
                     </div>
                 </MediaQuery>
@@ -174,31 +174,79 @@ export function Header() {
                         className={
                             classnames("pt-[36px] border-t-[#C7C7C7] w1024:gap-y-[5px] gap-y-[20px] border-t-[1px] wrap grid grid-cols-6 w1024:grid-cols-1 w1024:pb-4 w1024:border-b-[1px] border-[var(--color-neutral-900)]")
                         }>
-                        <List title="Красное"></List>
-                        <List title="Белое"></List>
-                        <List title="Россия">
-                            <RussiaIcon></RussiaIcon>
-                        </List>
-                        <List title="Испания">
-                            <SpainIcon></SpainIcon>
-                        </List>
-                        <List title="Франция">
-                            <FranceIcon></FranceIcon>
-                        </List>
-                        <List title="Остальной мир">
-                            <WorldIcon></WorldIcon>
-                        </List>
-                        <List title="Розовое"></List>
-                        <List title="Оранжевое"></List>
-                        <List title="Италия">
-                            <ItalyIcon></ItalyIcon>
-                        </List>
-                        <List title="Австрия">
-                            <AustriaIcon></AustriaIcon>
-                        </List>
-                        <List title="Португалия">
-                            <PortugalIcon></PortugalIcon>
-                        </List>
+                        <MediaQuery query="(max-width:1024px)">
+                            <List title="Красное"></List>
+                            <List title="Белое"></List>
+                            <List title="Россия">
+                                <RussiaIcon></RussiaIcon>
+                            </List>
+                            <List title="Испания">
+                                <SpainIcon></SpainIcon>
+                            </List>
+                            <List title="Франция">
+                                <FranceIcon></FranceIcon>
+                            </List>
+                            <List title="Остальной мир">
+                                <WorldIcon></WorldIcon>
+                            </List>
+                            <List title="Розовое"></List>
+                            <List title="Оранжевое"></List>
+                            <List title="Италия">
+                                <ItalyIcon></ItalyIcon>
+                            </List>
+                            <List title="Австрия">
+                                <AustriaIcon></AustriaIcon>
+                            </List>
+                            <List title="Португалия">
+                                <PortugalIcon></PortugalIcon>
+                            </List>
+                        </MediaQuery>
+                        <MediaQuery query="(min-width:1025px)">
+                            {
+                                activeCategory % 2 === 0 ?
+                                    <>
+                                        <List title="Красное"></List>
+                                        <List title="Белое"></List>
+                                        <List title="Россия">
+                                            <RussiaIcon></RussiaIcon>
+                                        </List>
+                                        <List title="Испания">
+                                            <SpainIcon></SpainIcon>
+                                        </List>
+                                        <List title="Франция">
+                                            <FranceIcon></FranceIcon>
+                                        </List>
+                                        <List title="Остальной мир">
+                                            <WorldIcon></WorldIcon>
+                                        </List>
+                                        <List title="Розовое"></List>
+                                        <List title="Оранжевое"></List>
+                                        <List title="Италия">
+                                            <ItalyIcon></ItalyIcon>
+                                        </List>
+                                        <List title="Австрия">
+                                            <AustriaIcon></AustriaIcon>
+                                        </List>
+                                        <List title="Португалия">
+                                            <PortugalIcon></PortugalIcon>
+                                        </List>
+                                    </> :
+                                    <>
+                                        <List title="Россия">
+                                            <RussiaIcon></RussiaIcon>
+                                        </List>
+                                        <List title="Франция">
+                                            <FranceIcon></FranceIcon>
+                                        </List>
+                                        <List title="Испания">
+                                            <SpainIcon></SpainIcon>
+                                        </List>
+                                        <List title="Остальной мир">
+                                            <WorldIcon></WorldIcon>
+                                        </List>
+                                    </>
+                            }
+                        </MediaQuery>
                     </div>
                     <div className="w1024-min:hidden w1024:visible mt-[30px] wrap">
                         <span className="fs-20 fw-500 text-neutral-900 block">О проекте Wine&Dine</span>
@@ -353,4 +401,17 @@ const ListItem: FC<{ title: string }> = ({title}) => {
             }
         </li>
     )
+}
+
+const NavigationItem: FC<PropsWithChildren<{ active: number, setActive: (newValue: number) => void; identity: number;}>> = ({active, setActive, children, identity}) => {
+    return (
+        <li
+            className={classnames("whitespace-nowrap p-1 fs-15 font-medium cursor-pointer fw-600", active === identity ? "text-primary" : "")}>
+            <button className="uppercase" onClick={() => {
+                setActive(identity)
+            }}>
+                {children}
+            </button>
+        </li>
+    );
 }

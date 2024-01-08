@@ -169,7 +169,7 @@ const CheckBoxLabel: FC<PropsWithChildren<ICatalogCheckboxLabel>> = ({children})
     const [active, setActive] = useState<boolean>(false);
     return <button onClick={() => setActive(!active)}
                    className={!active ? c.checkbox : classnames(c.checkbox, c.active)}><span
-        className="fs-15 text-neutral-900 fw-400">{children}</span></button>;
+        className="fs-15 text-neutral-900 fw-400 whitespace-nowrap">{children}</span></button>;
 }
 const Input: FC<InputHTMLAttributes<HTMLInputElement>> = (props) => {
     const {className = ""} = props;
