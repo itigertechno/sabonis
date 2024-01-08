@@ -5,6 +5,7 @@ import c from "./style.module.css";
 import {useNavigate} from "react-router-dom";
 import classnames from "@utils/classnames.ts";
 import {useState} from "react";
+import {SwitchCounter} from "@shared/SwitchCounter";
 
 export function InlineCard({stock, title, description, preview, vendorCode, price, discount, hasCheckbox = true}: ICardInline) {
     const navigate = useNavigate();
@@ -39,18 +40,19 @@ export function InlineCard({stock, title, description, preview, vendorCode, pric
             }
             <div>
                 <div className="flex items-center justify-center gap-5">
-                    <button>
-                        <svg width="16" height="2" viewBox="0 0 16 2" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="16" y="0.289062" width="1.61905" height="16" transform="rotate(90 16 0.289062)" fill="#B4B4B4"/>
-                        </svg>
-                    </button>
-                    <span className="fs-24 fw-400 text-neutral-900">10</span>
-                    <button>
-                        <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="7" y="0.619141" width="2" height="12.9524" fill="#B4B4B4"/>
-                            <rect x="16" y="6.2832" width="1.61905" height="16" transform="rotate(90 16 6.2832)" fill="#B4B4B4"/>
-                        </svg>
-                    </button>
+                    <SwitchCounter onChange={() => {}}></SwitchCounter>
+                    {/*<button>*/}
+                    {/*    <svg width="16" height="2" viewBox="0 0 16 2" fill="none" xmlns="http://www.w3.org/2000/svg">*/}
+                    {/*        <rect x="16" y="0.289062" width="1.61905" height="16" transform="rotate(90 16 0.289062)" fill="#B4B4B4"/>*/}
+                    {/*    </svg>*/}
+                    {/*</button>*/}
+                    {/*<span className="fs-24 fw-400 text-neutral-900">10</span>*/}
+                    {/*<button>*/}
+                    {/*    <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">*/}
+                    {/*        <rect x="7" y="0.619141" width="2" height="12.9524" fill="#B4B4B4"/>*/}
+                    {/*        <rect x="16" y="6.2832" width="1.61905" height="16" transform="rotate(90 16 6.2832)" fill="#B4B4B4"/>*/}
+                    {/*    </svg>*/}
+                    {/*</button>*/}
                 </div>
                 {
                     stock ?

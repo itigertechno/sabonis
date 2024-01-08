@@ -16,6 +16,7 @@ export default withMT({
         },
         screens: {
             'w260': {"max": "260px"},
+            'w360': {"max": "360px"},
             'w468': {"max": "468px"},
             'w768': {"max": "768px"},
             'w1024': {"max": "1024px"},

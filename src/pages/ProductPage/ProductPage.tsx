@@ -73,21 +73,25 @@ export function ProductPage() {
                         </p>
                     </div>
                     <div
-                        className="grid grid-cols-2 w1024:grid-cols-1 gap-y-[20px] w1024:gap-y-[10px] w1024:mb-[20px] mt-[30px] items-center">
-                        <span className="fs-15 fw-600 text-neutral-900">Винтаж: </span>
-                        <div className="flex flex-wrap gap-[6px]">
-                            <ButtonTag identity={0} active={vintage} onClick={() => setVintage(0)}>2008</ButtonTag>
-                            <ButtonTag identity={1} active={vintage} onClick={() => setVintage(1)}>2009</ButtonTag>
-                            <ButtonTag identity={2} active={vintage} onClick={() => setVintage(2)}>2010</ButtonTag>
-                            <ButtonTag identity={3} active={vintage} onClick={() => setVintage(3)}>2011</ButtonTag>
-                            <ButtonTag identity={4} active={vintage} onClick={() => setVintage(4)}>2012</ButtonTag>
-                            <ButtonTag identity={5} active={vintage} onClick={() => setVintage(5)}>2013</ButtonTag>
+                        className="grid w1024:grid-cols-1 gap-y-[20px] w1024:gap-y-[10px] w1024:mb-[20px] mt-[30px] items-center">
+                        <div className="flex gap-[1rem]">
+                            <span className="fs-15 fw-600 text-neutral-900">Винтаж: </span>
+                            <div className="grid grid-cols-5 gap-[6px]">
+                                <ButtonTag identity={0} active={vintage} onClick={() => setVintage(0)}>2008</ButtonTag>
+                                <ButtonTag identity={1} active={vintage} onClick={() => setVintage(1)}>2009</ButtonTag>
+                                <ButtonTag identity={2} active={vintage} onClick={() => setVintage(2)}>2010</ButtonTag>
+                                <ButtonTag identity={3} active={vintage} onClick={() => setVintage(3)}>2011</ButtonTag>
+                                <ButtonTag identity={4} active={vintage} onClick={() => setVintage(4)}>2012</ButtonTag>
+                                <ButtonTag identity={5} active={vintage} onClick={() => setVintage(5)}>2013</ButtonTag>
+                            </div>
                         </div>
-                        <span className="fs-15 fw-600 text-neutral-900">Объем (л): </span>
-                        <div className="flex flex-wrap gap-[6px]">
-                            <ButtonTag identity={0} active={volume} onClick={() => setVolume(0)}>0,75</ButtonTag>
-                            <ButtonTag identity={1} active={volume} onClick={() => setVolume(1)}>1,5</ButtonTag>
-                            <ButtonTag identity={2} active={volume} onClick={() => setVolume(2)}>3</ButtonTag>
+                        <div className="flex gap-[1rem]">
+                            <span className="fs-15 fw-600 text-neutral-900">Объем (л): </span>
+                            <div className="grid grid-cols-5 gap-[6px]">
+                                <ButtonTag identity={0} active={volume} onClick={() => setVolume(0)}>0,75</ButtonTag>
+                                <ButtonTag identity={1} active={volume} onClick={() => setVolume(1)}>1,5</ButtonTag>
+                                <ButtonTag identity={2} active={volume} onClick={() => setVolume(2)}>3</ButtonTag>
+                            </div>
                         </div>
                         <span className="fs-15 fw-600 text-neutral-900">Сортовой состав: <span className="fw-500">Вионье 100%</span></span>
                     </div>

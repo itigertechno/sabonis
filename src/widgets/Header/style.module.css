@@ -1,3 +1,16 @@
+.list-item::before {
+    content: "— ";
+}
+
+@media screen and (max-width: 768px){
+    .list-item::before {
+        content: none;
+    }
+    .list-item {
+        margin-top: 15px;
+    }
+}
+
 @media screen  and  (min-width: 1025px) {
     .header__ul:hover + .header__list, .header__list:hover {
         visibility: visible !important;

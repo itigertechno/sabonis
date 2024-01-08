@@ -31,9 +31,9 @@ export function ProfilePointsPage() {
                             <div className={classnames(c.card, "rounded-[5px] w-[50%]")}
                                  style={{backgroundImage: `url("${preview}")`}}>
                                 <span
-                                    className="text-right fs-55 fw-500 text-neutral-0 block pr-[30px] pt-[5px]">10%</span>
+                                    className="text-right fs-55 fw-500 text-neutral-0 block pr-[30px] pt-[5px] w468:text-[3rem] w468:mt-[3%] w360:!mt-[10%] ml-auto w360:w-fit w360:scale-[60%]">10%</span>
                                 <span
-                                    className="block mt-[70px] ml-[25px] fs-30 fw-600 text-neutral-0">Бонусная карта</span>
+                                    className="block mt-[70px] ml-[25px] fs-30 fw-600 text-neutral-0 w360:mt-[20px] w468:mt-[30px]">Бонусная карта</span>
                                 <span className="block mt-[5px] ml-[25px] fs-15 fw-400 text-neutral-0">Номер вашей карты:</span>
                                 <span
                                     className="block mt-[5px] ml-[25px] fs-15 fw-600 text-neutral-0">2023 4569 87</span>
@@ -81,9 +81,11 @@ export function ProfilePointsPage() {
                 <h3 className="fs-24 fw-500 text-neutral-900">У вас пока нет заказов</h3>
                 <p className="fs-15 fw-400 text-neutral-900 mt-[30px]">Перейдите в каталог, чтобы начать покупки.</p>
                 <div className="w-fit">
-                    <Button className="mt-[30px]">
-                        <span className="block px-[50px] text-neutral-0">Каталог</span>
-                    </Button>
+                    <Link to="/catalog">
+                        <Button className="mt-[30px]">
+                            <span className="block px-[50px] text-neutral-0">Каталог</span>
+                        </Button>
+                    </Link>
                 </div>
             </section>
         </>
